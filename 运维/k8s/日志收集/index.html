@@ -89,15 +89,15 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="日志的需求 系统各组件的日志 ： eg: kubelet、kube-proxy,docker 等日志 容器化运行的应用程序自身日志 ： eg: Nginx 的运行日志 k8s 内部各种 Event ： eg: kubctl create pod 后，kubectl describe pod *** 的pod 的 Event信息  日志系统Kubernetes 的日志系统在设计的时候，必须得独立于节">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log4.png">
-<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log1.png">
-<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log1.png">
-<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log1.png">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log4.jpg">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log1.jpg">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log2.jpg">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/log3.jpg">
+<meta property="og:updated_time" content="2020-12-22T02:05:42.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日志收集">
 <meta name="twitter:description" content="日志的需求 系统各组件的日志 ： eg: kubelet、kube-proxy,docker 等日志 容器化运行的应用程序自身日志 ： eg: Nginx 的运行日志 k8s 内部各种 Event ： eg: kubctl create pod 后，kubectl describe pod *** 的pod 的 Event信息  日志系统Kubernetes 的日志系统在设计的时候，必须得独立于节">
-<meta name="twitter:image" content="http://imwl.ml/images/blog_images/k8s/log4.png">
+<meta name="twitter:image" content="http://imwl.ml/images/blog_images/k8s/log4.jpg">
 
 
 
@@ -409,16 +409,16 @@
 </ol>
 <h2 id="日志系统"><a href="#日志系统" class="headerlink" title="日志系统"></a>日志系统</h2><p><code>Kubernetes</code> 的日志系统在设计的时候，必须得独立于节点和 <code>Pod</code> 的生命周期，且保证日志数据可以实时采集到服务端，即完全独立于 <code>Kubernetes</code> 系统，使用自己的后端存储和查询工具</p>
 <h2 id="日志收集方式"><a href="#日志收集方式" class="headerlink" title="日志收集方式"></a>日志收集方式</h2><p>一般有如下 四种方案来做日志收集：</p>
-<p><img src="/images/blog_images/k8s/log4.png" alt="log4"></p>
+<p><img src="/images/blog_images/k8s/log4.jpg" alt="log4"></p>
 <ol>
 <li>直接在应用程序中将日志信息推送到采集后端； （不推荐, 耦合严重。本身已有完善日志处理系统的公司可以采用）</li>
 </ol>
-<p><img src="/images/blog_images/k8s/log1.png" alt="log1"></p>
+<p><img src="/images/blog_images/k8s/log1.jpg" alt="log1"></p>
 <ol start="2">
 <li>在节点上运行一个 Agent 来采集节点级别的日志；  （使用 daemonset，比较常用，但只适合 容器内应用日志是标准输出场景，即应用把日志 输出的 stdout 和 stderr）</li>
 </ol>
-<p><img src="/images/blog_images/k8s/log1.png" alt="log2"><br>3.当容器的日志只能输出到某些文件里的时候，我们可以通过一个 <code>sidecar</code> 容器把这些日志文件重新输出到 <code>sidecar</code> 的 <code>stdout</code> 和 <code>stder</code>r 上，这样就能够继续使用第一种方案了; (Sidecar 容器读取日志文件，并重定向到自己的标准输出。会增加额外开销,cpu 内存，磁盘空间等，大规模集群，这些开销不可忽视，所以非特殊情况，一般推荐二和四)</p>
-<p><img src="/images/blog_images/k8s/log1.png" alt="log2"></p>
+<p><img src="/images/blog_images/k8s/log2.jpg" alt="log2"><br>3.当容器的日志只能输出到某些文件里的时候，我们可以通过一个 <code>sidecar</code> 容器把这些日志文件重新输出到 <code>sidecar</code> 的 <code>stdout</code> 和 <code>stder</code>r 上，这样就能够继续使用第一种方案了; (Sidecar 容器读取日志文件，并重定向到自己的标准输出。会增加额外开销,cpu 内存，磁盘空间等，大规模集群，这些开销不可忽视，所以非特殊情况，一般推荐二和四)</p>
+<p><img src="/images/blog_images/k8s/log3.jpg" alt="log2"></p>
 <ol start="4">
 <li>通过一个 <code>sidecar</code> 容器，直接把应用的日志文件发送到远程存储里面去。也就是相当于把方案二里的 <code>logging agent</code>，放在了应用 <code>Pod</code> 里。（应用还可以直接把日志输出到固定的文件里而不是 stdout，logging-agent 还可以使用 fluentd，后端存储还可以是 ElasticSearch。只不过， fluentd 的输入源，变成了应用的日志文件。一般来说，我们会把 fluentd 的输入源配置保存在一个 ConfigMap 里）</li>
 </ol>
