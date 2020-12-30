@@ -604,7 +604,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/数据备份与恢复/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/backup/nginx/readme/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -623,7 +623,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/redis/数据备份与恢复/" itemprop="url">redis备份</a></h1>
+                <a class="post-title-link" href="/基础知识/backup/nginx/readme/" itemprop="url">jupyter备份</a></h1>
         
 
         <div class="post-meta">
@@ -658,8 +658,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/jupyter/" itemprop="url" rel="index">
+                    <span itemprop="name">jupyter</span>
                   </a>
                 </span>
 
@@ -697,13 +697,14 @@
       
         
           
-          rdb : 在指定的时间间隔对数据进行快照存储 （默认开启）
-aof : 记录每次对服务器的写操作，重启时会重新执行这些命令。（AOF 文件会后台重写，使得文件不会太大） （需要修改配置文件 appendonly yes 开启）
-appendfsync : always/everysec(默认)/n
+          pip3 install jupyter
+ vi /usr/share/vim/vim81/defaults.vim
+ jupyter notebook –generate-config
+jupyter contrib nbextension install –user –skip-running-
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/redis/数据备份与恢复/#more" rel="contents">
+            <a class="btn" href="/基础知识/backup/nginx/readme/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -754,7 +755,7 @@ appendfsync : always/everysec(默认)/n
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/docker安装redis集群/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/数据类型/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -773,7 +774,7 @@ appendfsync : always/everysec(默认)/n
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/redis/docker安装redis集群/" itemprop="url">docker安装redis集群</a></h1>
+                <a class="post-title-link" href="/redis/数据类型/" itemprop="url">redis 数据类型</a></h1>
         
 
         <div class="post-meta">
@@ -847,12 +848,12 @@ appendfsync : always/everysec(默认)/n
       
         
           
-          在 /home 目录下创建redis-cluster-test 文件夹12➜ mkdir -p /home/redis-cluster-test➜ cd  /home/redis-cluster-test
-把下列信息写入redis-cluster.tmpl文件中123456789port $&#12
+          redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。
+stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/redis/docker安装redis集群/#more" rel="contents">
+            <a class="btn" href="/redis/数据类型/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1057,7 +1058,7 @@ docker images  查看一下是否成功
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/数据类型/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/python操作redis/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1076,7 +1077,7 @@ docker images  查看一下是否成功
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/redis/数据类型/" itemprop="url">redis 数据类型</a></h1>
+                <a class="post-title-link" href="/redis/python操作redis/" itemprop="url">python操作redis</a></h1>
         
 
         <div class="post-meta">
@@ -1150,12 +1151,16 @@ docker images  查看一下是否成功
       
         
           
-          redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。
-stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或
+          1. 准备工作
+安装好 redis 和 RedisPy库
+RedisDump  可以用来做数据导入或导出2. RedisPy库RedisPy库 提供两个类 redis 和 StrictRedis 来实现 Redis 的命令操作。
+
+StrictRedis 实现了绝大部分官方命令，参数也一一对应。
+r
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/redis/数据类型/#more" rel="contents">
+            <a class="btn" href="/redis/python操作redis/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1357,7 +1362,7 @@ Redis不仅仅支持简单的key-value类型的数据，同时还提供list，se
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/安全性能测试客户端连接管道技术/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/docker安装redis集群/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1376,7 +1381,7 @@ Redis不仅仅支持简单的key-value类型的数据，同时还提供list，se
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/redis/安全性能测试客户端连接管道技术/" itemprop="url">安全性能测试客户端连接管道技术</a></h1>
+                <a class="post-title-link" href="/redis/docker安装redis集群/" itemprop="url">docker安装redis集群</a></h1>
         
 
         <div class="post-meta">
@@ -1450,12 +1455,12 @@ Redis不仅仅支持简单的key-value类型的数据，同时还提供list，se
       
         
           
-          安全查看是否设置密码12345127.0.0.1:6379&gt; CONFIG get requirepass1) &quot;requirepass&quot;2) &quot;&quot;# 默认没有设置
-设置密码12345127.0.0.1:6379&gt; CONFIG set requi
+          在 /home 目录下创建redis-cluster-test 文件夹12➜ mkdir -p /home/redis-cluster-test➜ cd  /home/redis-cluster-test
+把下列信息写入redis-cluster.tmpl文件中123456789port $&#12
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/redis/安全性能测试客户端连接管道技术/#more" rel="contents">
+            <a class="btn" href="/redis/docker安装redis集群/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1654,7 +1659,7 @@ Redis不仅仅支持简单的key-value类型的数据，同时还提供list，se
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/backup/nginx/readme/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/数据备份与恢复/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1673,7 +1678,7 @@ Redis不仅仅支持简单的key-value类型的数据，同时还提供list，se
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/基础知识/backup/nginx/readme/" itemprop="url">jupyter备份</a></h1>
+                <a class="post-title-link" href="/redis/数据备份与恢复/" itemprop="url">redis备份</a></h1>
         
 
         <div class="post-meta">
@@ -1708,8 +1713,8 @@ Redis不仅仅支持简单的key-value类型的数据，同时还提供list，se
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/jupyter/" itemprop="url" rel="index">
-                    <span itemprop="name">jupyter</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -1747,14 +1752,13 @@ Redis不仅仅支持简单的key-value类型的数据，同时还提供list，se
       
         
           
-          pip3 install jupyter
- vi /usr/share/vim/vim81/defaults.vim
- jupyter notebook –generate-config
-jupyter contrib nbextension install –user –skip-running-
+          rdb : 在指定的时间间隔对数据进行快照存储 （默认开启）
+aof : 记录每次对服务器的写操作，重启时会重新执行这些命令。（AOF 文件会后台重写，使得文件不会太大） （需要修改配置文件 appendonly yes 开启）
+appendfsync : always/everysec(默认)/n
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/基础知识/backup/nginx/readme/#more" rel="contents">
+            <a class="btn" href="/redis/数据备份与恢复/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
