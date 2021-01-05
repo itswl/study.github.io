@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="解压可迭代对象赋值给多个变量12items = [1, 10, 7, 4, 5, (1,2,3)]head,*tail,(*_,end) =items 保留最后 N 个元素12345678910111213from collections import deque    &amp;gt;&amp;gt;&amp;gt; q = deque(maxlen=3)    &amp;gt;&amp;gt;&amp;gt; q.append(1)">
+<meta name="description" content="递归递归： 把大规模的问题转化为规模小的相同的子问题来解决。递归主体和 一个终止条件 因为大问题 和小问题 的解决方法往往是同一个方法，所以产生函数调用自身的情况。  一个终止条件 （防止产生无限递归） 分治分治： 把大规模，高难度的问题转化为 若干个小规模，低难度的小问题，最后再将小问题的答案合并 数据有序，预期时间复杂度带有 logn。通过小问题的答案合并原问题的答案。 可以采用分治法 排序排">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cookbook有感">
-<meta property="og:url" content="http://imwl.ml/python/cookbook/record/index.html">
+<meta property="og:title" content="一般算法">
+<meta property="og:url" content="http://imwl.ml/数据结构与算法/一般算法/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="解压可迭代对象赋值给多个变量12items = [1, 10, 7, 4, 5, (1,2,3)]head,*tail,(*_,end) =items 保留最后 N 个元素12345678910111213from collections import deque    &amp;gt;&amp;gt;&amp;gt; q = deque(maxlen=3)    &amp;gt;&amp;gt;&amp;gt; q.append(1)">
+<meta property="og:description" content="递归递归： 把大规模的问题转化为规模小的相同的子问题来解决。递归主体和 一个终止条件 因为大问题 和小问题 的解决方法往往是同一个方法，所以产生函数调用自身的情况。  一个终止条件 （防止产生无限递归） 分治分治： 把大规模，高难度的问题转化为 若干个小规模，低难度的小问题，最后再将小问题的答案合并 数据有序，预期时间复杂度带有 logn。通过小问题的答案合并原问题的答案。 可以采用分治法 排序排">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-05T13:46:17.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cookbook有感">
-<meta name="twitter:description" content="解压可迭代对象赋值给多个变量12items = [1, 10, 7, 4, 5, (1,2,3)]head,*tail,(*_,end) =items 保留最后 N 个元素12345678910111213from collections import deque    &amp;gt;&amp;gt;&amp;gt; q = deque(maxlen=3)    &amp;gt;&amp;gt;&amp;gt; q.append(1)">
+<meta name="twitter:title" content="一般算法">
+<meta name="twitter:description" content="递归递归： 把大规模的问题转化为规模小的相同的子问题来解决。递归主体和 一个终止条件 因为大问题 和小问题 的解决方法往往是同一个方法，所以产生函数调用自身的情况。  一个终止条件 （防止产生无限递归） 分治分治： 把大规模，高难度的问题转化为 若干个小规模，低难度的小问题，最后再将小问题的答案合并 数据有序，预期时间复杂度带有 logn。通过小问题的答案合并原问题的答案。 可以采用分治法 排序排">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/python/cookbook/record/">
+  <link rel="canonical" href="http://imwl.ml/数据结构与算法/一般算法/">
 
 
 
 
 
-  <title>cookbook有感 | Get busy living</title>
+  <title>一般算法 | Get busy living</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/cookbook/record/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/数据结构与算法/一般算法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cookbook有感</h1>
+          <h1 class="post-title" itemprop="name headline">一般算法</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T11:05:31+08:00">
-                2019-07-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-04T00:43:31+08:00">
+                2021-01-04
               </time>
             
 
@@ -360,8 +360,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python练习/" itemprop="url" rel="index">
-                    <span itemprop="name">python练习</span>
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
                   </a>
                 </span>
 
@@ -397,32 +397,14 @@
       
 
       
-        <h3 id="解压可迭代对象赋值给多个变量"><a href="#解压可迭代对象赋值给多个变量" class="headerlink" title="解压可迭代对象赋值给多个变量"></a>解压可迭代对象赋值给多个变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">items = [1, 10, 7, 4, 5, (1,2,3)]</span><br><span class="line">head,*tail,(*_,end) =items</span><br></pre></td></tr></table></figure>
-<h3 id="保留最后-N-个元素"><a href="#保留最后-N-个元素" class="headerlink" title="保留最后 N 个元素"></a>保留最后 N 个元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from collections import deque</span><br><span class="line">    &gt;&gt;&gt; q = deque(maxlen=3)</span><br><span class="line">    &gt;&gt;&gt; q.append(1)</span><br><span class="line">    &gt;&gt;&gt; q.append(2)</span><br><span class="line">    &gt;&gt;&gt; q.append(3)</span><br><span class="line">    &gt;&gt;&gt; q</span><br><span class="line">    deque([1, 2, 3], maxlen=3)</span><br><span class="line">    &gt;&gt;&gt; q.append(4)</span><br><span class="line">    &gt;&gt;&gt; q</span><br><span class="line">    deque([2, 3, 4], maxlen=3)</span><br><span class="line">    &gt;&gt;&gt; q.append(5)</span><br><span class="line">    &gt;&gt;&gt; q</span><br><span class="line">    deque([3, 4, 5], maxlen=3)</span><br></pre></td></tr></table></figure>
-<h5 id="不指定，那么无限大小队列"><a href="#不指定，那么无限大小队列" class="headerlink" title="不指定，那么无限大小队列"></a>不指定，那么无限大小队列</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; q = deque()</span><br><span class="line">&gt;&gt;&gt; q.append(1)</span><br><span class="line">&gt;&gt;&gt; q.append(2)</span><br><span class="line">&gt;&gt;&gt; q.append(3)</span><br><span class="line">&gt;&gt;&gt; q</span><br><span class="line">deque([1, 2, 3])</span><br><span class="line">&gt;&gt;&gt; q.appendleft(4)</span><br><span class="line">&gt;&gt;&gt; q</span><br><span class="line">deque([4, 1, 2, 3])</span><br><span class="line">&gt;&gt;&gt; q.pop()  # 取出队列中最后一个元素</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; q</span><br><span class="line">deque([4, 1, 2])</span><br><span class="line">&gt;&gt;&gt; q.popleft()</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; q</span><br><span class="line">deque([1, 2])</span><br></pre></td></tr></table></figure>
-<pre><code>在队列两端插入或删除元素时间复杂度都是 ``O(1)`` ，区别于列表，在列表的开头插入或删除元素的时间复杂度为 ``O(N)``
-</code></pre><h3 id="从一个集合中获得最大或者最小的-N-个元素列表"><a href="#从一个集合中获得最大或者最小的-N-个元素列表" class="headerlink" title="从一个集合中获得最大或者最小的 N 个元素列表"></a>从一个集合中获得最大或者最小的 N 个元素列表</h3><p>heapq 模块有两个函数：<code>nlargest()</code> 和 <code>nsmallest()</code> 可以完美解决这个问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import heapq</span><br><span class="line">nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]</span><br><span class="line">print(heapq.nlargest(3, nums)) # Prints [42, 37, 23]</span><br><span class="line">print(heapq.nsmallest(3, nums)) # Prints [-4, 1, 2]</span><br><span class="line"></span><br><span class="line">portfolio = [</span><br><span class="line">    &#123;&apos;name&apos;: &apos;IBM&apos;, &apos;shares&apos;: 100, &apos;price&apos;: 91.1&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;AAPL&apos;, &apos;shares&apos;: 50, &apos;price&apos;: 543.22&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;FB&apos;, &apos;shares&apos;: 200, &apos;price&apos;: 21.09&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;HPQ&apos;, &apos;shares&apos;: 35, &apos;price&apos;: 31.75&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;YHOO&apos;, &apos;shares&apos;: 45, &apos;price&apos;: 16.35&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;ACME&apos;, &apos;shares&apos;: 75, &apos;price&apos;: 115.65&#125;</span><br><span class="line">]</span><br><span class="line">cheap = heapq.nsmallest(3, portfolio, key=lambda s: s[&apos;price&apos;])</span><br><span class="line">expensive = heapq.nlargest(3, portfolio, key=lambda s: s[&apos;price&apos;])</span><br></pre></td></tr></table></figure>
-<h4 id="对集合进行排序"><a href="#对集合进行排序" class="headerlink" title="对集合进行排序"></a>对集合进行排序</h4><pre><code>&gt;&gt;&gt; nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
-&gt;&gt;&gt; import heapq
-&gt;&gt;&gt; heap = list(nums)
-&gt;&gt;&gt; heapq.heapify(heap) # 从小到大排序
-&gt;&gt;&gt; heap
-[-4, 2, 1, 23, 7, 2, 18, 23, 42, 37, 8]
-&gt;&gt;&gt;
-&gt;&gt;&gt; heapq.heappop(heap)  # 弹出最小元素
--4
-&gt;&gt;&gt; heapq.heappop(heap)
-1
-&gt;&gt;&gt; heapq.heappop(heap)
-2
-</code></pre><p> ####<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; line = &apos;asdf fjdk; afed, fjek,asdf, foo&apos;</span><br><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; re.split(r&apos;[;,\s]\s*&apos;, line)</span><br><span class="line">[&apos;asdf&apos;, &apos;fjdk&apos;, &apos;afed&apos;, &apos;fjek&apos;, &apos;asdf&apos;, &apos;foo&apos;]</span><br></pre></td></tr></table></figure></p>
-<h3 id="按顺序插入字典"><a href="#按顺序插入字典" class="headerlink" title="按顺序插入字典"></a>按顺序插入字典</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">from collections import OrderedDict</span><br><span class="line"></span><br><span class="line">d = OrderedDict()</span><br><span class="line">d[&apos;foo&apos;] = 1</span><br><span class="line">d[&apos;bar&apos;] = 2</span><br><span class="line">d[&apos;spam&apos;] = 4</span><br><span class="line">d[&apos;grok&apos;] = 3</span><br><span class="line">for key in d:</span><br><span class="line">    print(key, d[key])</span><br><span class="line"> &apos;&apos;&apos;</span><br><span class="line">foo 1</span><br><span class="line">bar 2</span><br><span class="line">spam 4</span><br><span class="line">grok 3</span><br><span class="line"></span><br><span class="line">import json</span><br><span class="line">a = json.dumps(d)</span><br><span class="line">type(a) # str </span><br><span class="line">print(a)  # &apos;&#123;&quot;foo&quot;: 1, &quot;bar&quot;: 2, &quot;spam&quot;: 4, &quot;grok&quot;: 3&#125;&apos;</span><br><span class="line"></span><br><span class="line"> &apos;&apos;&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="在两个字典中寻找相同点（比如相同的键、相同的值等等）"><a href="#在两个字典中寻找相同点（比如相同的键、相同的值等等）" class="headerlink" title="在两个字典中寻找相同点（比如相同的键、相同的值等等）"></a>在两个字典中寻找相同点（比如相同的键、相同的值等等）</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;</span><br><span class="line">        &apos;x&apos; : 1,</span><br><span class="line">        &apos;y&apos; : 2,</span><br><span class="line">        &apos;z&apos; : 3</span><br><span class="line">    &#125;</span><br><span class="line">b = &#123;</span><br><span class="line">        &apos;w&apos; : 10,</span><br><span class="line">        &apos;x&apos; : 11,</span><br><span class="line">        &apos;y&apos; : 2</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"># Find keys in common</span><br><span class="line"># 类似于集合求合集差集等。</span><br><span class="line">a.keys() &amp; b.keys() # &#123; &apos;x&apos;, &apos;y&apos; &#125;</span><br><span class="line"># Find keys in a that are not in b</span><br><span class="line">a.keys() - b.keys() # &#123; &apos;z&apos; &#125;</span><br><span class="line"># Find (key,value) pairs in common</span><br><span class="line">a.items() &amp; b.items() # &#123; (&apos;y&apos;, 2) &#125;</span><br><span class="line"></span><br><span class="line"># 使用列表推导式 从字典a 中删除 键 &apos;z&apos;,&apos;w&apos; </span><br><span class="line">c = &#123;key:a[key] for key in a.keys() - &#123;&apos;z&apos;, &apos;w&apos;&#125;&#125;</span><br><span class="line">  </span><br><span class="line"># 值非唯一，不建议用来进行 集合 操作</span><br></pre></td></tr></table></figure>
-<h4 id="不打乱顺序去重"><a href="#不打乱顺序去重" class="headerlink" title="不打乱顺序去重"></a>不打乱顺序去重</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def dedupe(items):</span><br><span class="line">    seen = set()</span><br><span class="line">    for item in items:</span><br><span class="line">        if item not in seen:</span><br><span class="line">            yield item</span><br><span class="line">            seen.add(item)</span><br><span class="line"></span><br><span class="line">a = [1, 5, 2, 1, 9, 1, 5, 10]</span><br><span class="line">list(add(a)) # [1, 5, 2, 9, 10]</span><br></pre></td></tr></table></figure>
-<h4 id="可用slice-优化切片操作"><a href="#可用slice-优化切片操作" class="headerlink" title="可用slice() 优化切片操作"></a>可用slice() 优化切片操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">items = [0, 1, 2, 3, 4, 5, 6]</span><br><span class="line">a = slice(2, 4)</span><br><span class="line">items[a] # 等同于 items[2, 4] </span><br><span class="line">a = slice(2,10,2)</span><br><span class="line">items[a]  # 等同于 items[2,10,2]</span><br><span class="line">a.start # 2</span><br><span class="line">a.stop  # 10</span><br><span class="line">a.step # 2 </span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; s = &apos;HelloWorld&apos;</span><br><span class="line">    &gt;&gt;&gt; a.indices(len(s))</span><br><span class="line">    (5, 10, 2)</span><br><span class="line">    &gt;&gt;&gt; for i in range(*a.indices(len(s))):</span><br><span class="line">    ...     print(s[i])</span><br><span class="line">    ...</span><br><span class="line">    W</span><br><span class="line">    r</span><br><span class="line">    d</span><br></pre></td></tr></table></figure>
-<p>看一下range函数<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> In [178]: a = (5,10,2)</span><br><span class="line"></span><br><span class="line">In [179]: range(a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [180]: range(*a)</span><br><span class="line">Out[180]: range(5, 10, 2)</span><br><span class="line">* 就是将 a 中元素当 位置参数传进去</span><br><span class="line">** 就是当字典</span><br><span class="line"> def kw_dict(**kwargs):</span><br><span class="line">        return kwargs</span><br><span class="line">    print kw_dict(a=1,b=2,c=3) == &#123;&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>递归： 把大规模的问题转化为规模小的相同的子问题来解决。递归主体和 一个终止条件</p>
+<p>因为大问题 和小问题 的解决方法往往是同一个方法，所以产生函数调用自身的情况。  一个终止条件 （防止产生无限递归）</p>
+<h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><p>分治： 把大规模，高难度的问题转化为 若干个小规模，低难度的小问题，最后再将小问题的答案合并</p>
+<p>数据有序，预期时间复杂度带有 logn。通过小问题的答案合并原问题的答案。 可以采用分治法</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>排序： 让一组无序的数据变成有序的过程</p>
+<p>排序最暴力的方法， 冒泡排序，选择排序，插入排序 O（n**2）</p>
+<p>归并排序 O(nlogn)，需要开辟额外的空间 空间复杂度 O(N)<br>快速排序  平均 O(nlogn), 最坏的时间复杂度 O(n**2)</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2>
       
     </div>
     
@@ -446,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python/元编程/初探/" rel="next" title="初探元编程">
-                <i class="fa fa-chevron-left"></i> 初探元编程
+              <a href="/数据结构与算法/基本数据结构/" rel="next" title="基本数据结构">
+                <i class="fa fa-chevron-left"></i> 基本数据结构
               </a>
             
           </div>
@@ -456,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/python/python日志模块/" rel="prev" title="python的日志模块">
-                python的日志模块 <i class="fa fa-chevron-right"></i>
+              <a href="/运维/k8s/k8s-问题/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,7 +602,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解压可迭代对象赋值给多个变量"><span class="nav-number">1.</span> <span class="nav-text">解压可迭代对象赋值给多个变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保留最后-N-个元素"><span class="nav-number">2.</span> <span class="nav-text">保留最后 N 个元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#不指定，那么无限大小队列"><span class="nav-number">2.0.1.</span> <span class="nav-text">不指定，那么无限大小队列</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#从一个集合中获得最大或者最小的-N-个元素列表"><span class="nav-number">3.</span> <span class="nav-text">从一个集合中获得最大或者最小的 N 个元素列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对集合进行排序"><span class="nav-number">3.1.</span> <span class="nav-text">对集合进行排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按顺序插入字典"><span class="nav-number">4.</span> <span class="nav-text">按顺序插入字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在两个字典中寻找相同点（比如相同的键、相同的值等等）"><span class="nav-number">5.</span> <span class="nav-text">在两个字典中寻找相同点（比如相同的键、相同的值等等）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不打乱顺序去重"><span class="nav-number">5.1.</span> <span class="nav-text">不打乱顺序去重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可用slice-优化切片操作"><span class="nav-number">5.2.</span> <span class="nav-text">可用slice() 优化切片操作</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归"><span class="nav-number">1.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分治"><span class="nav-number">2.</span> <span class="nav-text">分治</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">3.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">4.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
             
 
           </div>
