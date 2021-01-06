@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="函数 函数有机会给一组语句命名 函数可以减少重复代码 一长段程序可以拆分为多个函数，组合起来使用 一次书写, 多次调用。  在函数内部 实参会赋值给形参的变量 12345def print_twice(x):    print(x)    print(x)a = print_twice(&amp;apos;haha&amp;apos;)a == None  # True # 没有return,返回None  只会">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-06T13:45:19.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python拾遗_函数">
 <meta name="twitter:description" content="函数 函数有机会给一组语句命名 函数可以减少重复代码 一长段程序可以拆分为多个函数，组合起来使用 一次书写, 多次调用。  在函数内部 实参会赋值给形参的变量 12345def print_twice(x):    print(x)    print(x)a = print_twice(&amp;apos;haha&amp;apos;)a == None  # True # 没有return,返回None  只会">
@@ -422,7 +422,7 @@
 <p>简化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def circle_area(x1, y1, x2, y2):</span><br><span class="line">    return area(distance(x1, y1, x2, y2))</span><br><span class="line">circle_area(0, 0, 2, 2)  # 25.132741228718352</span><br></pre></td></tr></table></figure></p>
 <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>调用自己的函数称为 <strong>递归的函数</strong>，执行过程称为<strong>递归</strong></p>
 <p>无限递归,会在递归深度到上限时报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def recurse():</span><br><span class="line">    recurse()</span><br><span class="line">recurse()  # RecursionError: maximum recursion depth exceeded</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def print_n(s, n):</span><br><span class="line">    if n &lt;= 0:</span><br><span class="line">        retrun</span><br><span class="line">    print(s)</span><br><span class="line">    print_n(s,n-1)</span><br><span class="line">print_n(&apos;haha&apos;, 5)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def print_n(s, n):</span><br><span class="line">    if n &lt;= 0:</span><br><span class="line">        return</span><br><span class="line">    print(s)</span><br><span class="line">    print_n(s,n-1)</span><br><span class="line">print_n(&apos;haha&apos;, 5)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def countdown(n):</span><br><span class="line">    if n &gt; 100000:   # 守卫,保护后面代码，避免出现错误</span><br><span class="line">        print(&apos;over limit&apos;)  </span><br><span class="line">        return  </span><br><span class="line">    elif n &lt;= 0:</span><br><span class="line">        print(&apos;haha&apos;)</span><br><span class="line">    else:</span><br><span class="line">        print(n)</span><br><span class="line">        countdown(n-1)</span><br><span class="line">countdown(10000000000000)</span><br></pre></td></tr></table></figure>
 <p>while 循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def countdown(n):</span><br><span class="line">    if n &gt; 100000:   # 守卫,保护后面代码，避免出现错误</span><br><span class="line">        print(&apos;over limit&apos;)  </span><br><span class="line">        return  </span><br><span class="line">    while n &gt; 0:</span><br><span class="line">        print(n)</span><br><span class="line">        n -= 1</span><br><span class="line">    print(&apos;haha&apos;)</span><br><span class="line">countdown(10000000000000)</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while 1:</span><br><span class="line">    line = input(&apos;&gt;&apos;)</span><br><span class="line">    if line == &apos;done&apos;:</span><br><span class="line">        break   #  使用 break 退出循环</span><br><span class="line">    print(line)</span><br></pre></td></tr></table></figure>
@@ -450,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java/readme/" rel="next" title="java简介">
-                <i class="fa fa-chevron-left"></i> java简介
+              <a href="/java/修饰符/" rel="next" title="java修饰符">
+                <i class="fa fa-chevron-left"></i> java修饰符
               </a>
             
           </div>
@@ -460,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/python/装饰器/" rel="prev" title="装饰器">
-                装饰器 <i class="fa fa-chevron-right"></i>
+              <a href="/python/python的一些函数/" rel="prev" title="python里的一些函数">
+                python里的一些函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
