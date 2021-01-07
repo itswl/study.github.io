@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="对修改是封闭的，对扩展是开放的 ####在原有函数上调用时加时间1234567891011121314import timedef a():    print(&amp;apos;This is a function&amp;apos;) def b():    print(&amp;apos;Hello world&amp;apos;) def print_current_time(abc):    print(time.ti">
+<meta name="description" content="术语Ansible Playbooks：任务脚本，编排定义Ansible任务及的配置文件，由Ansible按序依次执行，通常是JSON格式的YML文件； Inventory：Ansible 管理主机清单； Modules：Ansible 执行命令功能模块，多数为内置的核心模块，也可自定义； Plugins：模块功能的补充，如连接类型插件、循环插件、变量插件、过滤插件等，该功能不太常用； API：供">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(12) python中的装饰器">
-<meta property="og:url" content="http://imwl.ml/python基础/python中的装饰器/index.html">
+<meta property="og:title" content="Get busy living">
+<meta property="og:url" content="http://imwl.ml/运维/k8s/ansibble(补)/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="对修改是封闭的，对扩展是开放的 ####在原有函数上调用时加时间1234567891011121314import timedef a():    print(&amp;apos;This is a function&amp;apos;) def b():    print(&amp;apos;Hello world&amp;apos;) def print_current_time(abc):    print(time.ti">
+<meta property="og:description" content="术语Ansible Playbooks：任务脚本，编排定义Ansible任务及的配置文件，由Ansible按序依次执行，通常是JSON格式的YML文件； Inventory：Ansible 管理主机清单； Modules：Ansible 执行命令功能模块，多数为内置的核心模块，也可自定义； Plugins：模块功能的补充，如连接类型插件、循环插件、变量插件、过滤插件等，该功能不太常用； API：供">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-06T14:14:48.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(12) python中的装饰器">
-<meta name="twitter:description" content="对修改是封闭的，对扩展是开放的 ####在原有函数上调用时加时间1234567891011121314import timedef a():    print(&amp;apos;This is a function&amp;apos;) def b():    print(&amp;apos;Hello world&amp;apos;) def print_current_time(abc):    print(time.ti">
+<meta name="twitter:title" content="Get busy living">
+<meta name="twitter:description" content="术语Ansible Playbooks：任务脚本，编排定义Ansible任务及的配置文件，由Ansible按序依次执行，通常是JSON格式的YML文件； Inventory：Ansible 管理主机清单； Modules：Ansible 执行命令功能模块，多数为内置的核心模块，也可自定义； Plugins：模块功能的补充，如连接类型插件、循环插件、变量插件、过滤插件等，该功能不太常用； API：供">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/python基础/python中的装饰器/">
+  <link rel="canonical" href="http://imwl.ml/运维/k8s/ansibble(补)/">
 
 
 
 
 
-  <title>(12) python中的装饰器 | Get busy living</title>
+  <title> | Get busy living</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python基础/python中的装饰器/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/ansibble(补)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">(12) python中的装饰器</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T22:00:43+08:00">
-                2018-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T22:13:15+08:00">
+                2021-01-06
               </time>
             
 
@@ -347,28 +347,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python基础/" itemprop="url" rel="index">
-                    <span itemprop="name">python基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -397,15 +375,11 @@
       
 
       
-        <p><strong>对修改是封闭的，对扩展是开放的</strong></p>
-<p>####在原有函数上调用时加时间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def a():</span><br><span class="line">    print(&apos;This is a function&apos;) </span><br><span class="line"></span><br><span class="line">def b():</span><br><span class="line">    print(&apos;Hello world&apos;) </span><br><span class="line"></span><br><span class="line">def print_current_time(abc):</span><br><span class="line">    print(time.time())</span><br><span class="line">    abc()</span><br><span class="line"></span><br><span class="line">print_current_time(a)</span><br><span class="line">print_current_time(b)</span><br></pre></td></tr></table></figure></p>
-<p><strong>等同于</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def a():</span><br><span class="line">    print(&apos;This is a function&apos;) </span><br><span class="line"></span><br><span class="line">def b():</span><br><span class="line">    print(&apos;Hello world&apos;) </span><br><span class="line"></span><br><span class="line">def print_current_time(abc):</span><br><span class="line">    print(time.time())</span><br><span class="line">    abc()</span><br><span class="line"></span><br><span class="line">print(time.time())</span><br><span class="line">a()</span><br><span class="line">print(time.time())</span><br><span class="line">b()</span><br></pre></td></tr></table></figure></p>
-<p><strong>更改了内部实现，不够优雅</strong></p>
-<p>####装饰器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def decorator(func):</span><br><span class="line">    def wrapper():</span><br><span class="line">        print(time.time())</span><br><span class="line">        func()</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">def f1():</span><br><span class="line">    print(&apos;This is a function&apos;) </span><br><span class="line"></span><br><span class="line">f = decorator(f1)</span><br><span class="line">f()</span><br></pre></td></tr></table></figure></p>
-<p><strong>修改一下</strong><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def decorator(func):</span><br><span class="line">    def wrapper():</span><br><span class="line">        print(time.time())</span><br><span class="line">        func()</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@decorator   #@装饰器名字</span><br><span class="line">def f1():</span><br><span class="line">    print(&apos;This is a function&apos;) </span><br><span class="line"></span><br><span class="line">f1()   #并没有改变原有函数的调用方式</span><br><span class="line">#这才是装饰器  意义所在</span><br></pre></td></tr></table></figure></p>
-<p><strong>进一步优化，支持不同个数的参数</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def decorator(func):</span><br><span class="line">    def wrapper(*args):</span><br><span class="line">        print(time.time())</span><br><span class="line">        func(*args)</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@decorator   #@装饰器名字</span><br><span class="line">def f1(func_name):</span><br><span class="line">    print(&apos;This is a function&apos;+ func_name) </span><br><span class="line"></span><br><span class="line">@decorator</span><br><span class="line">def f2(func_name1,func_name2,func_name3):</span><br><span class="line">    print(&apos;hello world&apos;+ func_name1) </span><br><span class="line">    print(&apos;hello world&apos;+ func_name2) </span><br><span class="line">    print(&apos;hello world&apos;+ func_name3) </span><br><span class="line"></span><br><span class="line">f1(&apos;tset func&apos;)   </span><br><span class="line">f2(&apos;tset func1&apos;,&apos;tset func2&apos;,&apos;tset func3&apos;)</span><br></pre></td></tr></table></figure></p>
-<p><strong>进一步优化，加入关键字参数</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def decorator(func):</span><br><span class="line">    def wrapper(*args,**kw):</span><br><span class="line">        print(time.time())</span><br><span class="line">        func(*args,**kw)</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@decorator   #@装饰器名字</span><br><span class="line">def f1(func_name):</span><br><span class="line">    print(&apos;This is a function&apos;+ func_name) </span><br><span class="line"></span><br><span class="line">@decorator</span><br><span class="line">def f2(func_name1,func_name2,func_name3):</span><br><span class="line">    print(&apos;hello world&apos;+ func_name1) </span><br><span class="line">    print(&apos;hello world&apos;+ func_name2) </span><br><span class="line">    print(&apos;hello world&apos;+ func_name3) </span><br><span class="line"></span><br><span class="line">@decorator</span><br><span class="line">def f3(func_name1,func_name2,**kw):</span><br><span class="line">    print(&apos;hello world&apos;+ func_name1)</span><br><span class="line">    print(&apos;hello world&apos;+ func_name2)</span><br><span class="line">    print(kw)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f1(&apos;tset func&apos;)   </span><br><span class="line">f2(&apos;tset func1&apos;,&apos;tset func2&apos;,&apos;tset func3&apos;)</span><br><span class="line">f3(&apos;tset func1&apos;,&apos;tset func2&apos;,a = 1,b = 2,c = &apos;123&apos;)</span><br></pre></td></tr></table></figure></p>
-<p><strong>装饰器也可以用来控制访问</strong><br><strong>一个函数上就可以加多个装饰器</strong></p>
+        <h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>Ansible Playbooks：任务脚本，编排定义Ansible任务及的配置文件，由Ansible按序依次执行，通常是JSON格式的YML文件；</p>
+<p>Inventory：Ansible 管理主机清单；</p>
+<p>Modules：Ansible 执行命令功能模块，多数为内置的核心模块，也可自定义；</p>
+<p>Plugins：模块功能的补充，如连接类型插件、循环插件、变量插件、过滤插件等，该功能不太常用；</p>
+<p>API：供第三方程序调用的应用程序编程接口；</p>
 
       
     </div>
@@ -430,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python基础/python之初识JSON/" rel="next" title="(8) python之初识JSON">
-                <i class="fa fa-chevron-left"></i> (8) python之初识JSON
+              <a href="/运维/k8s/harbor/" rel="next" title="harbor">
+                <i class="fa fa-chevron-left"></i> harbor
               </a>
             
           </div>
@@ -439,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/python基础/python中的枚举/" rel="prev" title="(10) python中的枚举">
-                (10) python中的枚举 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -494,8 +464,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -585,6 +564,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#术语"><span class="nav-number">1.</span> <span class="nav-text">术语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
