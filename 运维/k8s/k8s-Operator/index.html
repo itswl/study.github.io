@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="好学近乎知，力行近乎仁，知耻近乎勇">
+<meta name="description" content="Operator在 Kubernetes 中，管理“有状态应用”是一个比较复杂的过程，尤其是编写 Pod 模板的时候，总有一种 “在 YAML 文件里编程序”的感觉，让人很不舒服。 而在 Kubernetes 生态中，还有一个相对更加灵活和编程友好的管理“有状态应用”的解决方案，它就是：Operator。 Etcd Operator 示例123456789101112131415161718192">
 <meta property="og:type" content="article">
 <meta property="og:title" content="k8s-Operator">
 <meta property="og:url" content="http://imwl.ml/运维/k8s/k8s-Operator/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="好学近乎知，力行近乎仁，知耻近乎勇">
+<meta property="og:description" content="Operator在 Kubernetes 中，管理“有状态应用”是一个比较复杂的过程，尤其是编写 Pod 模板的时候，总有一种 “在 YAML 文件里编程序”的感觉，让人很不舒服。 而在 Kubernetes 生态中，还有一个相对更加灵活和编程友好的管理“有状态应用”的解决方案，它就是：Operator。 Etcd Operator 示例123456789101112131415161718192">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-07T12:38:19.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="k8s-Operator">
-<meta name="twitter:description" content="好学近乎知，力行近乎仁，知耻近乎勇">
+<meta name="twitter:description" content="Operator在 Kubernetes 中，管理“有状态应用”是一个比较复杂的过程，尤其是编写 Pod 模板的时候，总有一种 “在 YAML 文件里编程序”的感觉，让人很不舒服。 而在 Kubernetes 生态中，还有一个相对更加灵活和编程友好的管理“有状态应用”的解决方案，它就是：Operator。 Etcd Operator 示例123456789101112131415161718192">
 
 
 
@@ -397,7 +397,16 @@
       
 
       
-        
+        <h2 id="Operator"><a href="#Operator" class="headerlink" title="Operator"></a>Operator</h2><p>在 <code>Kubernetes</code> 中，管理“有状态应用”是一个比较复杂的过程，尤其是编写 <code>Pod</code> 模板的时候，总有一种 “在 <code>YAML</code> 文件里编程序”的感觉，让人很不舒服。</p>
+<p>而在 <code>Kubernetes</code> 生态中，还有一个相对更加灵活和编程友好的管理“有状态应用”的解决方案，它就是：<code>Operator</code>。</p>
+<p>Etcd Operator 示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s01 ~]# git clone https://github.com/coreos/etcd-operator</span><br><span class="line"></span><br><span class="line">[root@k8s01 ~]# cd etcd-operator/</span><br><span class="line"></span><br><span class="line">[root@k8s01 etcd-operator]# example/rbac/create_role.sh</span><br><span class="line"></span><br><span class="line">Creating role with ROLE_NAME=etcd-operator, NAMESPACE=default</span><br><span class="line">Warning: rbac.authorization.k8s.io/v1beta1 ClusterRole is deprecated in v1.17+, unavailable in v1.22+; use rbac.authorization.k8s.io/v1 ClusterRole</span><br><span class="line">clusterrole.rbac.authorization.k8s.io/etcd-operator created</span><br><span class="line">Creating role binding with ROLE_NAME=etcd-operator, ROLE_BINDING_NAME=etcd-operator, NAMESPACE=default</span><br><span class="line">Warning: rbac.authorization.k8s.io/v1beta1 ClusterRoleBinding is deprecated in v1.17+, unavailable in v1.22+; use rbac.authorization.k8s.io/v1 ClusterRoleBinding</span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io/etcd-operator created</span><br><span class="line"></span><br><span class="line">[root@k8s01 etcd-operator]# kubectl create -f example/deployment.yaml  # 因为使用的 v1.20, 所以需要修改文件，见最后</span><br><span class="line">error: unable to recognize &quot;example/deployment.yaml&quot;: no matches for kind &quot;Deployment&quot; in version &quot;extensions/v1beta1&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@k8s01 etcd-operator]# kubectl apply -f  example/deployment.yaml  # 创建 Etcd Operator</span><br><span class="line">deployment.apps/etcd-operator created</span><br><span class="line"></span><br><span class="line">[root@k8s01 etcd-operator]# kubectl get pods |grep etcd</span><br><span class="line">etcd-operator-646cbffdb6-rwhl6   1/1     Running   0          6m28s</span><br><span class="line"> </span><br><span class="line">[root@k8s01 etcd-operator]# kubectl get crd |grep etcd  # 有一个 crd 被创建出来</span><br><span class="line">etcdclusters.etcd.database.coreos.com                 2021-01-05T17:04:06Z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@k8s01 etcd-operator]#  kubectl apply -f example/example-etcd-cluster.yaml  # 编写一个 EtcdCluster 的 YAML 文件</span><br><span class="line"></span><br><span class="line">[root@k8s01 etcd-operator]# kubectl get pods</span><br><span class="line">NAME                              READY   STATUS    RESTARTS   AGE</span><br><span class="line">etcd-operator-646cbffdb6-rwhl6    1/1     Running   0          32m</span><br><span class="line">example-etcd-cluster-5hrtljjplq   1/1     Running   0          2m39s</span><br><span class="line">example-etcd-cluster-n5x8pbzfzv   1/1     Running   0          7m20s</span><br><span class="line">example-etcd-cluster-vwz9wcsxcf   1/1     Running   0          5m11s</span><br></pre></td></tr></table></figure></p>
+<p><code>Operator</code> 的工作原理，实际上是利用了 <code>Kubernetes</code> 的自定义 <code>API</code> 资源（<code>CRD</code>），来描述我们想要部署的“有状态应用”；然后在自定义控制器里，根据自定义 <code>API</code> 对象的变化，来完成具体的部署和运维工作。</p>
+<p><code>Kubernetes</code> 里添加了一个名叫 <code>EtcdCluster</code> 的自定义资源类型。而 <code>Etcd Operator</code> 本身，就是这个自定义资源类型对应的自定义控制器。</p>
+<h3 id="补"><a href="#补" class="headerlink" title="补"></a>补</h3><p>example/deployment.yaml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: etcd-operator</span><br><span class="line">spec:</span><br><span class="line">  replicas: 1</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      name: etcd-operator</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        name: etcd-operator</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: etcd-operator</span><br><span class="line">        image: quay.io/coreos/etcd-operator:v0.9.4</span><br><span class="line">        command:</span><br><span class="line">        - etcd-operator</span><br><span class="line">        # Uncomment to act for resources in all namespaces. More information in doc/user/clusterwide.md</span><br><span class="line">        #- -cluster-wide</span><br><span class="line">        env:</span><br><span class="line">        - name: MY_POD_NAMESPACE</span><br><span class="line">          valueFrom:</span><br><span class="line">            fieldRef:</span><br><span class="line">              fieldPath: metadata.namespace</span><br><span class="line">        - name: MY_POD_NAME</span><br><span class="line">          valueFrom:</span><br><span class="line">            fieldRef:</span><br><span class="line">              fieldPath: metadata.name</span><br></pre></td></tr></table></figure></p>
+<p>etcdclusters.etcd.database.coreos.com</p>
+<p>如果有 API 组（Group）是etcd.database.coreos.com、API 资源类型（Kind）是“EtcdCluster”的 YAML 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s01 etcd-operator]# kubectl describe crd  etcdclusters.etcd.database.coreos.com</span><br><span class="line">Name:         etcdclusters.etcd.database.coreos.com</span><br><span class="line">Namespace:</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">API Version:  apiextensions.k8s.io/v1</span><br><span class="line">Kind:         CustomResourceDefinition</span><br><span class="line">Metadata:</span><br><span class="line">  Creation Timestamp:  2021-01-05T17:04:06Z</span><br><span class="line">  Generation:          1</span><br><span class="line">  Managed Fields:</span><br><span class="line">    API Version:  apiextensions.k8s.io/v1beta1</span><br><span class="line">    Fields Type:  FieldsV1</span><br><span class="line">    fieldsV1:</span><br><span class="line">      f:spec:</span><br><span class="line">        f:conversion:</span><br><span class="line">          .:</span><br><span class="line">          f:strategy:</span><br><span class="line">        f:group:</span><br><span class="line">        f:names:</span><br><span class="line">          f:kind:</span><br><span class="line">          f:listKind:</span><br><span class="line">          f:plural:</span><br><span class="line">          f:shortNames:</span><br><span class="line">          f:singular:</span><br><span class="line">        f:preserveUnknownFields:</span><br><span class="line">        f:scope:</span><br><span class="line">        f:version:</span><br><span class="line">        f:versions:</span><br><span class="line">      f:status:</span><br><span class="line">        f:storedVersions:</span><br><span class="line">    Manager:      etcd-operator</span><br><span class="line">    Operation:    Update</span><br><span class="line">    Time:         2021-01-05T17:04:06Z</span><br><span class="line">    API Version:  apiextensions.k8s.io/v1</span><br><span class="line">    Fields Type:  FieldsV1</span><br><span class="line">    fieldsV1:</span><br><span class="line">      f:status:</span><br><span class="line">        f:acceptedNames:</span><br><span class="line">          f:kind:</span><br><span class="line">          f:listKind:</span><br><span class="line">          f:plural:</span><br><span class="line">          f:shortNames:</span><br><span class="line">          f:singular:</span><br><span class="line">        f:conditions:</span><br><span class="line">    Manager:         kube-apiserver</span><br><span class="line">    Operation:       Update</span><br><span class="line">    Time:            2021-01-05T17:04:06Z</span><br><span class="line">  Resource Version:  75878</span><br><span class="line">  UID:               2eaa1a5d-e086-413e-873a-bf6d3de062dd</span><br><span class="line">Spec:</span><br><span class="line">  Conversion:</span><br><span class="line">    Strategy:  None</span><br><span class="line">  Group:       etcd.database.coreos.com  # 标识</span><br><span class="line">  Names:</span><br><span class="line">    Kind:       EtcdCluster  # 标识</span><br><span class="line">    List Kind:  EtcdClusterList</span><br><span class="line">    Plural:     etcdclusters</span><br><span class="line">    Short Names:</span><br><span class="line">      etcd</span><br><span class="line">    Singular:               etcdcluster</span><br><span class="line">  Preserve Unknown Fields:  true</span><br><span class="line">  Scope:                    Namespaced</span><br><span class="line">  Versions:</span><br><span class="line">    Name:     v1beta2  # 版本</span><br><span class="line">    Served:   true</span><br><span class="line">    Storage:  true</span><br><span class="line">Status:</span><br><span class="line">  Accepted Names:</span><br><span class="line">    Kind:       EtcdCluster</span><br><span class="line">    List Kind:  EtcdClusterList</span><br><span class="line">    Plural:     etcdclusters</span><br><span class="line">    Short Names:</span><br><span class="line">      etcd</span><br><span class="line">    Singular:  etcdcluster</span><br><span class="line">  Conditions:</span><br><span class="line">    Last Transition Time:  2021-01-05T17:04:06Z</span><br><span class="line">    Message:               spec.preserveUnknownFields: Invalid value: true: must be false</span><br><span class="line">    Reason:                Violations</span><br><span class="line">    Status:                True</span><br><span class="line">    Type:                  NonStructuralSchema</span><br><span class="line">    Last Transition Time:  2021-01-05T17:04:06Z</span><br><span class="line">    Message:               no conflicts found</span><br><span class="line">    Reason:                NoConflicts</span><br><span class="line">    Status:                True</span><br><span class="line">    Type:                  NamesAccepted</span><br><span class="line">    Last Transition Time:  2021-01-05T17:04:06Z</span><br><span class="line">    Message:               the initial names have been accepted</span><br><span class="line">    Reason:                InitialNamesAccepted</span><br><span class="line">    Status:                True</span><br><span class="line">    Type:                  Established</span><br><span class="line">  Stored Versions:</span><br><span class="line">    v1beta2</span><br><span class="line">Events:  &lt;none&gt;</span><br></pre></td></tr></table></figure></p>
+<p>example/example-etcd-cluster.yaml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s01 etcd-operator]# cat example/example-etcd-cluster.yaml</span><br><span class="line">apiVersion: &quot;etcd.database.coreos.com/v1beta2&quot;  # 使用的 api ，上文中的 Group/Versions  </span><br><span class="line">kind: &quot;EtcdCluster&quot;  #  资源类型，上文定义的 kind</span><br><span class="line">metadata:</span><br><span class="line">  name: &quot;example-etcd-cluster&quot;</span><br><span class="line">  ## Adding this annotation make this cluster managed by clusterwide operators</span><br><span class="line">  ## namespaced operators ignore it</span><br><span class="line">  # annotations:</span><br><span class="line">  #   etcd.database.coreos.com/scope: clusterwide</span><br><span class="line">spec:</span><br><span class="line">  size: 3</span><br><span class="line">  version: &quot;3.2.13&quot;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -421,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/运维/k8s/k8s-gpu/" rel="next" title="k8s-GPU管理与Device Plugin机制">
-                <i class="fa fa-chevron-left"></i> k8s-GPU管理与Device Plugin机制
+              <a href="/运维/k8s/k8s-api/" rel="next" title="k8s-api">
+                <i class="fa fa-chevron-left"></i> k8s-api
               </a>
             
           </div>
@@ -431,8 +440,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/数据结构与算法/基本数据结构python/" rel="prev" title="基本数据结构-python实现">
-                基本数据结构-python实现 <i class="fa fa-chevron-right"></i>
+              <a href="/数据结构与算法/一般算法/" rel="prev" title="一般算法">
+                一般算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -485,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -503,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">184</span>
+                  <span class="site-state-item-count">185</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -576,6 +594,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator"><span class="nav-number">1.</span> <span class="nav-text">Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#补"><span class="nav-number">1.1.</span> <span class="nav-text">补</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
