@@ -82,12 +82,12 @@
 
 
 
-<meta name="description" content="ServiceService 的概念Kubernetes Service 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 Pod 能够被 Service 访问到，通常是通过 Label Selector Service能够提供负载均衡的能力，但是在使用上有以下限制：只提供 4 层负载均衡能力，而没有 7 层功能，但有时我们可能需要更多的匹配规则来转发">
+<meta name="description" content="ServiceService 的概念Kubernetes Service 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 Pod 能够被 Service 访问到，通常是通过 Label Selector。 Service 是由 kube-proxy 组件，加上 iptables 来共同实现的。 Service能够提供负载均衡的能力，但是在使用上有以下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Service">
 <meta property="og:url" content="http://imwl.ml/运维/k8s/service/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="ServiceService 的概念Kubernetes Service 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 Pod 能够被 Service 访问到，通常是通过 Label Selector Service能够提供负载均衡的能力，但是在使用上有以下限制：只提供 4 层负载均衡能力，而没有 7 层功能，但有时我们可能需要更多的匹配规则来转发">
+<meta property="og:description" content="ServiceService 的概念Kubernetes Service 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 Pod 能够被 Service 访问到，通常是通过 Label Selector。 Service 是由 kube-proxy 组件，加上 iptables 来共同实现的。 Service能够提供负载均衡的能力，但是在使用上有以下">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/svc.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/clusterIP.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/LoadBalance.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/LoadBalance2.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/ExternalName.png">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-09T13:48:12.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Service">
-<meta name="twitter:description" content="ServiceService 的概念Kubernetes Service 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 Pod 能够被 Service 访问到，通常是通过 Label Selector Service能够提供负载均衡的能力，但是在使用上有以下限制：只提供 4 层负载均衡能力，而没有 7 层功能，但有时我们可能需要更多的匹配规则来转发">
+<meta name="twitter:description" content="ServiceService 的概念Kubernetes Service 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 Pod 能够被 Service 访问到，通常是通过 Label Selector。 Service 是由 kube-proxy 组件，加上 iptables 来共同实现的。 Service能够提供负载均衡的能力，但是在使用上有以下">
 <meta name="twitter:image" content="http://imwl.ml/images/blog_images/k8s/svc.png">
 
 
@@ -406,7 +406,8 @@
       
 
       
-        <h1 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h1><h2 id="Service-的概念"><a href="#Service-的概念" class="headerlink" title="Service 的概念"></a>Service 的概念</h2><p><code>Kubernetes Service</code> 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 <code>Pod</code> 能够被 <code>Service</code> 访问到，通常是通过 <code>Label Selector</code></p>
+        <h1 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h1><h2 id="Service-的概念"><a href="#Service-的概念" class="headerlink" title="Service 的概念"></a>Service 的概念</h2><p><code>Kubernetes Service</code> 定义了这样一种抽象：一个Pod的逻辑分组，一种可以访问它们的策略 —— 通常称为微服务。这一组 <code>Pod</code> 能够被 <code>Service</code> 访问到，通常是通过 <code>Label Selector</code>。</p>
+<p><code>Service</code> 是由 <code>kube-proxy</code> 组件，加上 iptables 来共同实现的。</p>
 <p><code>Service</code>能够提供负载均衡的能力，但是在使用上有以下限制：只提供 4 层负载均衡能力，而没有 7 层功能，但有时我们可能需要更多的匹配规则来转发请求，这点上 4 层负载均衡是不支持的</p>
 <p><img src="/images/blog_images/k8s/svc.png" alt="svc"></p>
 <h2 id="service-类型"><a href="#service-类型" class="headerlink" title="service 类型"></a>service 类型</h2><p><code>Service</code> 在 <code>K8s</code> 中 有以下四种类型</p>

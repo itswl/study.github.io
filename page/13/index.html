@@ -458,7 +458,7 @@ for i, color in enumerate(colors):    p
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/元编程/初探/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/鸭子类型/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -477,7 +477,7 @@ for i, color in enumerate(colors):    p
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/元编程/初探/" itemprop="url">初探元编程</a></h1>
+                <a class="post-title-link" href="/python/鸭子类型/" itemprop="url">鸭子类型</a></h1>
         
 
         <div class="post-meta">
@@ -551,11 +551,160 @@ for i, color in enumerate(colors):    p
       
         
           
-          typetype 是python 内置元类，为改变 Python 中类的行为（比如，SomeClass 的行为），我们可以通过继承 type 元类，定义一个自定义元类。元类是在 Python 中进行元编程的一种方法1234class SomeClass:    passsome_object = S
+          123456789101112131415161718192021222324class Duck:     @classmethod    def fly(cls):         print(&quot;Duck flying&quot;) class Airplane:    @static
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/元编程/初探/#more" rel="contents">
+            <a class="btn" href="/python/鸭子类型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/cookbook/record/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/python/cookbook/record/" itemprop="url">cookbook有感</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T11:05:31+08:00">
+                2019-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python练习/" itemprop="url" rel="index">
+                    <span itemprop="name">python练习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          解压可迭代对象赋值给多个变量12items = [1, 10, 7, 4, 5, (1,2,3)]head,*tail,(*_,end) =items
+保留最后 N 个元素12345678910111213from collections import deque    &gt;&gt;&gt; q
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/python/cookbook/record/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -757,7 +906,7 @@ DATETIME [8 bytes] :
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/鸭子类型/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/python列表操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -776,7 +925,7 @@ DATETIME [8 bytes] :
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/鸭子类型/" itemprop="url">鸭子类型</a></h1>
+                <a class="post-title-link" href="/python/python列表操作/" itemprop="url">python列表操作</a></h1>
         
 
         <div class="post-meta">
@@ -850,11 +999,11 @@ DATETIME [8 bytes] :
       
         
           
-          123456789101112131415161718192021222324class Duck:     @classmethod    def fly(cls):         print(&quot;Duck flying&quot;) class Airplane:    @static
+          1、迭代列表，如何访问列表下标索引普通版：12345678items = [8, 23, 45]for index in range(len(items)):    print(index, &quot;--&gt;&quot;, items[index])&gt;&gt;&gt;0 --&gt; 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/鸭子类型/#more" rel="contents">
+            <a class="btn" href="/python/python列表操作/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1058,7 +1207,7 @@ python 的 loggi
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/cookbook/record/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/元编程/初探/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1077,7 +1226,7 @@ python 的 loggi
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/cookbook/record/" itemprop="url">cookbook有感</a></h1>
+                <a class="post-title-link" href="/python/元编程/初探/" itemprop="url">初探元编程</a></h1>
         
 
         <div class="post-meta">
@@ -1151,314 +1300,11 @@ python 的 loggi
       
         
           
-          解压可迭代对象赋值给多个变量12items = [1, 10, 7, 4, 5, (1,2,3)]head,*tail,(*_,end) =items
-保留最后 N 个元素12345678910111213from collections import deque    &gt;&gt;&gt; q
+          typetype 是python 内置元类，为改变 Python 中类的行为（比如，SomeClass 的行为），我们可以通过继承 type 元类，定义一个自定义元类。元类是在 Python 中进行元编程的一种方法1234class SomeClass:    passsome_object = S
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/cookbook/record/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/python列表操作/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/python/python列表操作/" itemprop="url">python列表操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T11:05:31+08:00">
-                2019-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python练习/" itemprop="url" rel="index">
-                    <span itemprop="name">python练习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1、迭代列表，如何访问列表下标索引普通版：12345678items = [8, 23, 45]for index in range(len(items)):    print(index, &quot;--&gt;&quot;, items[index])&gt;&gt;&gt;0 --&gt; 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/python/python列表操作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/python一些规则/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/python/python一些规则/" itemprop="url">python的一些技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T11:05:31+08:00">
-                2019-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python练习/" itemprop="url" rel="index">
-                    <span itemprop="name">python练习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          变量有关于变量`
-
-定义 __str__ 方法的对象，可以使用 str() 函数 返回可读名称
-定义 __next__ 和 __iter__ 方法的对象，就可以被循环迭代
-定义 __bool 方法的对象，进行布尔值的判断时就会使用自定义的逻辑
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/python/python一些规则/#more" rel="contents">
+            <a class="btn" href="/python/元编程/初探/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1664,7 +1510,7 @@ pip install -user psutil
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/关于import路径/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/python一些规则/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1683,7 +1529,7 @@ pip install -user psutil
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/关于import路径/" itemprop="url">关于import</a></h1>
+                <a class="post-title-link" href="/python/python一些规则/" itemprop="url">python的一些技巧</a></h1>
         
 
         <div class="post-meta">
@@ -1695,8 +1541,8 @@ pip install -user psutil
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T11:05:31+08:00">
-                2019-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T11:05:31+08:00">
+                2019-07-09
               </time>
             
 
@@ -1757,11 +1603,165 @@ pip install -user psutil
       
         
           
-          12345678import syssys.path.append(&quot;..&quot;) # 将上层目录加入路径.sys.path.append(&quot;/home&quot;) # 将/home 加入路径.## 一个模块只能被导入一次from imp import *reload(s
+          变量有关于变量`
+
+定义 __str__ 方法的对象，可以使用 str() 函数 返回可读名称
+定义 __next__ 和 __iter__ 方法的对象，就可以被循环迭代
+定义 __bool 方法的对象，进行布尔值的判断时就会使用自定义的逻辑
+
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/python/python一些规则/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/软件安装方式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/基础知识/learn_linux/软件安装方式/" itemprop="url">软件安装方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T11:05:31+08:00">
+                2019-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          软件安装方式通用二进制格式：直接解压压缩文件，就可以使用。但一定要注意安装平台软件包管理器：如 rpm, deb (由于Linux中的程序大多是小程序。程序与程序之间存在非常复杂的依赖关系。包管理器无法解决软件包的依赖关系。)软件包管理器的前端工具：如 yum,apt ,dnf (建议使用 dnf 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/关于import路径/#more" rel="contents">
+            <a class="btn" href="/基础知识/learn_linux/软件安装方式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
