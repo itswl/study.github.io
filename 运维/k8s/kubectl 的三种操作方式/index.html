@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="kubectl 的三种操作方式kubectl 的核心功能在于通过 API Server 操作 Kubernetes 的各种资源对象  直接命令 命令式对象配置 声明式对象配置   直接通过 kubectl 命令及相关的选项创建资源对象的方式，即为直接命令式操作  12345# 创建名为nginx-deploy的Deployment控制器资源对象kubectl run nginx-deploy --">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/istio.png">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/istio.jpg">
+<meta property="og:updated_time" content="2021-01-11T12:04:08.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubectl 的三种操作方式">
 <meta name="twitter:description" content="kubectl 的三种操作方式kubectl 的核心功能在于通过 API Server 操作 Kubernetes 的各种资源对象  直接命令 命令式对象配置 声明式对象配置   直接通过 kubectl 命令及相关的选项创建资源对象的方式，即为直接命令式操作  12345# 创建名为nginx-deploy的Deployment控制器资源对象kubectl run nginx-deploy --">
-<meta name="twitter:image" content="http://imwl.ml/images/blog_images/k8s/istio.png">
+<meta name="twitter:image" content="http://imwl.ml/images/blog_images/k8s/istio.jpg">
 
 
 
@@ -419,7 +419,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f nginx-deploy.yaml -f nginx-svc.yaml</span><br></pre></td></tr></table></figure>
 <p>可以简单地理解为，<code>kubectl replace</code> 的执行过程，是使用新的 <code>YAML</code> 文件中的 <code>API</code> 对象，替换原有的 <code>API</code> 对象；而 <code>kubectl apply</code>，则是执行了一个对原有 <code>API</code> 对象的 <code>PATCH</code> 操作.</p>
 <p> <code>kube-apiserver</code> 在响应命令式请求（比如，<code>kubectl replace</code>）的时候，一次只能处理一个写请求，否则会有产生冲突的可能。而对于声明式请求（比如，<code>kubectl apply</code>），一次能处理多个写操作，并且具备 Merge 能力。</p>
-<h2 id="istio"><a href="#istio" class="headerlink" title="istio"></a>istio</h2><p>  <img src="/images/blog_images/k8s/istio.png" alt="istio"><br> 是一个基于 <code>Kubernetes</code> 项目的微服务治理框架。它的架构非常清晰.</p>
+<h2 id="istio"><a href="#istio" class="headerlink" title="istio"></a>istio</h2><p>  <img src="/images/blog_images/k8s/istio.jpg" alt="istio"><br> 是一个基于 <code>Kubernetes</code> 项目的微服务治理框架。它的架构非常清晰.</p>
 <p> <code>Istio</code> 最根本的组件，是运行在每一个应用 <code>Pod</code> 里的 <code>Envoy</code> 容器(高性能 C++ 网络代理)。<code>Istio</code> 项目的核心，就是由无数个运行在应用 <code>Pod</code> 中的 <code>Envoy</code> 容器组成的服务代理网格</p>
 <p> <code>Istio</code> 项目，则把这个代理服务以 <code>sidecar</code> 容器的方式，运行在了每一个被治理的应用 <code>Pod</code> 中。<code>Pod</code> 里的所有容器都共享同一个 <code>Network Namespace</code>。所以，<code>Envoy</code> 容器就能够通过配置 <code>Pod</code> 里的 <code>iptables</code> 规则，把整个 <code>Pod</code> 的进出流量接管下来。</p>
 <p> <code>Istio</code> 的控制层（<code>Control Plane</code>）里的 <code>Pilot</code> 组件，就能够通过调用每个 <code>Envoy</code> 容器的 <code>API</code>，对这个 <code>Envoy</code> 代理进行配置，从而实现微服务治理。</p>
@@ -545,7 +545,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-count">188</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

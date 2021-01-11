@@ -90,7 +90,7 @@
 <meta property="og:description" content="控制器说明Pod 分类主要是生命周期不一致  自主式  Pod :   Pod 退出了，就不会再被创建 控制器  Pod :   在控制器的生命周期里，始终要维持 Pod 的副本数目  命令式编程与声明式编程 命令式  :    侧重于如何实现程序，需要把程序的实现过程按照逻辑结果一步一步写下来  （rs） create 声明式编程  ：  侧重于定义想要什么，然后告诉计算机、引擎，让他帮你去实现">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/Deployment管理RS.png">
-<meta property="og:updated_time" content="2021-01-01T05:53:58.827Z">
+<meta property="og:updated_time" content="2021-01-11T12:04:08.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="控制器说明">
 <meta name="twitter:description" content="控制器说明Pod 分类主要是生命周期不一致  自主式  Pod :   Pod 退出了，就不会再被创建 控制器  Pod :   在控制器的生命周期里，始终要维持 Pod 的副本数目  命令式编程与声明式编程 命令式  :    侧重于如何实现程序，需要把程序的实现过程按照逻辑结果一步一步写下来  （rs） create 声明式编程  ：  侧重于定义想要什么，然后告诉计算机、引擎，让他帮你去实现">
@@ -458,17 +458,17 @@
 <p>比如 MySQL 镜像从 5.7.2 更新到 5.7.23，那么只有序号大于或者等于 2 的 Pod 会被更新到这个版本。并且，如果你删除或者重启了序号小于 2 的 Pod，等它再次启动后，也会保持原先的 5.7.2 版本，绝不会被升级到 5.7.23 版本</p>
 <h2 id="Horizontal-Pod-Autoscaling"><a href="#Horizontal-Pod-Autoscaling" class="headerlink" title="Horizontal Pod Autoscaling"></a>Horizontal Pod Autoscaling</h2><p>使 <code>Pod</code> 水平自动缩放。</p>
 <p>不是控制器，可以理解为控制器的附属品.仅适用于 <code>Deployment</code> 和 <code>ReplicaSet</code>.<br>在 <code>V1</code> 版本中仅支持根据 <code>Pod</code> 的 <code>CPU</code> 利用率扩所容，在 <code>v1alpha</code> 版本中，支持根据内存和用户自定义的 <code>metric</code> 扩缩容<br>eg：部署 <code>RS</code> 然后用 <code>HPA</code> 管理 <code>RS</code>.   CPU &gt;80% 扩容到3个节点 , CPU &lt; 60% 缩容到 2 个节点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl run php-apache --image=hpa-example --requests=cpu=200m --expose--port=80</span><br><span class="line"></span><br><span class="line">kubectl autoscale deployment php-apache --cpu-percent=50--min=1--max=10</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl run php-apache --image=hpa-example --requests=cpu=200m --expose--port=80</span><br><span class="line"></span><br><span class="line">kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10</span><br></pre></td></tr></table></figure>
 <h2 id="资源限制"><a href="#资源限制" class="headerlink" title="资源限制"></a>资源限制</h2><p><code>kubernetes</code> 中对容器的限制实际是通过 <code>CGroup</code> 来实现的。</p>
 <h3 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h3><p>默认情况下，<code>Pod</code> 运行没有 <code>CPU</code> 和<code>内存</code>的限额。这意味着系统中的任何 <code>Pod</code> 将能够像执行该 <code>Pod</code> 所在的节点一样，消耗足够多的 <code>CPU</code> 和<code>内存</code>。一般会针对某些应用的 <code>pod</code> 资源进行资源限制，这个资源限制是通过 <code>resources</code> 的 <code>requests</code> 和 <code>limits</code> 来实现</p>
-<p>在 <code>Kubernetes</code> 中，像 <code>CPU</code> 这样的资源被称作“可压缩资源”（compressible resources）。它的典型特点是，当可压缩资源不足时，Pod 只会“饥饿”，但不会退出。</p>
-<p>而像<code>内存</code>这样的资源，则被称作“不可压缩资源（incompressible resources）。当不可压缩资源不足时，<code>Pod</code> 就会因为 <code>OOM（Out-Of-Memory）</code> 被内核杀掉。</p>
+<p>在 <code>Kubernetes</code> 中，像 <code>CPU</code> 这样的资源被称作“可压缩资源”（ <code>compressible resources</code> ）。它的典型特点是，当可压缩资源不足时，<code>Pod</code> 只会“饥饿”，但不会退出。</p>
+<p>而像<code>内存</code>这样的资源，则被称作“不可压缩资源（ <code>incompressible resources</code> ）。当不可压缩资源不足时，<code>Pod</code> 就会因为 <code>OOM（Out-Of-Memory）</code> 被内核杀掉。</p>
 <p>假设是一个节点4个核心<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">spec:</span><br><span class="line">  containers:      </span><br><span class="line">  - image: xxxx        </span><br><span class="line">    imagePullPolicy: Always        </span><br><span class="line">    name: auth        </span><br><span class="line">    ports:        </span><br><span class="line">    - containerPort: 8080          </span><br><span class="line">      protocol: TCP        </span><br><span class="line">    resources:          </span><br><span class="line">      limits:       # 最大值</span><br><span class="line">        cpu: &quot;4&quot;            </span><br><span class="line">        memory: 2Gi           </span><br><span class="line">      requests:     # 初始值        </span><br><span class="line">        cpu: 250m     # 等同于0.25个    即请求 250/4000 的核心 </span><br><span class="line">        memory: 250M   # 1Mi=1024*1024；1M=1000*1000</span><br></pre></td></tr></table></figure></p>
 <p>根据 设置的 <code>Requests</code> 和 <code>limit</code> , <code>kubernetes</code>  支持了三种  <code>QOS</code> 级别。 资源紧张时，会根据分级 决定调度和驱逐策略。</p>
 <ol>
 <li><code>BestEffort</code> : 优先级最低， pod 中没设置   <code>Requests</code> 和 <code>limit</code></li>
 <li><code>Burstable</code> : 中等优先级， 至少定义了  <code>Requests</code> ,或者 <code>Requests</code> 和 <code>limit</code> 不相等。</li>
-<li><code>Guranteed</code> : 高优先级，<code>cpu.limits = cpu.requests</code>, <code>memory.limits = memory.requests</code></li>
+<li><code>Guaranteed</code> : 高优先级，<code>cpu.limits = cpu.requests</code>, <code>memory.limits = memory.requests</code>。 只定义了 <code>limits</code> 则 <code>requests</code> 和 <code>limits</code> 相等 </li>
 </ol>
 <p><code>cpuset</code> 方式，是生产环境里部署在线应用类型的 <code>Pod</code> 时，非常常用的一种方式。这种情况下，由于操作系统在 <code>CPU</code> 之间进行上下文切换的次数大大减少，容器里应用的性能会得到大幅提升</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: nginx</span><br><span class="line">    image: nginx</span><br><span class="line">    resources:</span><br><span class="line">      limits:   # limits 与 requests 相等， 必须是 Guaranteed 的 QoS 类型</span><br><span class="line">        memory: &quot;200Mi&quot;</span><br><span class="line">        cpu: &quot;2&quot;   # CPU 资源设置为一个相等的整数值</span><br><span class="line">      requests:</span><br><span class="line">        memory: &quot;200Mi&quot;</span><br><span class="line">        cpu: &quot;2&quot;</span><br></pre></td></tr></table></figure>
@@ -590,7 +590,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-count">188</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
