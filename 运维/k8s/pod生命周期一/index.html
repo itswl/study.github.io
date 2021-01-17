@@ -90,7 +90,7 @@
 <meta property="og:description" content="Pod 生命周期  init 容器init 容器与普通的容器非常像,除了：  init 容器总是运行到成功完成为止 每个 init 容器都必须在下一个 init 容器容器启动前完成  tips: 实际上最先生成 pause 容器 Pod 的 init 容器失败，kubernetes 会不断地重启该 Pod，直到 init 容器成功为止。如果 Pod 对应的 restartPolicy 为 Neve">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/容器生命周期.png">
-<meta property="og:updated_time" content="2021-01-17T14:13:02.680Z">
+<meta property="og:updated_time" content="2021-01-17T15:41:56.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pod 生命周期一">
 <meta name="twitter:description" content="Pod 生命周期  init 容器init 容器与普通的容器非常像,除了：  init 容器总是运行到成功完成为止 每个 init 容器都必须在下一个 init 容器容器启动前完成  tips: 实际上最先生成 pause 容器 Pod 的 init 容器失败，kubernetes 会不断地重启该 Pod，直到 init 容器成功为止。如果 Pod 对应的 restartPolicy 为 Neve">
@@ -416,9 +416,9 @@
 <li>它们必须在应用程序容器启动之前运行完成，而应用程序容器是并行运行的，所以Init容器能够提供了一种简单的阻塞或延迟应用容器的启动的方法，直到满足了- -组先决条件。</li>
 </ol>
 <h2 id="容器探针"><a href="#容器探针" class="headerlink" title="容器探针"></a>容器探针</h2><ol>
-<li><code>livenessProbe</code> : 指示容器是否正在运行。如果存活探测失败，则 <code>kubelet</code> 会杀死 容器 ，并且容器将受到其 重启策略 的影响。如果容器不提供存活探针，则默认状态为 Success。</li>
-<li><code>readinessProbe</code> :  指示容器是否准备好服务请求。如果就绪探测失败，端点控制器将从与 <code>Pod</code> 匹配所有的 <code>Service</code> 的 <code>endpoint</code> 中删除该 <code>Pod</code> 的 <code>IP</code> 地址。 初始延迟之前的就绪状态 默认为 <code>Failure</code>。 如果容器不提供就绪探针，则默认状态为 Success。</li>
-<li><code>v1.18</code>  新增  <code>startupProbe</code> : 用于判断容器是否已启动好，如果探测失败，则 <code>kubelet</code> 会杀死 容器 ，并且容器将受到其 重启策略 的影响。如果容器不提供此探针，则默认状态为 Success。</li>
+<li><strong>5 秒</strong> <code>livenessProbe</code> : 指示容器是否正在运行。如果存活探测失败，则 <code>kubelet</code> 会杀死 容器 ，并且容器将受到其 重启策略 的影响。如果容器不提供存活探针，则默认状态为 Success。</li>
+<li><strong>10 秒</strong><code>readinessProbe</code> :  指示容器是否准备好服务请求。如果就绪探测失败，端点控制器将从与 <code>Pod</code> 匹配所有的 <code>Service</code> 的 <code>endpoint</code> 中删除该 <code>Pod</code> 的 <code>IP</code> 地址。 初始延迟之前的就绪状态 默认为 <code>Failure</code>。 如果容器不提供就绪探针，则默认状态为 Success。</li>
+<li><strong>startupProbe 通过后上面两个探针才会检测</strong> <code>startupProbe</code> ,<code>v1.18</code>  新增 : 用于判断容器是否已启动好，如果探测失败，则 <code>kubelet</code> 会杀死 容器 ，并且容器将受到其 重启策略 的影响。如果容器不提供此探针，则默认状态为 Success。</li>
 </ol>
 <p>探针是由 <code>kubelet</code> 对容器执行的定期诊断。要执行诊断，<code>kubelet</code> 调用由容器实现的 <code>Handler</code> 。有三种类型的处理程序。(<code>k8s</code> 为这些 <code>Probe</code> 内置的三个 <code>Handler</code> )</p>
 <ol>

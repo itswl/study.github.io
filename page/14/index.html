@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/python列表操作/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/cookbook/record/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/python列表操作/" itemprop="url">python列表操作</a></h1>
+                <a class="post-title-link" href="/python/cookbook/record/" itemprop="url">cookbook有感</a></h1>
         
 
         <div class="post-meta">
@@ -401,11 +401,12 @@
       
         
           
-          1、迭代列表，如何访问列表下标索引普通版：12345678items = [8, 23, 45]for index in range(len(items)):    print(index, &quot;--&gt;&quot;, items[index])&gt;&gt;&gt;0 --&gt; 
+          解压可迭代对象赋值给多个变量12items = [1, 10, 7, 4, 5, (1,2,3)]head,*tail,(*_,end) =items
+保留最后 N 个元素12345678910111213from collections import deque    &gt;&gt;&gt; q
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/python列表操作/#more" rel="contents">
+            <a class="btn" href="/python/cookbook/record/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1664,7 +1665,7 @@ pathlib 提供表示文件系统路径的类，适用于不同的操作系统
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/readme/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/bash_shell/readme/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1683,7 +1684,7 @@ pathlib 提供表示文件系统路径的类，适用于不同的操作系统
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/readme/" itemprop="url">杂</a></h1>
+                <a class="post-title-link" href="/基础知识/learn_linux/bash_shell/readme/" itemprop="url">基础</a></h1>
         
 
         <div class="post-meta">
@@ -1718,8 +1719,8 @@ pathlib 提供表示文件系统路径的类，适用于不同的操作系统
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -1757,12 +1758,20 @@ pathlib 提供表示文件系统路径的类，适用于不同的操作系统
       
         
           
-          python中变量名   指向的  是 对象的地址，不是对象的值
+          基础
+.bash_history 历史记录
+Tab 补全
+alias 命令别名， alias lm = ‘ls -al’ , unalias lm (临时)  vi /root/.bashrc （永久）
+type cd 命令类型 
+\ 转义
 
-          
+变量
+变量未设置时，默认为空
+PATH=$PATH:/h
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/readme/#more" rel="contents">
+            <a class="btn" href="/基础知识/learn_linux/bash_shell/readme/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
