@@ -90,7 +90,7 @@
 <meta property="og:description" content="Pod 生命周期  init 容器init 容器与普通的容器非常像,除了：  init 容器总是运行到成功完成为止 每个 init 容器都必须在下一个 init 容器容器启动前完成  tips: 实际上最先生成 pause 容器 Pod 的 init 容器失败，kubernetes 会不断地重启该 Pod，直到 init 容器成功为止。如果 Pod 对应的 restartPolicy 为 Neve">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/容器生命周期.png">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-17T14:13:02.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pod 生命周期一">
 <meta name="twitter:description" content="Pod 生命周期  init 容器init 容器与普通的容器非常像,除了：  init 容器总是运行到成功完成为止 每个 init 容器都必须在下一个 init 容器容器启动前完成  tips: 实际上最先生成 pause 容器 Pod 的 init 容器失败，kubernetes 会不断地重启该 Pod，直到 init 容器成功为止。如果 Pod 对应的 restartPolicy 为 Neve">
@@ -417,8 +417,8 @@
 </ol>
 <h2 id="容器探针"><a href="#容器探针" class="headerlink" title="容器探针"></a>容器探针</h2><ol>
 <li><code>livenessProbe</code> : 指示容器是否正在运行。如果存活探测失败，则 <code>kubelet</code> 会杀死 容器 ，并且容器将受到其 重启策略 的影响。如果容器不提供存活探针，则默认状态为 Success。</li>
-<li><code>readinessProbe</code> :  指示容器是否准备好服务请求。如果就绪探测失败，端点控制器将从与 <code>Pod</code> 匹配所有的 <code>Service</code> 的端点中删除该 <code>Pod</code> 的 <code>IP</code> 地址。 初始延迟之前的就绪状态 默认为 <code>Failure</code>。 如果容器不提供就绪探针，则默认状态为 Success。</li>
-<li>新增  <code>startupProbe</code> : 用于判断容器是否已启动好，如果探测失败，则 <code>kubelet</code> 会杀死 容器 ，并且容器将受到其 重启策略 的影响。如果容器不提供此探针，则默认状态为 Success。</li>
+<li><code>readinessProbe</code> :  指示容器是否准备好服务请求。如果就绪探测失败，端点控制器将从与 <code>Pod</code> 匹配所有的 <code>Service</code> 的 <code>endpoint</code> 中删除该 <code>Pod</code> 的 <code>IP</code> 地址。 初始延迟之前的就绪状态 默认为 <code>Failure</code>。 如果容器不提供就绪探针，则默认状态为 Success。</li>
+<li><code>v1.18</code>  新增  <code>startupProbe</code> : 用于判断容器是否已启动好，如果探测失败，则 <code>kubelet</code> 会杀死 容器 ，并且容器将受到其 重启策略 的影响。如果容器不提供此探针，则默认状态为 Success。</li>
 </ol>
 <p>探针是由 <code>kubelet</code> 对容器执行的定期诊断。要执行诊断，<code>kubelet</code> 调用由容器实现的 <code>Handler</code> 。有三种类型的处理程序。(<code>k8s</code> 为这些 <code>Probe</code> 内置的三个 <code>Handler</code> )</p>
 <ol>
@@ -426,6 +426,7 @@
 <li><code>TCPSocketAction</code> : 对指定端口上的容器的 <code>IP</code> 地址进行 <code>TCP</code> 检查。如果端口打开，则诊断被认为是成功的。 </li>
 <li><code>HTTPGetAction</code> : 对指定的端口和路径上的容器 <code>IP</code> 地址执行 <code>HTTP Get</code> 请求。响应码 <code>200 ~400(不包含400)</code> ，则诊断认为是成功的。</li>
 </ol>
+<p>一旦容器通过了 <code>startupProbe</code> 后， <code>Kubelet</code> 会每隔 <code>5</code> 秒钟进行一次探活检测 （<code>livenessProbe</code>），每隔 <code>10</code> 秒进行一次就绪检测（<code>readinessProbe</code>）。</p>
 <p>探测结果：</p>
 <ol>
 <li>成功： 容器通过了诊断</li>
@@ -435,10 +436,12 @@
 <h4 id="重启策略"><a href="#重启策略" class="headerlink" title="重启策略"></a>重启策略</h4><p><code>PodSpec</code> 中 <code>restartPolicy</code> 字段，适用于 <code>Pod</code> 中所有容器。 值为 : <code>Always</code>, <code>OnFailure</code>,<code>Never</code> 。 没有此字段默认为 <code>Always</code>。</p>
 <p><code>restartPolicy</code> 仅指通过 同一节点上的 <code>kubelet</code> 重新启动容器。</p>
 <h2 id="Pod-hook"><a href="#Pod-hook" class="headerlink" title="Pod hook"></a>Pod hook</h2><p><code>Pod hook（钩子）</code> 是 <code>kubelet</code> 发起，当容器的进程启动前或者容器中的进程终止前运行，这是包含在容器的生命周期之中，可以同时为 <code>Pod</code> 中所有容器都配置 <code>hook</code></p>
-<p><code>hook</code> 类型</p>
+<p>支持的 <code>hook</code> 类型:<br><code>postStart</code>：    容器创建后立即执行，注意由于是异步执行，它无法保证一定在 <code>ENTRYPOINT</code>    之前运行。如果失败，容器会被杀死，并根据    <code>RestartPolicy</code>    决定是 否重启 </p>
+<p><code>preStop</code>：容器终止前执行，常用于资源清理。如果失败，容器同样也会被杀死</p>
+<p>钩子的回调函数支持两种方式:</p>
 <ol>
 <li><code>exec</code> : 执行一段命令</li>
-<li><code>HTTP</code> ： 发送 <code>HTTP</code> 请求</li>
+<li><code>HTTPGET</code> ： 发送 <code>HTTP</code> 请求</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:  </span><br><span class="line">  name: lifecycle-demo</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: lifecycle-demo-container    </span><br><span class="line">    image: nginx    </span><br><span class="line">    lifecycle:      </span><br><span class="line">      postStart:   # 启动前动作     </span><br><span class="line">        exec:          </span><br><span class="line">          command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;echo Hello from the postStart handler &gt;/usr/share/message&quot;]      </span><br><span class="line">      preStop:     # 退出前动作   </span><br><span class="line">        exec:</span><br><span class="line">          command: [&quot;/usr/sbin/nginx&quot;, &quot;-s&quot;, &quot;quit&quot;]   # 优雅退出</span><br></pre></td></tr></table></figure>
 <h2 id="Pod-phase"><a href="#Pod-phase" class="headerlink" title="Pod phase"></a>Pod phase</h2><p><code>Pod</code> 的 <code>status</code> 字段是一个 <code>PodStatus</code> 对象，<code>PodStatus</code> 中有一个 <code>phase（相位）</code> 字段，是对 <code>Pod</code> 在其生命周期中的简单宏观概述。</p>
@@ -525,7 +528,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/运维/k8s/Pod 生命周期二/" rel="prev" title="Pod 生命周期二">
+              <a href="/运维/k8s/pod 生命周期二/" rel="prev" title="Pod 生命周期二">
                 Pod 生命周期二 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -606,7 +609,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">188</span>
+                  <span class="site-state-item-count">190</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

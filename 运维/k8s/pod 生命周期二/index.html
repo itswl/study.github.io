@@ -85,11 +85,11 @@
 <meta name="description" content="init 模板init-example.yaml  123456789101112131415161718apiVersion: v1kind: Podmetadata:  name: myapp-pod  labels:    app: myappspec:  containers:  - name: myapp-container    image: busybox    command: [">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pod 生命周期二">
-<meta property="og:url" content="http://imwl.ml/运维/k8s/Pod 生命周期二/index.html">
+<meta property="og:url" content="http://imwl.ml/运维/k8s/pod 生命周期二/index.html">
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="init 模板init-example.yaml  123456789101112131415161718apiVersion: v1kind: Podmetadata:  name: myapp-pod  labels:    app: myappspec:  containers:  - name: myapp-container    image: busybox    command: [">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-11T12:04:08.040Z">
+<meta property="og:updated_time" content="2021-01-17T14:13:02.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pod 生命周期二">
 <meta name="twitter:description" content="init 模板init-example.yaml  123456789101112131415161718apiVersion: v1kind: Podmetadata:  name: myapp-pod  labels:    app: myappspec:  containers:  - name: myapp-container    image: busybox    command: [">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/运维/k8s/Pod 生命周期二/">
+  <link rel="canonical" href="http://imwl.ml/运维/k8s/pod 生命周期二/">
 
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/Pod 生命周期二/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/pod 生命周期二/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -421,6 +421,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete pod --all</span><br></pre></td></tr></table></figure>
 <h2 id="存活-就绪-检测-startup-检测（1-18-版本）"><a href="#存活-就绪-检测-startup-检测（1-18-版本）" class="headerlink" title="存活+就绪 检测  + startup 检测（1.18 版本）"></a>存活+就绪 检测  + startup 检测（1.18 版本）</h2><p>liveness-readiness.yaml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:  </span><br><span class="line">  name: liveness-readiness-pod  </span><br><span class="line">  namespace: default</span><br><span class="line">spec:  </span><br><span class="line">  containers:  </span><br><span class="line">  - name: liveness-readiness-container    </span><br><span class="line">    image: nginx:1.7.9      </span><br><span class="line">    imagePullPolicy: IfNotPresent    </span><br><span class="line">    readinessProbe:      # 关键字</span><br><span class="line">      httpGet:        </span><br><span class="line">        port: 80        </span><br><span class="line">        path: /index1.html      </span><br><span class="line">      initialDelaySeconds: 1  # 触发延时</span><br><span class="line">      periodSeconds: 3  # 重试间隔时间</span><br><span class="line">    livenessProbe:      </span><br><span class="line">      httpGet:        </span><br><span class="line">        port: http        </span><br><span class="line">        path: /index.html      </span><br><span class="line">      initialDelaySeconds: 1      </span><br><span class="line">      periodSeconds: 3      </span><br><span class="line">      timeoutSeconds: 10</span><br><span class="line">    startupProbe:    #   最先进行 startupProbe,3次没通过就重启，通过后 进行 另外两个检测</span><br><span class="line">      httpGet:</span><br><span class="line">        path: /index.html</span><br><span class="line">        port: 80</span><br><span class="line">      failureThreshold: 3   #失败阈值</span><br><span class="line">      periodSeconds: 2</span><br></pre></td></tr></table></figure>
+<p>一旦容器通过了 <code>startupProbe</code> 后，<code>Kubelet</code> 会每隔 <code>5</code> 秒钟进行一次探活检测 （<code>livenessProbe</code>），每隔 <code>10</code> 秒进行一次就绪检测（<code>readinessProbe</code>）。</p>
 <h2 id="启动、退出动作"><a href="#启动、退出动作" class="headerlink" title="启动、退出动作"></a>启动、退出动作</h2><p>start_stop.yaml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:  </span><br><span class="line">  name: lifecycle-demo</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: lifecycle-demo-container    </span><br><span class="line">    image: nginx    </span><br><span class="line">    lifecycle:      </span><br><span class="line">      postStart:   # 启动动作     </span><br><span class="line">        exec:          </span><br><span class="line">          command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;echo Hello from the postStart handler &gt;/usr/share/message&quot;]      </span><br><span class="line">      preStop:     # 退出动作   </span><br><span class="line">        exec:</span><br><span class="line">          command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;echo Hello from the poststop handler &gt;/usr/share/message&quot;]</span><br></pre></td></tr></table></figure></p>
 <p>查看显示</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s01 ~]# kubectl exec lifecycle-demo -it -- /bin/bash </span><br><span class="line"></span><br><span class="line">root@lifecycle-demo:/# cat /usr/share/message</span><br><span class="line">Hello from the postStart handler  # start 成功</span><br></pre></td></tr></table></figure>
@@ -458,8 +459,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/运维/k8s/service/" rel="prev" title="Service">
-                Service <i class="fa fa-chevron-right"></i>
+              <a href="/运维/k8s/pod生命周期-创建与删除/" rel="prev" title="pod生命周期-创建与删除">
+                pod生命周期-创建与删除 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">188</span>
+                  <span class="site-state-item-count">190</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

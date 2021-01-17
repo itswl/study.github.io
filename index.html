@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/pod生命周期-创建与删除/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/istio/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/运维/k8s/pod生命周期-创建与删除/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/运维/k8s/istio/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-11T20:04:08+08:00">
-                2021-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-14T20:29:44+08:00">
+                2021-01-14
               </time>
             
 
@@ -379,12 +379,11 @@
       
         
           
-          测试
-
-          
+          安装1234567891011121314151617181920212223[root@k8s01 ~]# curl -L https://istio.io/downloadIstio | sh -  % Total    % Received % Xferd  Average Speed   T
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/运维/k8s/pod生命周期-创建与删除/#more" rel="contents">
+            <a class="btn" href="/运维/k8s/istio/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1595,7 +1594,7 @@ docker-compose
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/k8s-gpu/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/k8s-api/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1614,7 +1613,7 @@ docker-compose
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/运维/k8s/k8s-gpu/" itemprop="url">k8s-GPU管理与Device Plugin机制</a></h1>
+                <a class="post-title-link" href="/运维/k8s/k8s-api/" itemprop="url">k8s-api</a></h1>
         
 
         <div class="post-meta">
@@ -1688,12 +1687,14 @@ docker-compose
       
         
           
-          GPU管理对于云的用户来说，在 GPU 的支持上，他们最基本的诉求其实非常简单：只要在 Pod 的 YAML 里面，声明某容器需要的 GPU 个数，那么 Kubernetes 创建的容器里就应该出现对应的 GPU 设备，以及它对应的驱动目录 。
-以 NVIDIA 的 GPU 设备为例，上面的需求就意
+          简介 123apiVersion: batch/v2alpha1kind: CronJob...
+
+CronJob  : 这个 API 对象的资源类型（Resource），
+batch    : 它的组（Group）， (Pod、Node 等，是不需要 Group 的（即：它们的 Group 是’’
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/运维/k8s/k8s-gpu/#more" rel="contents">
+            <a class="btn" href="/运维/k8s/k8s-api/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1783,7 +1784,7 @@ docker-compose
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">188</span>
+                  <span class="site-state-item-count">190</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

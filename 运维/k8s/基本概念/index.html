@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/常见Deployment对象示例.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/独立组件.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/静态Pod模式.png">
-<meta property="og:updated_time" content="2021-01-11T12:04:08.050Z">
+<meta property="og:updated_time" content="2021-01-17T14:13:02.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="k8s基本概念">
 <meta name="twitter:description" content="NamespaceNamespace 可以将一个物理的 cluster 逻辑上划分为多个虚拟 cluster 。每个cluster 就是一个Namespace 。不同的 Namespace 里的资源是完全隔离的。( 不能实现pod 间网络通讯隔离，仅用来限制资源对象名称的作用域) default :  创建资源时，默认放入 这个 Namespace  中 kube-system : Kuberne">
@@ -417,9 +417,11 @@
 <p><code>etcd</code> ： 负责保存 <code>Kubernetes Cluster</code> 的配置信息和各种资源的状态信息。当数据发生变化时，<code>etcd</code> 会快速地通知 <code>Kubernetes</code>相关组件。(只与 <code>API Service</code> 交互)</p>
 <p><img src="/images/blog_images/k8s/网络.png" alt="K8S架构"></p>
 <p><code>Pod网络</code>： 实现 <code>Pod</code> 间的相互通信  eg： <code>flannel</code></p>
-<p><strong>Node 节点</strong><br><code>kubelet</code>: 运行在 <code>Cluster</code> 所有节点上，负责启动 Pod 和容器。<code>kubelet</code> 是 <code>Node</code> 的 <code>agent</code> ,当 <code>Scheduler</code> 确定在 某个 <code>Node</code> 上运行 <code>Pod</code> 后，会将 <code>Pod</code> 的具体配置信息（<code>image</code>,<code>volume</code> 等）发送给 该节点的 <code>kubelet</code> ,<code>kubelet</code> 根据这些信息创建和运行容器，并向 <code>Master</code> 报告运行状态。</p>
-<p><code>kube-proxy</code> : 集群中每个节点上运行的网络代理， 实现 Kubernetes 服务（Service） 概念的一部分</p>
+<p><strong>Node 节点</strong><br><code>kubelet</code>: 运行在 <code>Cluster</code> 所有节点上，负责启动 Pod 和容器。<code>kubelet</code> 是 <code>Node</code> 的 <code>agent</code> ,当 <code>Scheduler</code> 确定在 某个 <code>Node</code> 上运行 <code>Pod</code> 后，会将 <code>Pod</code> 的具体配置信息（<code>image</code>,<code>volume</code> 等）发送给 该节点的 <code>kubelet</code> ,<code>kubelet</code> 根据这些信息创建和运行容器，并向 <code>Master</code> 报告运行状态。 <code>kubelet</code> 进程会定时向 <code>APIService</code> 汇报 “心跳”。一段时间内 心跳包没更新，那么  <code>kubectl controller manager</code> 就会将其 标记为 <code>NodeLost</code></p>
+<p><code>kube-proxy</code> : 集群中每个节点上运行的网络代理， 实现 <code>Kubernetes</code> 服务（<code>Service</code>） 概念的一部分。每台机器上都运行一个    <code>kube-proxy</code>    服务，它监<code>API    server</code>    中    <code>service</code>    和    <code>endpoint</code>    的 变化情况，并通过    <code>iptables</code>    等来为服务配置负载均衡（仅支持    <code>TCP</code>    和    <code>UDP</code>)</p>
 <p><code>Container Runtime</code> : 容器运行环境是负责运行容器的软件,支持多个容器运行环境: <code>Docker</code> (1.20开始移除，预计 1.23 正式移除)、 <code>containerd</code>、 <code>CRI-O</code> 以及任何实现 <code>Kubernetes CRI</code> (容器运行环境接口)。</p>
+<p><strong>补</strong></p>
+<p>当通过 <code>Service</code>  的域名访问， 会通过 <code>CoreDNS</code> 解析出 <code>Service</code> 对应的 <code>Cluster IP</code>(虚拟 <code>IP</code>)。 请求到达宿主机网络后， 就会被 <code>kube-proxy</code> 所配置的 <code>iptables</code> 规则拦截，之后请求回被转发到每一个实际的后端 <code>Pod</code> 上面去</p>
 <h4 id="kubeadm-kubectl"><a href="#kubeadm-kubectl" class="headerlink" title="kubeadm,kubectl"></a>kubeadm,kubectl</h4><p><code>kubeadm</code>  : 用于初始化 <code>Cluster</code></p>
 <p><code>kubectl</code> : <code>Kubernetes</code> 命令行工具，可以通过 <code>kubectl</code>  部署和管理应用，查看各种资源的，创建、删除和更新各种组件。(kubelet会在API Server上注册当前工作节点，定期向Master汇报节点资源使用情况，并通过cAdvisor监控容器和节点的资源占用状况)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes  # 查看节点的状态</span><br><span class="line">kubectl get pod --all-namespaces  # 查看所有命名空间的pod</span><br><span class="line">kubectl get pod --all-namespaces -o wide # 查看所有命名空间的pod，并显示详细信息</span><br><span class="line">kubectl describe pod -n kube-system etcd-k8s01   # 查看namespace 为 kube-system  pod 为 etcd-k8s01 的具体情况</span><br></pre></td></tr></table></figure>
@@ -441,6 +443,7 @@
 <p><code>Port</code> : <cluster ip="">:port       提供给集群内部访问 <code>service</code> 的入口<br><code>NodePort</code> : <node ip="">:NodePort  提供给集群外部访问 <code>service</code> 的入口<br><code>targetPort</code> : 从 <code>Port</code> 或 <code>NodePort</code> 上来的数据最终经过 <code>kube-proxy</code> 流入到后端<code>Pod</code> 的 <code>targetPort</code> 进入容器.<br><code>containerPort</code> : 容器内部的 <code>port</code>,映射到  <code>targetPort</code></node></cluster></p>
 <p>eg:<code>docker run -p 16379:6379 --name k8s-redis redis redis-server</code></p>
 <p><code>16379(targetPort) 实际访问的 6379(containerPo)</code> </p>
+<p>当通过 <code>Service</code>  的域名访问， 会通过 <code>CoreDNS</code> 解析出 <code>Service</code> 对应的 <code>Cluster IP</code>(虚拟 <code>IP</code>)。 请求到达宿主机网络后， 就会被 <code>kube-proxy</code> 所配置的 <code>iptables</code> 规则拦截，之后请求回被转发到每一个实际的后端 <code>Pod</code> 上面去</p>
 <h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl run httpd-app --image=httpd --replicas=2</span><br></pre></td></tr></table></figure>
 <ol>
 <li><code>kubectl</code> 发送 部署请求到 <code>API Server</code></li>
@@ -573,7 +576,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">188</span>
+                  <span class="site-state-item-count">190</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
