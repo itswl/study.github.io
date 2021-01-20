@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/常见Deployment对象示例.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/独立组件.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/静态Pod模式.png">
-<meta property="og:updated_time" content="2021-01-17T14:13:02.680Z">
+<meta property="og:updated_time" content="2021-01-20T12:50:56.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="k8s基本概念">
 <meta name="twitter:description" content="NamespaceNamespace 可以将一个物理的 cluster 逻辑上划分为多个虚拟 cluster 。每个cluster 就是一个Namespace 。不同的 Namespace 里的资源是完全隔离的。( 不能实现pod 间网络通讯隔离，仅用来限制资源对象名称的作用域) default :  创建资源时，默认放入 这个 Namespace  中 kube-system : Kuberne">
@@ -427,6 +427,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes  # 查看节点的状态</span><br><span class="line">kubectl get pod --all-namespaces  # 查看所有命名空间的pod</span><br><span class="line">kubectl get pod --all-namespaces -o wide # 查看所有命名空间的pod，并显示详细信息</span><br><span class="line">kubectl describe pod -n kube-system etcd-k8s01   # 查看namespace 为 kube-system  pod 为 etcd-k8s01 的具体情况</span><br></pre></td></tr></table></figure>
 <p><code>service</code> : Service是建立在一组Pod对象之上的资源抽象，它通过标签选择器<br>选定一组Pod对象, 定义了 外界访问一组特定 <code>Pod</code> 的方式 (eg : 这组Pod对象定义一个统一的固定访问入口)， <code>service</code>有自己的 IP和端口，为 <code>Pod</code> 提供了负载均衡。<br>(Service对象创建完成后即可作为服务被各客户端访问，但要真正响应这些请求，还是要依赖于各后端的资源对象。)</p>
 <p>(并不配置于任何主机或容器的网络接口之上，而是通过 <code>Node</code> 之上的 <code>kube-proxy</code> 配置为 <code>iptables</code>或 <code>ipvs</code> 规则，从而将发往此地址的所有流量调度至其后端的各 <code>Pod</code> 对象之上。<code>Service</code> 网络在 <code>Kubernetes</code> 集群创建时予以指定，而各 <code>Service</code> 的地址则在用户创建Service时予以动态配置。)</p>
+<p><strong>补</strong><br><code>ipvs</code>  3 个 pod</p>
+<ol>
+<li>生成一个 <code>service</code> 时， <code>kube-proxy</code> 会 先在宿主机创建 一个虚拟网卡 eg: kube-ipvs0, 并以 <code>Service IP</code> 作为 <code>IP</code> 地址。</li>
+<li><code>kube-proxy</code> 通过 <code>linux</code> 的 <code>IPVS</code> 模块 为 这个  <code>IP</code> 地址 设置  3 个 虚拟主机 （负载均衡策略为 轮询）. 虚拟主机的 <code>ip</code> 和 端口 正是 对应被代理的三个 <code>pod</code></li>
+</ol>
+<p>不需要为每个 <code>pod</code> 设置 <code>iptalbes</code> 规则，而是将这些 <code>规则</code> 放到内核态，降低了维护规则的代价。  但 包过滤，SNAT等 还需要 iptables 实现</p>
 <p><img src="/images/blog_images/k8s/Service架构.png" alt="Service架构"></p>
 <p><code>Service</code> 主要有三种常用类型</p>
 <ol>
@@ -443,7 +449,7 @@
 <p><code>Port</code> : <cluster ip="">:port       提供给集群内部访问 <code>service</code> 的入口<br><code>NodePort</code> : <node ip="">:NodePort  提供给集群外部访问 <code>service</code> 的入口<br><code>targetPort</code> : 从 <code>Port</code> 或 <code>NodePort</code> 上来的数据最终经过 <code>kube-proxy</code> 流入到后端<code>Pod</code> 的 <code>targetPort</code> 进入容器.<br><code>containerPort</code> : 容器内部的 <code>port</code>,映射到  <code>targetPort</code></node></cluster></p>
 <p>eg:<code>docker run -p 16379:6379 --name k8s-redis redis redis-server</code></p>
 <p><code>16379(targetPort) 实际访问的 6379(containerPo)</code> </p>
-<p>当通过 <code>Service</code>  的域名访问， 会通过 <code>CoreDNS</code> 解析出 <code>Service</code> 对应的 <code>Cluster IP</code>(虚拟 <code>IP</code>)。 请求到达宿主机网络后， 就会被 <code>kube-proxy</code> 所配置的 <code>iptables</code> 规则拦截，之后请求回被转发到每一个实际的后端 <code>Pod</code> 上面去</p>
+<p>当通过 <code>Service</code>  的域名访问， 会通过 <code>CoreDNS</code> 解析出 <code>Service</code> 对应的 <code>Cluster IP</code>(虚拟 <code>IP</code>)。 请求到达宿主机网络后， 就会被 <code>kube-proxy</code> 所配置的 <code>iptables(或 ipvs)</code> 规则拦截，之后请求回被转发到每一个实际的后端 <code>Pod</code> 上面去</p>
 <h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl run httpd-app --image=httpd --replicas=2</span><br></pre></td></tr></table></figure>
 <ol>
 <li><code>kubectl</code> 发送 部署请求到 <code>API Server</code></li>
@@ -576,7 +582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">190</span>
+                  <span class="site-state-item-count">191</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
