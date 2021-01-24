@@ -82,16 +82,17 @@
 
 
 
-<meta name="description" content="好学近乎知，力行近乎仁，知耻近乎勇">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Get busy living">
-<meta property="og:url" content="http://imwl.ml/categories/随笔/index.html">
+<meta name="description" content="简介Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于操作系统基础镜像并最终创建的一个新镜像； 生产实践中一定优先使用 Dockerfile 的方式构建镜像 Dockerfile 书写原则 单一职责：由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容器，每个容器只负责单一业务进程。  提供注释信息：Dockerfile 也是一种代码，我们应该保持良">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dockerfile">
+<meta property="og:url" content="http://imwl.ml/docker/DockerFile示例/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="好学近乎知，力行近乎仁，知耻近乎勇">
+<meta property="og:description" content="简介Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于操作系统基础镜像并最终创建的一个新镜像； 生产实践中一定优先使用 Dockerfile 的方式构建镜像 Dockerfile 书写原则 单一职责：由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容器，每个容器只负责单一业务进程。  提供注释信息：Dockerfile 也是一种代码，我们应该保持良">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-01-24T15:46:46.340Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Get busy living">
-<meta name="twitter:description" content="好学近乎知，力行近乎仁，知耻近乎勇">
+<meta name="twitter:title" content="dockerfile">
+<meta name="twitter:description" content="简介Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于操作系统基础镜像并最终创建的一个新镜像； 生产实践中一定优先使用 Dockerfile 的方式构建镜像 Dockerfile 书写原则 单一职责：由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容器，每个容器只负责单一业务进程。  提供注释信息：Dockerfile 也是一种代码，我们应该保持良">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/categories/随笔/">
+  <link rel="canonical" href="http://imwl.ml/docker/DockerFile示例/">
 
 
 
 
 
-  <title>分类: 随笔 | Get busy living</title>
+  <title>dockerfile | Get busy living</title>
   
 
 
@@ -146,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 	
 
@@ -293,53 +294,194 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>随笔<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/DockerFile示例/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/随笔/2017-2018 总结(初版)/" itemprop="url">
-              
-                <span itemprop="name">2017-2018年总结(初版)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">dockerfile</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-12T03:41:44+08:00" content="2019-01-12">
-          01-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T11:05:31+08:00">
+                2019-07-02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于操作系统基础镜像并最终创建的一个新镜像；</p>
+<p>生产实践中一定优先使用 Dockerfile 的方式构建镜像</p>
+<h2 id="Dockerfile-书写原则"><a href="#Dockerfile-书写原则" class="headerlink" title="Dockerfile 书写原则"></a>Dockerfile 书写原则</h2><ol>
+<li><p>单一职责：由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容器，每个容器只负责单一业务进程。</p>
+</li>
+<li><p>提供注释信息：Dockerfile 也是一种代码，我们应该保持良好的代码编写习惯，晦涩难懂的代码尽量添加注释，让协作者可以一目了然地知道每一行代码的作用，并且方便扩展和使用。</p>
+</li>
+<li><p>保持容器最小化：应该避免安装无用的软件包,可以加快容器构建速度，而且可以避免镜像体积过大。</p>
+</li>
+<li><p>合理选择基础镜 ：容器的核心是应用，因此只要基础镜像能够满足应用的运行环境即可</p>
+</li>
+<li><p>使用 .dockerignore 文件 ： 使用.dockerignore 在构建时，忽略一些不需要参与构建的文件，从而提升构建效率。</p>
+</li>
+<li><p>尽量使用构建缓存 ：Docker 构建过程中，每一条 Dockerfile 指令都会提交为一个镜像层，下一条指令都是基于上一条指令构建的。如果构建时发现要构建的镜像层的父镜像层已经存在，并且下一条命令使用了相同的指令，即可命中构建缓存。</p>
+</li>
+</ol>
+<ol start="7">
+<li><p>正确设置时区： 从 Docker Hub 拉取的官方操作系统镜像大多数都是 UTC 时间</p>
+</li>
+<li><p>使用国内软件源加快镜像构建速度： 最好的方式是换源</p>
+</li>
+<li><p>最小化镜像层数</p>
+</li>
+</ol>
+<p><strong>补</strong><br>镜像多阶级构建</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><code>FROM image:tag</code> : 使用的基础镜像构建<br><code>MAINTAINER user_info</code> : 声明镜像维护者信息<br><code>LABEL value</code> :  镜像描述元信息 (可以多条)<br><code>ENV key value</code> : 设置环境变量 (可以多条)<br><code>RUN command</code> :  构建镜像时需要运行的命令 (可以多条)<br><code>WORKDIR path_dir</code> : 设置终端默认登录进来的工作目录<br><code>EXPOSE port</code> :  当前容器对外暴露出的端口<br><code>ADD source_dir/file dest_dir/file</code> :  宿主机内文件复制到容器，压缩文件会解压,也可以获取远程文件<br><code>COPY source_dir/file dest_dir/file</code> : 宿主机内文件复制到容器，不过压缩文件不解压<br><code>VOLUME</code> : 创建一个 可以从本机或其他容器挂载的挂载点，一般用来存放数据库和需要保存的数据<br><code>CMD</code> : 指定容器启动时要运行的命令，多个CMD，最后一个生效      CMD <command> 或CMD [“<executeable>“,”<param1>“,”<param2>“,…] CMD [“<param1>“,”<param2>“,…]<br><code>ENTRYPOINT</code> : 指定容器启动时要运行的命令，最后一个才有用<br><code>ONBUILD</code> : 为子镜像服务</param2></param1></param2></param1></executeable></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>简单实例：父镜像Dockerfile:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line">ONBUILD RUN yum -y install vim</span><br><span class="line">CMD /bin/bash</span><br><span class="line"> </span><br><span class="line">子镜像简单点：</span><br><span class="line">FROM parent</span><br></pre></td></tr></table></figure></p>
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line">MAINTAINER weilai&lt;imwl@live.com&gt;</span><br><span class="line"> </span><br><span class="line">LABEL name=&quot;imwl CentOS Image&quot; \</span><br><span class="line">    build-date=&quot;20180916&quot;</span><br><span class="line">    </span><br><span class="line">ENV WORKPATH /home/</span><br><span class="line">WORKDIR $WORKPATH</span><br><span class="line"> </span><br><span class="line">RUN yum -y install net-tools</span><br><span class="line">RUN yum -y install vim</span><br><span class="line"> </span><br><span class="line">EXPOSE 80</span><br><span class="line">CMD /bin/bash</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/基础知识/learn_linux/权限，目录/" rel="next" title="权限目录">
+                <i class="fa fa-chevron-left"></i> 权限目录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/基础知识/learn_linux/个人计算机/" rel="prev" title="个人计算机">
+                个人计算机 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -347,6 +489,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -367,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -385,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">191</span>
+                  <span class="site-state-item-count">190</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -396,7 +551,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -458,6 +613,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile-书写原则"><span class="nav-number">2.</span> <span class="nav-text">Dockerfile 书写原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">4.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile"><span class="nav-number">5.</span> <span class="nav-text">Dockerfile</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -599,6 +770,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
