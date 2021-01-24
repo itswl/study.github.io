@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="网络模型应用层，（表现层，会话层），运输层，网络层，链路层，物理层 （链路层+物理层 表示为 网络接口层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到">
+<meta name="description" content="网络模型应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP基本原理">
 <meta property="og:url" content="http://imwl.ml/基础知识/HTTP的基本原理/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="网络模型应用层，（表现层，会话层），运输层，网络层，链路层，物理层 （链路层+物理层 表示为 网络接口层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到">
+<meta property="og:description" content="网络模型应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-24T14:30:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP基本原理">
-<meta name="twitter:description" content="网络模型应用层，（表现层，会话层），运输层，网络层，链路层，物理层 （链路层+物理层 表示为 网络接口层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到">
+<meta name="twitter:description" content="网络模型应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当">
 
 
 
@@ -397,12 +397,14 @@
       
 
       
-        <h2 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h2><p>应用层，（表现层，会话层），运输层，网络层，链路层，物理层 （链路层+物理层 表示为 网络接口层）</p>
+        <h2 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h2><p>应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层）</p>
 <h2 id="0-HTTP-的特性"><a href="#0-HTTP-的特性" class="headerlink" title="0. HTTP 的特性"></a>0. HTTP 的特性</h2><p>HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443)</p>
 <p>HTTP 是无连接无状态的</p>
 <ol>
-<li>无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive 功能避免了建立或者重新建立连接 tcp连接）</li>
-<li>无状态：对于事务处理没有记忆能力  (Cookie 客户端， Session 服务端) </li>
+<li><p>无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive 功能避免了建立或者重新建立连接 tcp连接）</p>
+</li>
+<li><p>无状态：对于事务处理没有记忆能力  (Cookie 客户端， Session 服务端) </p>
+</li>
 </ol>
 <h2 id="1-URL-与-URI"><a href="#1-URL-与-URI" class="headerlink" title="1. URL 与 URI"></a>1. URL 与 URI</h2><p>URI : 统一资源标识符</p>
 <p>URL : 统一资源定位符</p>
@@ -413,13 +415,15 @@
 <h2 id="3-HTTP-HTTPS"><a href="#3-HTTP-HTTPS" class="headerlink" title="3. HTTP HTTPS"></a>3. HTTP HTTPS</h2><p>HTTP : 超文本传输协议，用于从网络传输超文本数据到本地浏览器的传送协议</p>
 <p>HTTPS ： 以安全为目标的 HTTP通道。 HTTP over TLS。</p>
 <ol>
-<li>建立一个安全信息通道，来保证数据传输的安全。 </li>
-<li>确认网站的真实性。</li>
+<li><p>建立一个安全信息通道，来保证数据传输的安全。 </p>
+</li>
+<li><p>确认网站的真实性。</p>
+</li>
 </ol>
 <p>TLS : 传输安全层</p>
 <h2 id="4-HTTP-请求过程"><a href="#4-HTTP-请求过程" class="headerlink" title="4. HTTP 请求过程"></a>4. HTTP 请求过程</h2><p><code>https://imwl.ml/blog....</code></p>
 <p><code>https:</code>  访问数组的协议<br><code>imwl.ml</code>  服务器域名或  <code>ip</code>地址  <code>DNS</code> 服务器保存了 <code>ip</code>和 <code>域名</code> 的对应关系<br><code>blog...</code>  数据源路径,后面没有内容时，显示设置的 默认文件</p>
-<p>浏览器（客户端） 输入 URL ,向服务器发送一个 Request (请求), 服务器收到 Request 后，返回对应的一个 Response (响应), Response 中包含<br>页面的源代码等内容，浏览器再进行解析，便将网页呈现出来。</p>
+<p>浏览器（客户端） 输入 <code>URL</code> ,向服务器发送一个 <code>Request</code> (请求), 服务器收到 <code>Request</code> 后，返回对应的一个 <code>Response</code>(响应), <code>Response</code> 中包含页面的源代码等内容，浏览器再进行解析，便将网页呈现出来。</p>
 <p>客户端 → 本地DNS服务器 → 根域 → eg:com → server.com →  本地DNS服务器 → 客户端</p>
 <h2 id="5-Request"><a href="#5-Request" class="headerlink" title="5. Request"></a>5. Request</h2><p><strong>Request 可分为四部分</strong></p>
 <ol>
@@ -432,6 +436,7 @@
 <p><strong>GET</strong> 请求参数会直接包含在URL里， （eg:<a href="https://www.baidu.com/s?wd=Python" target="_blank" rel="noopener">https://www.baidu.com/s?wd=Python</a> wd 就是要搜寻的关键字）</p>
 <p><strong>POST</strong> 一般用于表单提交发起，数据常以 Form Data 即表单形式传输，不会体现在 URL 中。（包含在 Request Body 中）</p>
 <p><strong>GET</strong> 请求提交的数据最多只有1024字节。</p>
+<p>8 bit = 1 Byte</p>
 <p><strong>其他请求方式</strong></p>
 <ol>
 <li>HEAD</li>
@@ -503,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/基础知识/网络相关/" rel="next" title="tcp">
-                <i class="fa fa-chevron-left"></i> tcp
+              <a href="/MySQL/SQL查询优化，分库分表/" rel="next" title="SQL查询优化，分库分表(3)">
+                <i class="fa fa-chevron-left"></i> SQL查询优化，分库分表(3)
               </a>
             
           </div>
@@ -513,8 +518,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/基础知识/learn_linux/进程与线程相关/" rel="prev" title="进程与线程">
-                进程与线程 <i class="fa fa-chevron-right"></i>
+              <a href="/基础知识/网络相关/" rel="prev" title="tcp">
+                tcp <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
