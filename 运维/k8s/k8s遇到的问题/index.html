@@ -84,15 +84,15 @@
 
 <meta name="description" content="master主机名错误没有修改主机名就进行了 kubeadm config print init-defaults  &amp;gt; kubeadm_init.yaml 配置文件节选123456nodeRegistration:  criSocket: /var/run/dockershim.sock  name: loaclhost.localdomain  taints:  - effect: No">
 <meta property="og:type" content="article">
-<meta property="og:title" content="k8s搭建遇到的问题">
-<meta property="og:url" content="http://imwl.ml/运维/k8s/k8s搭建遇到的问题/index.html">
+<meta property="og:title" content="k8s遇到的问题">
+<meta property="og:url" content="http://imwl.ml/运维/k8s/k8s遇到的问题/index.html">
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="master主机名错误没有修改主机名就进行了 kubeadm config print init-defaults  &amp;gt; kubeadm_init.yaml 配置文件节选123456nodeRegistration:  criSocket: /var/run/dockershim.sock  name: loaclhost.localdomain  taints:  - effect: No">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/master名错误.png">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-01-30T16:00:19.460Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="k8s搭建遇到的问题">
+<meta name="twitter:title" content="k8s遇到的问题">
 <meta name="twitter:description" content="master主机名错误没有修改主机名就进行了 kubeadm config print init-defaults  &amp;gt; kubeadm_init.yaml 配置文件节选123456nodeRegistration:  criSocket: /var/run/dockershim.sock  name: loaclhost.localdomain  taints:  - effect: No">
 <meta name="twitter:image" content="http://imwl.ml/images/blog_images/k8s/master名错误.png">
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/运维/k8s/k8s搭建遇到的问题/">
+  <link rel="canonical" href="http://imwl.ml/运维/k8s/k8s遇到的问题/">
 
 
 
 
 
-  <title>k8s搭建遇到的问题 | Get busy living</title>
+  <title>k8s遇到的问题 | Get busy living</title>
   
 
 
@@ -310,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/k8s搭建遇到的问题/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/k8s遇到的问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">k8s搭建遇到的问题</h1>
+          <h1 class="post-title" itemprop="name headline">k8s遇到的问题</h1>
         
 
         <div class="post-meta">
@@ -410,6 +410,9 @@
 <h3 id="部署-dashboard-时，提示权限问题"><a href="#部署-dashboard-时，提示权限问题" class="headerlink" title="部署 dashboard 时，提示权限问题"></a>部署 dashboard 时，提示权限问题</h3><p>eg：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">customresourcedefinitions.apiextensions.k8s.io is forbidden: User &quot;system:serviceaccount:kubernetes-dashboard:kubernetes-dashboard&quot; cannot list resource &quot;customresourcedefinitions&quot; in API group &quot;apiextensions.k8s.io&quot; at the cluster scope</span><br><span class="line">secrets is forbidden: User &quot;system:serviceaccount:kubernetes-dashboard:kubernetes-dashboard&quot; cannot list resource &quot;secrets&quot; in API group &quot;&quot; in the namespace &quot;default&quot;</span><br><span class="line">services is forbidden: User &quot;system:serviceaccount:kubernetes-dashboard:kubernetes-dashboard&quot; cannot list resource &quot;services&quot; in API group &quot;&quot; in the namespace &quot;default&quot;</span><br></pre></td></tr></table></figure></p>
 <p>需要修改配置文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: rbac.authorization.k8s.io/v1beta1</span><br><span class="line">kind: ClusterRoleBinding</span><br><span class="line">metadata:</span><br><span class="line">  name: kubernetes-dashboard</span><br><span class="line">  namespace: kube-system</span><br><span class="line">roleRef:</span><br><span class="line">  apiGroup: rbac.authorization.k8s.io</span><br><span class="line">  kind: ClusterRole</span><br><span class="line">  ## 赋予clusterrole cluster-admin的权限</span><br><span class="line">  name: cluster-admin  # 默认配置 kubernetes-dashboard ,只授予了此 namespaces 的权限权限  </span><br><span class="line">subjects:</span><br><span class="line">- kind: ServiceAccount</span><br><span class="line">  name: kubernetes-dashboard</span><br><span class="line">  namespace: kubernetes-dashboard</span><br></pre></td></tr></table></figure>
+<h3 id="api-版本不对"><a href="#api-版本不对" class="headerlink" title="api 版本不对"></a>api 版本不对</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s01 stroage]# cat CronJob_test.yaml  # 节选</span><br><span class="line">apiVersion: batch/v1</span><br><span class="line">kind: CronJob</span><br><span class="line"></span><br><span class="line">[root@k8s01 stroage]# kubectl apply -f CronJob_test.yaml</span><br><span class="line">error: unable to recognize &quot;CronJob_test.yaml&quot;: no matches for kind &quot;CronJob&quot; in version &quot;batch/v1&quot;</span><br></pre></td></tr></table></figure>
+<p>排查过程 <code>kubectl api-resources</code>  查看 <code>api</code> 版本信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s01 stroage]# kubectl api-resources |grep CronJob</span><br><span class="line">cronjobs                          cj           batch/v1beta1                          true         CronJob</span><br><span class="line"></span><br><span class="line"># 修改</span><br><span class="line">[root@k8s01 stroage]# cat CronJob_test.yaml  # 节选</span><br><span class="line">apiVersion: batch/v1beta1 </span><br><span class="line">kind: CronJob</span><br><span class="line"></span><br><span class="line">root@k8s01 stroage]# kubectl apply -f CronJob_test.yaml</span><br><span class="line">cronjob.batch/hello created</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -607,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#master主机名错误"><span class="nav-number">1.</span> <span class="nav-text">master主机名错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unable-to-connect-to-the-server-x509-certificate-signed-by-unknown-authority"><span class="nav-number">2.</span> <span class="nav-text">Unable to connect to the server: x509: certificate signed by unknown authority</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageInspectError"><span class="nav-number">3.</span> <span class="nav-text">ImageInspectError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署-dashboard-时，提示权限问题"><span class="nav-number">4.</span> <span class="nav-text">部署 dashboard 时，提示权限问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#master主机名错误"><span class="nav-number">1.</span> <span class="nav-text">master主机名错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unable-to-connect-to-the-server-x509-certificate-signed-by-unknown-authority"><span class="nav-number">2.</span> <span class="nav-text">Unable to connect to the server: x509: certificate signed by unknown authority</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageInspectError"><span class="nav-number">3.</span> <span class="nav-text">ImageInspectError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署-dashboard-时，提示权限问题"><span class="nav-number">4.</span> <span class="nav-text">部署 dashboard 时，提示权限问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api-版本不对"><span class="nav-number">5.</span> <span class="nav-text">api 版本不对</span></a></li></ol></div>
             
 
           </div>
