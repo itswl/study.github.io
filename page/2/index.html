@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/k8s-gpu/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/k8s-api/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/运维/k8s/k8s-gpu/" itemprop="url">k8s-GPU管理与Device Plugin机制</a></h1>
+                <a class="post-title-link" href="/运维/k8s/k8s-api/" itemprop="url">k8s-api</a></h1>
         
 
         <div class="post-meta">
@@ -401,12 +401,14 @@
       
         
           
-          GPU管理对于云的用户来说，在 GPU 的支持上，他们最基本的诉求其实非常简单：只要在 Pod 的 YAML 里面，声明某容器需要的 GPU 个数，那么 Kubernetes 创建的容器里就应该出现对应的 GPU 设备，以及它对应的驱动目录 。
-以 NVIDIA 的 GPU 设备为例，上面的需求就意
+          简介 123apiVersion: batch/v2alpha1kind: CronJob...
+
+CronJob  : 这个 API 对象的资源类型（Resource），
+batch    : 它的组（Group）， (Pod、Node 等，是不需要 Group 的（即：它们的 Group 是’’
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/运维/k8s/k8s-gpu/#more" rel="contents">
+            <a class="btn" href="/运维/k8s/k8s-api/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1610,7 +1612,7 @@ Docker 是利用 Linux 的 Namespace 、Cgroups 和联合文件系统三大机�
       
         
           
-          promethous12345git clone  https://github.com/prometheus-operator/kube-prometheus.gitgit checkout release-0.6  # v1.18 支持版本kubectl create -f manifests/
+          promethous1234567git clone  https://github.com/prometheus-operator/kube-prometheus.gitgit checkout release-0.6  # v1.18 支持版本kubectl create -f manifest
           ...
           <!--noindex-->
           <div class="post-button text-center">
