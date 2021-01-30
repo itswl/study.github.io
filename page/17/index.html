@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(2)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
+                <a class="post-title-link" href="/MySQL/mysql基础(2)/" itemprop="url">mysql基础(2)</a></h1>
         
 
         <div class="post-meta">
@@ -401,13 +401,12 @@
       
         
           
-          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
-MySQL语法基础创建表– 为注释，不会被执行
-使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
+          外键在students表中，通过class id的字段，可以把数据与另一张表（class）关联起来，这种列称为外键。
+在students表中添加一个class id(id的后一列)12ALTER TABLE `school`.`students`ADD COLUMN `class id` int N
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
+            <a class="btn" href="/MySQL/mysql基础(2)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -458,7 +457,7 @@ MySQL语法基础创建表– 为注释，不会被执行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/数据库/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(ORM)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -477,7 +476,7 @@ MySQL语法基础创建表– 为注释，不会被执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/数据库/" itemprop="url">数据库</a></h1>
+                <a class="post-title-link" href="/MySQL/python操作mysql(ORM)/" itemprop="url">python操作mysql(ORM)</a></h1>
         
 
         <div class="post-meta">
@@ -551,19 +550,14 @@ MySQL语法基础创建表– 为注释，不会被执行
       
         
           
-          数据库分类
-关系型数据库 （MySQL,SQLServer,MariaDB,ORACLE等）
-非关系型数据库 (mongoDB,redis等）
-非关系型数据库分类1 . 文档型2 . key-value型3 . 列式数据库4 . 图形数据库
-
-
-
-
-
-          
+          使用SQLAlchemy
+安装方法pip install SQLAlchemy
+更多内容参考flask鱼书项目
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/数据库/#more" rel="contents">
+            <a class="btn" href="/MySQL/python操作mysql(ORM)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1209,7 +1203,7 @@ MySQL语法基础创建表– 为注释，不会被执行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/爬虫整理（二）BeautifulSoup/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/爬虫整理（一）使用re和urllib/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1228,7 +1222,7 @@ MySQL语法基础创建表– 为注释，不会被执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/爬虫整理（二）BeautifulSoup/" itemprop="url">爬虫整理（二）BeautifulSoup</a></h1>
+                <a class="post-title-link" href="/python/爬虫整理（一）使用re和urllib/" itemprop="url">爬虫整理（一）使用re和urllib</a></h1>
         
 
         <div class="post-meta">
@@ -1302,18 +1296,168 @@ MySQL语法基础创建表– 为注释，不会被执行
       
         
           
-          BeautifulSoup 解析：基础本段完整代码
-具体安装过程可自行搜索。beautifulSoup使用过程
-
-选择要爬的网址 (url)
-使用 python 打开这个网址 (urlopen等)
-读取网页信息 (read() 出来)
-将读取的信息放入 BeautifulSoup
-使用 Beauti
+          完整代码123456789101112131415161718192021from urllib.request import urlopenhtml = urlopen(    &quot;https://morvanzhou.github.io/static/scraping/basic-str
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/爬虫整理（二）BeautifulSoup/#more" rel="contents">
+            <a class="btn" href="/python/爬虫整理（一）使用re和urllib/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/慕课网数据采集总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/python/慕课网数据采集总结/" itemprop="url">慕课网数据采集总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T11:05:31+08:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python练习/" itemprop="url" rel="index">
+                    <span itemprop="name">python练习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          https://www.imooc.com/video/12637   课程地址
+
+
+
+
+
+
+
+
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/python/慕课网数据采集总结/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1512,7 +1656,7 @@ MySQL语法基础创建表– 为注释，不会被执行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/爬虫整理（一）使用re和urllib/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/爬虫整理（二）BeautifulSoup/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1531,7 +1675,7 @@ MySQL语法基础创建表– 为注释，不会被执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/爬虫整理（一）使用re和urllib/" itemprop="url">爬虫整理（一）使用re和urllib</a></h1>
+                <a class="post-title-link" href="/python/爬虫整理（二）BeautifulSoup/" itemprop="url">爬虫整理（二）BeautifulSoup</a></h1>
         
 
         <div class="post-meta">
@@ -1605,160 +1749,18 @@ MySQL语法基础创建表– 为注释，不会被执行
       
         
           
-          完整代码123456789101112131415161718192021from urllib.request import urlopenhtml = urlopen(    &quot;https://morvanzhou.github.io/static/scraping/basic-str
+          BeautifulSoup 解析：基础本段完整代码
+具体安装过程可自行搜索。beautifulSoup使用过程
+
+选择要爬的网址 (url)
+使用 python 打开这个网址 (urlopen等)
+读取网页信息 (read() 出来)
+将读取的信息放入 BeautifulSoup
+使用 Beauti
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/爬虫整理（一）使用re和urllib/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/爬虫整理（三）Requests/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/python/爬虫整理（三）Requests/" itemprop="url">爬虫整理（三）Requests</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T11:05:31+08:00">
-                2018-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python练习/" itemprop="url" rel="index">
-                    <span itemprop="name">python练习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Requests 是一个 Python 的外部模块, 需要手动安装. 使用 pip 安装就好了.
-1234567import requestsimport webbrowser  #  使用浏览器打开param = &#123;&quot;wd&quot;: &quot;itswl.github&q
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/python/爬虫整理（三）Requests/#more" rel="contents">
+            <a class="btn" href="/python/爬虫整理（二）BeautifulSoup/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
