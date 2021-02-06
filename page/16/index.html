@@ -472,7 +472,7 @@ PaaS 平台即服务
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/DockerFile示例/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/flask/readme/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -491,7 +491,7 @@ PaaS 平台即服务
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/docker/DockerFile示例/" itemprop="url">dockerfile</a></h1>
+                <a class="post-title-link" href="/python/flask/readme/" itemprop="url">常用模块</a></h1>
         
 
         <div class="post-meta">
@@ -526,8 +526,8 @@ PaaS 平台即服务
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/flask/" itemprop="url" rel="index">
+                    <span itemprop="name">flask</span>
                   </a>
                 </span>
 
@@ -565,14 +565,15 @@ PaaS 平台即服务
       
         
           
-          简介Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于操作系统基础镜像并最终创建的一个新镜像；
-生产实践中一定优先使用 Dockerfile 的方式构建镜像
-Dockerfile 书写原则
-单一职责：由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容
+          常用模块
+pipenv   # 虚拟环境
+flask   # 主要 路由、调试、web服务器网关接口子系统由 Werkzeug 提供。模板系统 Jinja2提供。
+flask-wtf  # 对独立的WTForms包进行了封装，用于表单处理
+flask-sqlalchemy  # 数据库框架，简化fl
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/docker/DockerFile示例/#more" rel="contents">
+            <a class="btn" href="/python/flask/readme/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1091,7 +1092,7 @@ MySql 体系架构
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(ORM)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(增删改查)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1110,7 +1111,7 @@ MySql 体系架构
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/python操作mysql(ORM)/" itemprop="url">python操作mysql(ORM)</a></h1>
+                <a class="post-title-link" href="/MySQL/python操作mysql(增删改查)/" itemprop="url">python操作mysql（增删改查）</a></h1>
         
 
         <div class="post-meta">
@@ -1184,14 +1185,314 @@ MySql 体系架构
       
         
           
-          使用SQLAlchemy
-安装方法pip install SQLAlchemy
-更多内容参考flask鱼书项目
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515
+          使用mysqlclient先安装mysqlclient网址：https://pypi.org/project/mysqlclient/python中可使用pip安装，pip install mysqlclient
+
+也可以使用别的方法，详细可查看之前的文章：爬取百度百科词条写入数据库
+
+python
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/python操作mysql(ORM)/#more" rel="contents">
+            <a class="btn" href="/MySQL/python操作mysql(增删改查)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:57:47+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql学习/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
+MySQL语法基础创建表– 为注释，不会被执行
+使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(2)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/MySQL/mysql基础(2)/" itemprop="url">mysql基础(2)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:57:47+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql学习/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          外键在students表中，通过class id的字段，可以把数据与另一张表（class）关联起来，这种列称为外键。
+在students表中添加一个class id(id的后一列)12ALTER TABLE `school`.`students`ADD COLUMN `class id` int N
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/MySQL/mysql基础(2)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1392,7 +1693,7 @@ MySql 体系架构
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/数据库/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(ORM)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1411,7 +1712,7 @@ MySql 体系架构
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/数据库/" itemprop="url">数据库</a></h1>
+                <a class="post-title-link" href="/MySQL/python操作mysql(ORM)/" itemprop="url">python操作mysql(ORM)</a></h1>
         
 
         <div class="post-meta">
@@ -1485,320 +1786,14 @@ MySql 体系架构
       
         
           
-          数据库分类
-关系型数据库 （MySQL,SQLServer,MariaDB,ORACLE等）
-非关系型数据库 (mongoDB,redis等）
-非关系型数据库分类1 . 文档型2 . key-value型3 . 列式数据库4 . 图形数据库
-
-
-
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/MySQL/数据库/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(增删改查)/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/MySQL/python操作mysql(增删改查)/" itemprop="url">python操作mysql（增删改查）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:57:47+08:00">
-                2019-01-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql学习/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          使用mysqlclient先安装mysqlclient网址：https://pypi.org/project/mysqlclient/python中可使用pip安装，pip install mysqlclient
-
-也可以使用别的方法，详细可查看之前的文章：爬取百度百科词条写入数据库
-
-python
+          使用SQLAlchemy
+安装方法pip install SQLAlchemy
+更多内容参考flask鱼书项目
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/python操作mysql(增删改查)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(2)/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/MySQL/mysql基础(2)/" itemprop="url">mysql基础(2)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:57:47+08:00">
-                2019-01-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql学习/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          外键在students表中，通过class id的字段，可以把数据与另一张表（class）关联起来，这种列称为外键。
-在students表中添加一个class id(id的后一列)12ALTER TABLE `school`.`students`ADD COLUMN `class id` int N
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(2)/#more" rel="contents">
+            <a class="btn" href="/MySQL/python操作mysql(ORM)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
