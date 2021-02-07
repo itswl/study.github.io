@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="ip 地址就是 网络中的 地址信息 IPv4 与 IPv6IPv4 格式 A.B.C.D  取值范围 0 ~ 255     2*32 个  IPv6 格式 A:B:C:D:E:F:G:H   十六进制  2*128 个 16*32 公网 ip 和 内网 ip公网内 ip 地址由 inter NIC 负责。公有地址全球唯一 私有地址 是非注册地址，用于组织机构内部使用 私有地址范围 A 类 IP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-20T12:50:56.640Z">
+<meta property="og:updated_time" content="2021-02-06T07:09:01.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IP地址">
 <meta name="twitter:description" content="ip 地址就是 网络中的 地址信息 IPv4 与 IPv6IPv4 格式 A.B.C.D  取值范围 0 ~ 255     2*32 个  IPv6 格式 A:B:C:D:E:F:G:H   十六进制  2*128 个 16*32 公网 ip 和 内网 ip公网内 ip 地址由 inter NIC 负责。公有地址全球唯一 私有地址 是非注册地址，用于组织机构内部使用 私有地址范围 A 类 IP">
@@ -397,23 +397,23 @@
       
 
       
-        <p>ip 地址就是 网络中的 地址信息</p>
-<h2 id="IPv4-与-IPv6"><a href="#IPv4-与-IPv6" class="headerlink" title="IPv4 与 IPv6"></a>IPv4 与 IPv6</h2><p>IPv4 格式 A.B.C.D  取值范围 0 ~ 255     2*32 个 </p>
-<p>IPv6 格式 A:B:C:D:E:F:G:H   十六进制  2*128 个 16*32</p>
+        <p><code>ip</code> 地址就是 网络中的 地址信息</p>
+<h2 id="IPv4-与-IPv6"><a href="#IPv4-与-IPv6" class="headerlink" title="IPv4 与 IPv6"></a>IPv4 与 IPv6</h2><p><code>IPv4</code> 格式 <code>A.B.C.D</code>  取值范围 <code>0 ~ 255</code>     2*32 个 </p>
+<p><code>IPv6</code> 格式 <code>A:B:C:D:E:F:G:H</code>   十六进制  2*128 个 16*32</p>
 <h2 id="公网-ip-和-内网-ip"><a href="#公网-ip-和-内网-ip" class="headerlink" title="公网 ip 和 内网 ip"></a>公网 ip 和 内网 ip</h2><p>公网内 ip 地址由 inter NIC 负责。公有地址全球唯一</p>
 <p>私有地址 是非注册地址，用于组织机构内部使用</p>
 <h3 id="私有地址范围"><a href="#私有地址范围" class="headerlink" title="私有地址范围"></a>私有地址范围</h3><ol>
-<li>A 类 IP 地址 ：1.0.0.0-126.255.255.255 (私有ip 地址 10.0.0.0 ~ 10.255.255.255)</li>
-<li>B 类 IP 地址 ：128.1.0.1-191.255.255.254 (私有ip 地址 172.16.0.0 ~ 172.31.255.255 ）</li>
-<li>C 类 IP 地址 ：192.0.1.1-223.255.255.254  (私有ip 地址  192.168.0.0 ~ 192.168.255.255）</li>
+<li>A 类 IP 地址 ：<code>1.0.0.0-126.255.255.255</code> (私有ip 地址 <code>10.0.0.0 ~ 10.255.255.255</code>)</li>
+<li>B 类 IP 地址 ：<code>128.0.0.0-191.255.255.254</code> (私有ip 地址 <code>172.16.0.0 ~ 172.31.255.255</code>)</li>
+<li>C 类 IP 地址 ：<code>192.0.0.0-223.255.255.254</code>  (私有ip 地址  <code>192.168.0.0 ~ 192.168.255.255</code>)</li>
 </ol>
-<p>私有地址 不是由 internet分配的，不会出现在internet中。需要将私有 ip地址 转为 公网 IP 地址，与外部连接 （NAT）<br>（私网地址访问互联网地址很方便，但互联网地址访问私有地址很困难）</p>
-<p>内网的地址都是使用的路由器中的公共的公网ip来连接internet。</p>
-<p>局域网内， IP 地址 是唯一的。但不同局域网， IP地址可以重复</p>
+<p>私有地址 不是由 <code>internet</code> 分配的，不会出现在 <code>internet</code> 中。需要将私有 <code>ip</code> 地址 转为 公网 <code>IP</code> 地址，与外部连接 （<code>NAT</code>）<br>（私网地址访问互联网地址很方便，但互联网地址访问私有地址很困难）</p>
+<p>内网的地址都是使用的路由器中的公共的公网 <code>ip</code> 来连接 <code>internet</code> 。</p>
+<p>局域网内， <code>IP</code> 地址 是唯一的。但不同局域网， <code>IP</code> 地址可以重复</p>
 <h2 id="localhost，-127-0-0-1-和-0-0-0-0-区别"><a href="#localhost，-127-0-0-1-和-0-0-0-0-区别" class="headerlink" title="localhost， 127.0.0.1 和 0.0.0.0 区别"></a>localhost， 127.0.0.1 和 0.0.0.0 区别</h2><ol>
-<li>localhost : 域名， windows默认将 localhost 指向<code>127.0.0.1</code>.</li>
-<li>127.0.0.1 : 回环地址，凡是127 开头的 IP地址，都是回环地址（主机上发送给回环地址的数据 会自己接收，根本不传出去）</li>
-<li>0.0.0.0 : 并不是一个真实的IP地址，他表示本机中所有的IPV4地址。监听本机所有的ip端口</li>
+<li><code>localhost</code> : 域名， <code>windows</code> 默认将 <code>localhost</code> 指向 <code>127.0.0.1</code>.</li>
+<li><code>127.0.0.1</code> : 回环地址，凡是 <code>127</code> 开头的 <code>IP</code> 地址，都是回环地址（主机上发送给回环地址的数据 会自己接收，根本不传出去）</li>
+<li><code>0.0.0.0</code> : 并不是一个真实的 <code>IP</code> 地址，他表示本机中所有的 <code>IPV4</code> 地址。监听本机所有的 <code>ip</code> 端口</li>
 </ol>
 
       
@@ -449,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/python/flask/readme/" rel="prev" title="常用模块">
-                常用模块 <i class="fa fa-chevron-right"></i>
+              <a href="/基础知识/learn_linux/文件，目录/" rel="prev" title="文件，目录">
+                文件，目录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -530,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">190</span>
+                  <span class="site-state-item-count">191</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
