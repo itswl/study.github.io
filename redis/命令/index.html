@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="键123456redis 127.0.0.1:6379&amp;gt; SET weilai redis  -- 设置键OKredis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 1redis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 0  # 删除失败 keys * 遍历所有key   – 一般不会使用">
+<meta name="description" content="键123456redis 127.0.0.1:6379&amp;gt; SET weilai redis  -- 设置键OKredis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 1redis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 0  # 删除失败 keys *  遍历所有key   – 一般不会使">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis部分命令">
 <meta property="og:url" content="http://imwl.ml/redis/命令/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="键123456redis 127.0.0.1:6379&amp;gt; SET weilai redis  -- 设置键OKredis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 1redis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 0  # 删除失败 keys * 遍历所有key   – 一般不会使用">
+<meta property="og:description" content="键123456redis 127.0.0.1:6379&amp;gt; SET weilai redis  -- 设置键OKredis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 1redis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 0  # 删除失败 keys *  遍历所有key   – 一般不会使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-02-10T04:52:50.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis部分命令">
-<meta name="twitter:description" content="键123456redis 127.0.0.1:6379&amp;gt; SET weilai redis  -- 设置键OKredis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 1redis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 0  # 删除失败 keys * 遍历所有key   – 一般不会使用">
+<meta name="twitter:description" content="键123456redis 127.0.0.1:6379&amp;gt; SET weilai redis  -- 设置键OKredis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 1redis 127.0.0.1:6379&amp;gt; DEL weilai  -- 删除键(integer) 0  # 删除失败 keys *  遍历所有key   – 一般不会使">
 
 
 
@@ -399,9 +399,12 @@
 
       
         <h3 id="键"><a href="#键" class="headerlink" title="键"></a>键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; SET weilai redis  -- 设置键</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; DEL weilai  -- 删除键</span><br><span class="line">(integer) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; DEL weilai  -- 删除键</span><br><span class="line">(integer) 0  # 删除失败</span><br></pre></td></tr></table></figure>
-<p><code>keys *</code> 遍历所有key   – 一般不会使用</p>
-<p><code>dbsize</code> 计算 key 总数   – O（1）</p>
+<p><code>keys *</code>  遍历所有key   – 一般不会使用   使用 scan </p>
+<p><code>dbsize</code> 计算 key 总数   – O(1)</p>
 <p><code>exists key</code> 检查key 是否存在（0,1）</p>
+<p><code>del key</code> 删除 key</p>
+<p><code>expire key seconds</code>  过期 key  <code>ttl key</code>  查询过期时间  <code>persist key</code> 去除过期时间</p>
+<p><code>type key</code> key 类型</p>
 
       
     </div>
@@ -432,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/redis/数据类型/" rel="next" title="redis 数据类型">
-                <i class="fa fa-chevron-left"></i> redis 数据类型
+              <a href="/redis/docker安装redis集群/" rel="next" title="docker安装redis集群">
+                <i class="fa fa-chevron-left"></i> docker安装redis集群
               </a>
             
           </div>
@@ -442,8 +445,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/redis/redis-补充/" rel="prev" title="redis-补充">
-                redis-补充 <i class="fa fa-chevron-right"></i>
+              <a href="/redis/安全性能测试客户端连接管道技术/" rel="prev" title="安全性能测试客户端连接管道技术">
+                安全性能测试客户端连接管道技术 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">191</span>
+                  <span class="site-state-item-count">193</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

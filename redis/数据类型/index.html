@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。 stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或者序列化的对象，一个键最大能存储512MB12345678910111213141516171819">
+<meta name="description" content="redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。 补bitmaps ：位图 hyperloglog : 超小内存唯一值计数 geo : 地理信息定位 stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis 数据类型">
 <meta property="og:url" content="http://imwl.ml/redis/数据类型/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。 stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或者序列化的对象，一个键最大能存储512MB12345678910111213141516171819">
+<meta property="og:description" content="redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。 补bitmaps ：位图 hyperloglog : 超小内存唯一值计数 geo : 地理信息定位 stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-02-10T04:57:53.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis 数据类型">
-<meta name="twitter:description" content="redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。 stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或者序列化的对象，一个键最大能存储512MB12345678910111213141516171819">
+<meta name="twitter:description" content="redis 数据类型Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。 补bitmaps ：位图 hyperloglog : 超小内存唯一值计数 geo : 地理信息定位 stringstring类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或">
 
 
 
@@ -399,6 +399,9 @@
 
       
         <h2 id="redis-数据类型"><a href="#redis-数据类型" class="headerlink" title="redis 数据类型"></a>redis 数据类型</h2><p><strong>Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。</strong></p>
+<p><strong>补</strong><br>bitmaps ：位图</p>
+<p>hyperloglog : 超小内存唯一值计数</p>
+<p>geo : 地理信息定位</p>
 <h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>string类型是Redis最基本的数据类型，二进制安全的。redis的string可以包含任何数据，比如jpg图片或者序列化的对象，一个键最大能存储512MB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># SET 设置键值  GET 获取键值</span><br><span class="line">redis 127.0.0.1:6379&gt; SET name &quot;weilai&quot;  </span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; GET name </span><br><span class="line">&quot;weilai&quot;</span><br><span class="line">127.0.0.1:6379&gt; strlen name</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; getset name newvalue</span><br><span class="line">&quot;weilai&quot;</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;newvalue&quot;</span><br><span class="line">127.0.0.1:6379&gt; getrange name 1 3</span><br><span class="line">&quot;ewv&quot;</span><br><span class="line">127.0.0.1:6379&gt; SETRANGE name 1 a</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;nawvalue&quot;</span><br><span class="line">127.0.0.1:6379&gt; setnx name 1 -- key存在时，不创建</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; set name newname xx -- key存在时，才更新</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;newname&quot;</span><br><span class="line">127.0.0.1:6379&gt; set name1 newname1 xx -- key不存在时，不更新</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get name1</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;nawvalue&quot;</span><br></pre></td></tr></table></figure></p>
 <p><strong>mset</strong> 和 <strong>mget</strong> 设置（得到） 多个key的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; mset date &quot;2019.08.30&quot; time &quot;11:00 a.m.&quot; weather &quot;sunny&quot;</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; mget  date time name  weather</span><br><span class="line">1) &quot;2019.08.30&quot;</span><br><span class="line">2) &quot;11:00 a.m.&quot;</span><br><span class="line">3) &quot;weilai&quot;</span><br><span class="line">4) &quot;sunny&quot;</span><br></pre></td></tr></table></figure></p>
 <p><strong>append</strong>  添加字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; append name &apos;1995&apos;</span><br><span class="line">(integer) 10</span><br><span class="line">127.0.0.1:6379&gt; GET name</span><br><span class="line">&quot;weilai1995&quot;</span><br></pre></td></tr></table></figure></p>
@@ -448,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/redis/docker安装redis/" rel="next" title="docker安装redis">
-                <i class="fa fa-chevron-left"></i> docker安装redis
+              <a href="/redis/数据备份与恢复/" rel="next" title="redis备份">
+                <i class="fa fa-chevron-left"></i> redis备份
               </a>
             
           </div>
@@ -458,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/redis/命令/" rel="prev" title="redis部分命令">
-                redis部分命令 <i class="fa fa-chevron-right"></i>
+              <a href="/redis/redis/" rel="prev" title="redis-配置文件">
+                redis-配置文件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">191</span>
+                  <span class="site-state-item-count">193</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
