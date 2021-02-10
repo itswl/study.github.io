@@ -92,7 +92,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/redis/发布订阅.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/redis/消息队列.png">
-<meta property="og:updated_time" content="2021-02-10T08:22:57.620Z">
+<meta property="og:updated_time" content="2021-02-10T08:53:37.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis 部分功能">
 <meta name="twitter:description" content="慢查询 发送命令 排队 执行命令 返回结果  慢查询 是指 在 执行命令阶段 客户端超时不一定是慢查询，但慢查询可能会导致客户端超时 123456789101112131415127.0.0.1:6379&amp;gt; config set slowlog-log-slower-than 1000  -- 设置时间 1000微秒OK127.0.0.1:6379&amp;gt; config get slowlo">
@@ -429,7 +429,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; publish sohu:tv &quot;hello world&quot;</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
 <p>前一个窗口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; SUBSCRIBE sohu:tv</span><br><span class="line">Reading messages... (press Ctrl-C to quit)</span><br><span class="line">1) &quot;subscribe&quot;</span><br><span class="line">2) &quot;sohu:tv&quot;</span><br><span class="line">3) (integer) 1</span><br><span class="line">1) &quot;message&quot;    #  新增了以下3行</span><br><span class="line">2) &quot;sohu:tv&quot;</span><br><span class="line">3) &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="bitmap"><a href="#bitmap" class="headerlink" title="bitmap"></a>bitmap</h2><h2 id="hyperloglog"><a href="#hyperloglog" class="headerlink" title="hyperloglog"></a>hyperloglog</h2><h2 id="geo"><a href="#geo" class="headerlink" title="geo"></a>geo</h2>
+<h2 id="bitmap"><a href="#bitmap" class="headerlink" title="bitmap"></a>bitmap</h2><h2 id="hyperloglog"><a href="#hyperloglog" class="headerlink" title="hyperloglog"></a>hyperloglog</h2><h2 id="geo"><a href="#geo" class="headerlink" title="geo"></a>geo</h2><p>地理信息定位，存储经纬度，主要用来计算两地距离，范围计算等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; geoadd cities:locations 116.28 39.55 beijing  -- 添加</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; geoadd cities:locations 116.28 39.55 beijing</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; geoadd cities:locations 118.01 39.38 tangshan</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; geoadd cities:locations 117.12 39.08 tianjing 114.29 38.02 shijiazhuang</span><br><span class="line">(integer) 2</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; type  cities:locations  -- 实际是 zset 实现</span><br><span class="line">zset</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; geopos  cities:locations beijing  -- 查询</span><br><span class="line">1) 1) &quot;116.28000229597091675&quot;</span><br><span class="line">   2) &quot;39.5500007245470826&quot;</span><br><span class="line">127.0.0.1:6379&gt; geopos  cities:locations tianjing</span><br><span class="line">1) 1) &quot;117.12000042200088501&quot;</span><br><span class="line">   2) &quot;39.0800000535766543&quot;</span><br><span class="line">127.0.0.1:6379&gt; geodist cities:locations tianjing beijing km  -- 计算两点距离  单位 km </span><br><span class="line">&quot;89.2061&quot;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; georadiusbymember  cities:locations beijing 100 km  -- 查询距离 beijing 100km </span><br><span class="line">1) &quot;beijing&quot;</span><br><span class="line">2) &quot;tianjing&quot;</span><br><span class="line">127.0.0.1:6379&gt; georadiusbymember  cities:locations beijing 200 km</span><br><span class="line">1) &quot;beijing&quot;</span><br><span class="line">2) &quot;tianjing&quot;</span><br><span class="line">3) &quot;tangshan&quot;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -469,8 +471,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/redis/docker安装redis/" rel="prev" title="docker安装redis">
-                docker安装redis <i class="fa fa-chevron-right"></i>
+              <a href="/基础知识/backup/nginx/readme/" rel="prev" title="jupyter备份">
+                jupyter备份 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
