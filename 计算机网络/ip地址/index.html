@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="为什么连接的时候是三次握手，关闭的时候却是四次握手？因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发">
+<meta name="description" content="ip 地址就是 网络中的 地址信息 IPv4 与 IPv6IPv4 格式 A.B.C.D  取值范围 0 ~ 255     2*32 个  IPv6 格式 A:B:C:D:E:F:G:H   十六进制  2*128 个 16*32 公网 ip 和 内网 ip公网内 ip 地址由 inter NIC 负责。公有地址全球唯一 私有地址 是非注册地址，用于组织机构内部使用 私有地址范围 A 类 IP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tcp">
-<meta property="og:url" content="http://imwl.ml/基础知识/网络相关/index.html">
+<meta property="og:title" content="IP地址">
+<meta property="og:url" content="http://imwl.ml/计算机网络/ip地址/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="为什么连接的时候是三次握手，关闭的时候却是四次握手？因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发">
+<meta property="og:description" content="ip 地址就是 网络中的 地址信息 IPv4 与 IPv6IPv4 格式 A.B.C.D  取值范围 0 ~ 255     2*32 个  IPv6 格式 A:B:C:D:E:F:G:H   十六进制  2*128 个 16*32 公网 ip 和 内网 ip公网内 ip 地址由 inter NIC 负责。公有地址全球唯一 私有地址 是非注册地址，用于组织机构内部使用 私有地址范围 A 类 IP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-02-17T13:24:47.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tcp">
-<meta name="twitter:description" content="为什么连接的时候是三次握手，关闭的时候却是四次握手？因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发">
+<meta name="twitter:title" content="IP地址">
+<meta name="twitter:description" content="ip 地址就是 网络中的 地址信息 IPv4 与 IPv6IPv4 格式 A.B.C.D  取值范围 0 ~ 255     2*32 个  IPv6 格式 A:B:C:D:E:F:G:H   十六进制  2*128 个 16*32 公网 ip 和 内网 ip公网内 ip 地址由 inter NIC 负责。公有地址全球唯一 私有地址 是非注册地址，用于组织机构内部使用 私有地址范围 A 类 IP">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/基础知识/网络相关/">
+  <link rel="canonical" href="http://imwl.ml/计算机网络/ip地址/">
 
 
 
 
 
-  <title>tcp | Get busy living</title>
+  <title>IP地址 | Get busy living</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/网络相关/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/计算机网络/ip地址/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">tcp</h1>
+          <h1 class="post-title" itemprop="name headline">IP地址</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-21T11:05:31+08:00">
-                2020-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T11:05:31+08:00">
+                2019-06-30
               </time>
             
 
@@ -360,8 +360,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -397,8 +397,24 @@
       
 
       
-        <h2 id="为什么连接的时候是三次握手，关闭的时候却是四次握手？"><a href="#为什么连接的时候是三次握手，关闭的时候却是四次握手？" class="headerlink" title="为什么连接的时候是三次握手，关闭的时候却是四次握手？"></a>为什么连接的时候是三次握手，关闭的时候却是四次握手？</h2><p>因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。</p>
-<p>## </p>
+        <p><code>ip</code> 地址就是 网络中的 地址信息</p>
+<h2 id="IPv4-与-IPv6"><a href="#IPv4-与-IPv6" class="headerlink" title="IPv4 与 IPv6"></a>IPv4 与 IPv6</h2><p><code>IPv4</code> 格式 <code>A.B.C.D</code>  取值范围 <code>0 ~ 255</code>     2*32 个 </p>
+<p><code>IPv6</code> 格式 <code>A:B:C:D:E:F:G:H</code>   十六进制  2*128 个 16*32</p>
+<h2 id="公网-ip-和-内网-ip"><a href="#公网-ip-和-内网-ip" class="headerlink" title="公网 ip 和 内网 ip"></a>公网 ip 和 内网 ip</h2><p>公网内 ip 地址由 inter NIC 负责。公有地址全球唯一</p>
+<p>私有地址 是非注册地址，用于组织机构内部使用</p>
+<h3 id="私有地址范围"><a href="#私有地址范围" class="headerlink" title="私有地址范围"></a>私有地址范围</h3><ol>
+<li>A 类 IP 地址 ：<code>1.0.0.0-126.255.255.255</code> (私有ip 地址 <code>10.0.0.0 ~ 10.255.255.255</code>)</li>
+<li>B 类 IP 地址 ：<code>128.0.0.0-191.255.255.254</code> (私有ip 地址 <code>172.16.0.0 ~ 172.31.255.255</code>)</li>
+<li>C 类 IP 地址 ：<code>192.0.0.0-223.255.255.254</code>  (私有ip 地址  <code>192.168.0.0 ~ 192.168.255.255</code>)</li>
+</ol>
+<p>私有地址 不是由 <code>internet</code> 分配的，不会出现在 <code>internet</code> 中。需要将私有 <code>ip</code> 地址 转为 公网 <code>IP</code> 地址，与外部连接 （<code>NAT</code>）<br>（私网地址访问互联网地址很方便，但互联网地址访问私有地址很困难）</p>
+<p>内网的地址都是使用的路由器中的公共的公网 <code>ip</code> 来连接 <code>internet</code> 。</p>
+<p>局域网内， <code>IP</code> 地址 是唯一的。但不同局域网， <code>IP</code> 地址可以重复</p>
+<h2 id="localhost，-127-0-0-1-和-0-0-0-0-区别"><a href="#localhost，-127-0-0-1-和-0-0-0-0-区别" class="headerlink" title="localhost， 127.0.0.1 和 0.0.0.0 区别"></a>localhost， 127.0.0.1 和 0.0.0.0 区别</h2><ol>
+<li><code>localhost</code> : 域名， <code>windows</code> 默认将 <code>localhost</code> 指向 <code>127.0.0.1</code>.</li>
+<li><code>127.0.0.1</code> : 回环地址，凡是 <code>127</code> 开头的 <code>IP</code> 地址，都是回环地址（主机上发送给回环地址的数据 会自己接收，根本不传出去）</li>
+<li><code>0.0.0.0</code> : 并不是一个真实的 <code>IP</code> 地址，他表示本机中所有的 <code>IPV4</code> 地址。监听本机所有的 <code>ip</code> 端口</li>
+</ol>
 
       
     </div>
@@ -423,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/基础知识/HTTP的基本原理/" rel="next" title="HTTP基本原理">
-                <i class="fa fa-chevron-left"></i> HTTP基本原理
+              <a href="/python/给博客加日期/" rel="next" title="给博客加日期">
+                <i class="fa fa-chevron-left"></i> 给博客加日期
               </a>
             
           </div>
@@ -433,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/基础知识/learn_linux/进程与线程相关/" rel="prev" title="进程与线程">
-                进程与线程 <i class="fa fa-chevron-right"></i>
+              <a href="/基础知识/learn_linux/计算机组成原理/" rel="prev" title="计算机组成原理">
+                计算机组成原理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -514,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">193</span>
+                  <span class="site-state-item-count">194</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -597,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么连接的时候是三次握手，关闭的时候却是四次握手？"><span class="nav-number">1.</span> <span class="nav-text">为什么连接的时候是三次握手，关闭的时候却是四次握手？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv4-与-IPv6"><span class="nav-number">1.</span> <span class="nav-text">IPv4 与 IPv6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公网-ip-和-内网-ip"><span class="nav-number">2.</span> <span class="nav-text">公网 ip 和 内网 ip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#私有地址范围"><span class="nav-number">2.1.</span> <span class="nav-text">私有地址范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localhost，-127-0-0-1-和-0-0-0-0-区别"><span class="nav-number">3.</span> <span class="nav-text">localhost， 127.0.0.1 和 0.0.0.0 区别</span></a></li></ol></div>
             
 
           </div>

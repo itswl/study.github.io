@@ -1654,7 +1654,7 @@ PersistentVolume（PV）是由管理员设置的存储，它是群集的一部�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/ansible简介/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/Volume/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1673,7 +1673,7 @@ PersistentVolume（PV）是由管理员设置的存储，它是群集的一部�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/运维/ansible简介/" itemprop="url">ansible简介</a></h1>
+                <a class="post-title-link" href="/运维/k8s/Volume/" itemprop="url">Volume</a></h1>
         
 
         <div class="post-meta">
@@ -1747,12 +1747,13 @@ PersistentVolume（PV）是由管理员设置的存储，它是群集的一部�
       
         
           
-          ansible 安装1. git安装123git clone git://github.com/ansible/ansible.git --recursive cd ./ansible source ./hacking/env-setup
-2. yum/apt 安装1yum/apt install 
+          Volume容器销毁时，保存在容器内部文件系统中的数据会被清除，为了持久化保存容器数据，可以使用 Kubernetes Volum。 
+Volum 生命周期独立于容器， Pod 中容器可能销毁重建，但 Volume 会被保留。
+emptyDir一个 emptyDir Volume 是 Host 上的
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/运维/ansible简介/#more" rel="contents">
+            <a class="btn" href="/运维/k8s/Volume/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1842,7 +1843,7 @@ PersistentVolume（PV）是由管理员设置的存储，它是群集的一部�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">193</span>
+                  <span class="site-state-item-count">194</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
