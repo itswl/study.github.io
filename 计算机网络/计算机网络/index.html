@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="网络通讯的本质目标就是进程间通信  socket 编程模型unix 系统 socket 是一种特殊的文件，双向管道，一端是应用，一端是缓存区 socket 连接应用和协议。应用程序 传输数据，就创建一个socket 。向socket 中写数据相当于将数据发送给另一个应用。应用从 socket 中读取数据，相当于接收另一个程序发送的数据。 I/O 复用手段  同步调用  select poll 线性">
+<meta name="description" content="网络模型OSI 七层模型应用层 : 为计算机用户提供接口和服务表示层 : 数据处理会话层 : 管理通信会话传输层 : 管理端到端的通信连接网络层 : 数据路由，数据在网络的路径 (路由器只到此层)数据链路层 : 管理相连节点的通信物理层     :  数据通讯光电特性 TCP/IP四层模型应用层（表现层，会话层） : http, dns, dhcp传输层 : tcp, udp网络层 : ip, i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Get busy living">
-<meta property="og:url" content="http://imwl.ml/基础知识/未整理/index.html">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="http://imwl.ml/计算机网络/计算机网络/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="网络通讯的本质目标就是进程间通信  socket 编程模型unix 系统 socket 是一种特殊的文件，双向管道，一端是应用，一端是缓存区 socket 连接应用和协议。应用程序 传输数据，就创建一个socket 。向socket 中写数据相当于将数据发送给另一个应用。应用从 socket 中读取数据，相当于接收另一个程序发送的数据。 I/O 复用手段  同步调用  select poll 线性">
+<meta property="og:description" content="网络模型OSI 七层模型应用层 : 为计算机用户提供接口和服务表示层 : 数据处理会话层 : 管理通信会话传输层 : 管理端到端的通信连接网络层 : 数据路由，数据在网络的路径 (路由器只到此层)数据链路层 : 管理相连节点的通信物理层     :  数据通讯光电特性 TCP/IP四层模型应用层（表现层，会话层） : http, dns, dhcp传输层 : tcp, udp网络层 : ip, i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-07T12:00:42.053Z">
+<meta property="og:updated_time" content="2021-02-17T14:38:01.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Get busy living">
-<meta name="twitter:description" content="网络通讯的本质目标就是进程间通信  socket 编程模型unix 系统 socket 是一种特殊的文件，双向管道，一端是应用，一端是缓存区 socket 连接应用和协议。应用程序 传输数据，就创建一个socket 。向socket 中写数据相当于将数据发送给另一个应用。应用从 socket 中读取数据，相当于接收另一个程序发送的数据。 I/O 复用手段  同步调用  select poll 线性">
+<meta name="twitter:title" content="计算机网络">
+<meta name="twitter:description" content="网络模型OSI 七层模型应用层 : 为计算机用户提供接口和服务表示层 : 数据处理会话层 : 管理通信会话传输层 : 管理端到端的通信连接网络层 : 数据路由，数据在网络的路径 (路由器只到此层)数据链路层 : 管理相连节点的通信物理层     :  数据通讯光电特性 TCP/IP四层模型应用层（表现层，会话层） : http, dns, dhcp传输层 : tcp, udp网络层 : ip, i">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/基础知识/未整理/">
+  <link rel="canonical" href="http://imwl.ml/计算机网络/计算机网络/">
 
 
 
 
 
-  <title> | Get busy living</title>
+  <title>计算机网络 | Get busy living</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/未整理/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/计算机网络/计算机网络/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">计算机网络</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-07T20:00:42+08:00">
-                2021-02-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-21T11:05:31+08:00">
+                2020-03-21
               </time>
             
 
@@ -347,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -375,24 +397,14 @@
       
 
       
-        <p>网络通讯的本质目标就是进程间通信 </p>
-<p>socket 编程模型<br>unix 系统 socket 是一种特殊的文件，双向管道，一端是应用，一端是缓存区</p>
-<p>socket 连接应用和协议。应用程序 传输数据，就创建一个socket 。向socket 中写数据相当于将数据发送给另一个应用。应用从 socket 中读取数据，相当于接收另一个程序发送的数据。</p>
-<p>I/O 复用手段  同步调用</p>
-<ol>
-<li>select poll 线性结构，阻塞模型</li>
-<li>epoll 红黑树，非阻塞模型</li>
-</ol>
-<p>传输层 负责 应用传输数据给应用。<br>端口号： 编号将应用区分开， 80 web 服务器， 22 ssh ，浏览器  临时分配端口号。 TCP 封包上携带了 端口号，接收方识别封包然后发送对应应用</p>
-<p>网络层 ip 寻址，路由</p>
-<p>数据链路层  为 网络层提供 链路级别传输的支持</p>
-<p>物理层： 为 数据链路层 提供二进制传输服务</p>
-<p>多路复用 ： 一台机器可能只有一份网卡网线，而应用可能有很多。 多个信号，复用一个信道.提升吞吐量，信号相互隔离，并行传输。</p>
-<p>应用层多路复用： eg：一个应用可能同时向服务器发送多个请求，多个请求可以 复用 一个 TCP 连接</p>
-<p>传输层多路复用： 多个请求并行的发送请求，eg: 多个 TCP 链接复用一条线路，依赖网路层提供多路复用能力</p>
-<p>网络层多路复用： 网络层天然支持多路复用</p>
-<p>示例：<br> HTTP 协议， 浏览器打开时，会向服务器发送多个请求，多个请求混合在一起，复用相同连接，数据紧密切互相隔离。</p>
-
+        <h2 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h2><h3 id="OSI-七层模型"><a href="#OSI-七层模型" class="headerlink" title="OSI 七层模型"></a>OSI 七层模型</h3><p>应用层 : 为计算机用户提供接口和服务<br>表示层 : 数据处理<br>会话层 : 管理通信会话<br>传输层 : 管理端到端的通信连接<br>网络层 : 数据路由，数据在网络的路径 (路由器只到此层)<br>数据链路层 : 管理相连节点的通信<br>物理层     :  数据通讯光电特性</p>
+<h3 id="TCP-IP四层模型"><a href="#TCP-IP四层模型" class="headerlink" title="TCP/IP四层模型"></a>TCP/IP四层模型</h3><p>应用层（表现层，会话层） : http, dns, dhcp<br>传输层 : tcp, udp<br>网络层 : ip, icmp<br>网络接口层（链路层+物理层） : arp ,rarp</p>
+<h2 id="网络的性能指标"><a href="#网络的性能指标" class="headerlink" title="网络的性能指标"></a>网络的性能指标</h2><p>100Mbps = 100Mbit/s = 12.5MB/s</p>
+<p>总时延 = 发送时延 + 排队时延 + 传播时延 + 处理时延</p>
+<p>ping 命令查看 RTT , 报文在端到端 来回一次的时间</p>
+<h2 id="MTU"><a href="#MTU" class="headerlink" title="MTU"></a>MTU</h2><p>数据链路帧 的最大传输单元 ，一般为 1500 字节。</p>
+<p>路径 MTU 由链路中 MTU 的最小值确定。 所以 MTU 不建议更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@R7000:~# ifconfig</span><br><span class="line">eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.20.108.198  netmask 255.255.240.0  broadcast 172.20.111.255</span><br><span class="line">        inet6 fe80::215:5dff:fee6:3127  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:15:5d:e6:31:27  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 12934  bytes 1578453 (1.5 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 10292  bytes 2760086 (2.7 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -416,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/运维/k8s/istio/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/计算机网络/socket 编程/" rel="next" title="socket 编程">
+                <i class="fa fa-chevron-left"></i> socket 编程
               </a>
             
           </div>
@@ -425,6 +437,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/计算机网络/网络相关/" rel="prev" title="tcp">
+                tcp <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -476,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -494,7 +519,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">194</span>
+                  <span class="site-state-item-count">199</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -567,6 +592,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络模型"><span class="nav-number">1.</span> <span class="nav-text">网络模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI-七层模型"><span class="nav-number">1.1.</span> <span class="nav-text">OSI 七层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP四层模型"><span class="nav-number">1.2.</span> <span class="nav-text">TCP/IP四层模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络的性能指标"><span class="nav-number">2.</span> <span class="nav-text">网络的性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU"><span class="nav-number">3.</span> <span class="nav-text">MTU</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

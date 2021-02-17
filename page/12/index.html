@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/test_odm/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/redis 部分功能/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mongodb/test_odm/" itemprop="url">test_odm</a></h1>
+                <a class="post-title-link" href="/redis/redis 部分功能/" itemprop="url">redis 部分功能</a></h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
-                2019-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T12:51:16+08:00">
+                2019-08-17
               </time>
             
 
@@ -401,11 +401,19 @@
       
         
           
-          1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556from odm import Grade, Studentclass TestMongoEn
+          慢查询
+发送命令
+排队
+执行命令
+返回结果
+
+慢查询 是指 在 执行命令阶段
+客户端超时不一定是慢查询，但慢查询可能会导致客户端超时
+123456789101112131415127.0.0.1:6379&gt; config set slowlog-log-slower-than 1000  --
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/mongodb/test_odm/#more" rel="contents">
+            <a class="btn" href="/redis/redis 部分功能/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -456,7 +464,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/odm/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/数据备份与恢复/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -475,7 +483,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mongodb/odm/" itemprop="url">odm</a></h1>
+                <a class="post-title-link" href="/redis/数据备份与恢复/" itemprop="url">redis备份</a></h1>
         
 
         <div class="post-meta">
@@ -487,8 +495,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
-                2019-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T12:51:16+08:00">
+                2019-08-17
               </time>
             
 
@@ -549,11 +557,13 @@
       
         
           
-          12345678910111213141516171819202122232425262728from mongoengine import connect, Document, StringField, IntField, \    FloatField, EmbeddedDocument, Li
+          rdb : 在指定的时间间隔对数据进行快照存储 （默认开启）
+aof : 记录每次对服务器的写操作，重启时会重新执行这些命令。（AOF 文件会后台重写，使得文件不会太大） （需要修改配置文件 appendonly yes 开启）
+appendfsync : always/everysec(默认)/n
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/mongodb/odm/#more" rel="contents">
+            <a class="btn" href="/redis/数据备份与恢复/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -604,7 +614,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/入门补充生成数据/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/python操作redis/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -623,7 +633,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mongodb/入门补充生成数据/" itemprop="url">mongodb补充数据</a></h1>
+                <a class="post-title-link" href="/redis/python操作redis/" itemprop="url">python操作redis</a></h1>
         
 
         <div class="post-meta">
@@ -635,8 +645,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
-                2019-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T12:51:16+08:00">
+                2019-08-17
               </time>
             
 
@@ -697,11 +707,16 @@
       
         
           
-          123456789101112131415161718192021import randomimport jsona = &#123;    &apos;name&apos; : &apos;weilai&apos;,    &apos;age&apos; : 18,    &apos;sex&ap
+          1. 准备工作
+安装好 redis 和 RedisPy库
+RedisDump  可以用来做数据导入或导出2. RedisPy库RedisPy库 提供两个类 redis 和 StrictRedis 来实现 Redis 的命令操作。
+
+StrictRedis 实现了绝大部分官方命令，参数也一一对应。
+r
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/mongodb/入门补充生成数据/#more" rel="contents">
+            <a class="btn" href="/redis/python操作redis/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1052,7 +1067,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/推送，备份/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/入门/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1071,7 +1086,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/docker/推送，备份/" itemprop="url">docker推送备份</a></h1>
+                <a class="post-title-link" href="/mongodb/入门/" itemprop="url">mongodb入门</a></h1>
         
 
         <div class="post-meta">
@@ -1083,8 +1098,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-06T11:51:16+08:00">
-                2019-08-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
+                2019-08-13
               </time>
             
 
@@ -1106,8 +1121,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -1145,11 +1160,26 @@
       
         
           
-          提交运行的容器成为镜像生产环境一般使用 dockerfile. commit 的镜像不可控12345678docker run --name imwltest -h docker -dit -e TZ=Asia/Shanghai debian# docker commit -a=&apos;作者&a
+          简介文档
+eg: {“foo”:3,”greeting”:”Hello world!”}
+区分大小写
+key唯一
+文档可嵌套
+键值对 有序
+
+集合
+集合就是一组文档
+文档类似于 关系库里的 行
+集合类似于 关系库里的表
+集合中的文档无需固定的结构
+
+集合命名规则：
+数据库
+多个文档组成集合，多个集合
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/docker/推送，备份/#more" rel="contents">
+            <a class="btn" href="/mongodb/入门/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1200,7 +1230,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/容器间的通信/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/入门补充生成数据/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1219,7 +1249,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/docker/容器间的通信/" itemprop="url">docker容器间的通信</a></h1>
+                <a class="post-title-link" href="/mongodb/入门补充生成数据/" itemprop="url">mongodb补充数据</a></h1>
         
 
         <div class="post-meta">
@@ -1231,8 +1261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T11:51:16+08:00">
-                2019-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
+                2019-08-13
               </time>
             
 
@@ -1254,8 +1284,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -1293,15 +1323,11 @@
       
         
           
-          https://blog.csdn.net/u013355826/article/details/84987233容器之间通信的主要方式
-1.通过容器ip访问
-容器重启后，ip会发生变化。通过容器ip访问不是一个好的方案。
-2.通过宿主机的ip:port访问
-通过宿主机的ip:port访问，只能依靠
+          123456789101112131415161718192021import randomimport jsona = &#123;    &apos;name&apos; : &apos;weilai&apos;,    &apos;age&apos; : 18,    &apos;sex&ap
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/docker/容器间的通信/#more" rel="contents">
+            <a class="btn" href="/mongodb/入门补充生成数据/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1352,7 +1378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/基础知识windows10+docker+wsl+ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/odm/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1371,7 +1397,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/docker/基础知识windows10+docker+wsl+ubuntu/" itemprop="url">docker_windos10下</a></h1>
+                <a class="post-title-link" href="/mongodb/odm/" itemprop="url">odm</a></h1>
         
 
         <div class="post-meta">
@@ -1383,8 +1409,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T11:51:16+08:00">
-                2019-08-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
+                2019-08-13
               </time>
             
 
@@ -1406,8 +1432,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -1445,13 +1471,11 @@
       
         
           
-          准备工作安装wsl linux
-开启Linux子系统，以管理员权限打开 PowerShell
-1234# 启用虚拟机平台Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform# 开启Linux子系统Enabl
+          12345678910111213141516171819202122232425262728from mongoengine import connect, Document, StringField, IntField, \    FloatField, EmbeddedDocument, Li
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/docker/基础知识windows10+docker+wsl+ubuntu/#more" rel="contents">
+            <a class="btn" href="/mongodb/odm/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1502,7 +1526,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/readme/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/test_odm/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1521,7 +1545,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/docker/readme/" itemprop="url">docker简介</a></h1>
+                <a class="post-title-link" href="/mongodb/test_odm/" itemprop="url">test_odm</a></h1>
         
 
         <div class="post-meta">
@@ -1533,8 +1557,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T11:51:16+08:00">
-                2019-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
+                2019-08-13
               </time>
             
 
@@ -1556,8 +1580,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -1595,13 +1619,11 @@
       
         
           
-          dockerLinux 容器不是模拟一个完整的操作系统，而是对进程进行隔离。对于容器里面的进程来说，它接触到的各种资源都是虚拟的，从而实现与底层系统的隔离
-Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口
-Docker 将应用程序与该程序的依赖，打包在一个文件(image)
+          1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556from odm import Grade, Studentclass TestMongoEn
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/docker/readme/#more" rel="contents">
+            <a class="btn" href="/mongodb/test_odm/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1652,7 +1674,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/golang/指针/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/python操作MongoDB/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1671,7 +1693,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/golang/指针/" itemprop="url">指针</a></h1>
+                <a class="post-title-link" href="/mongodb/python操作MongoDB/" itemprop="url">python操作MongoDB</a></h1>
         
 
         <div class="post-meta">
@@ -1683,8 +1705,8 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T11:05:31+08:00">
-                2019-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T10:51:16+08:00">
+                2019-08-13
               </time>
             
 
@@ -1706,8 +1728,8 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index">
-                    <span itemprop="name">golang</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -1745,13 +1767,12 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
       
         
           
-          变量是一种使用方便的占位符，用于引用计算机内存地址。
-Go 语言的取地址符是 &amp;，放到一个变量前使用就会返回相应变量的内存地址
-123456789package mainimport &quot;fmt&quot;func main() &#123;   var a int = 10    
+          python操作MongoDB
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869from 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/golang/指针/#more" rel="contents">
+            <a class="btn" href="/mongodb/python操作MongoDB/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1841,7 +1862,7 @@ Go 语言的取地址符是 &amp;，放到一个变量前使用就会返回相�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">194</span>
+                  <span class="site-state-item-count">199</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
