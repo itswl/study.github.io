@@ -1370,7 +1370,7 @@ HTTP 块： 诸如反向代理和均衡负载都在
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/ansible_playbook/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/ansible/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1389,7 +1389,7 @@ HTTP 块： 诸如反向代理和均衡负载都在
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/运维/ansible_playbook/" itemprop="url">ansible_playbook安装案例</a></h1>
+                <a class="post-title-link" href="/运维/ansible/" itemprop="url">ansible基础</a></h1>
         
 
         <div class="post-meta">
@@ -1463,18 +1463,17 @@ HTTP 块： 诸如反向代理和均衡负载都在
       
         
           
-          ansible_playbook的一个安装案例
-hosts 文件
-12# echo  -e &quot;[zabbix]wl.imwl.ml&quot; &gt;&gt; /etc/ansible/hosts
+          运维自动化
+操作系统预备自动化 : 主机上线时，操作系统的部署  （pxe等）
+配置自动化 ： 
+监控自动化 : 系统与应用监控，日志监控
+代码持续集成与代码持续发布自动化  （git  docker jenkins等）
 
-入口文件install_zabbix_agent.yml
-
-
-1234# echo  -
+配置自动化配置自动化优点 ： 提高工作效率，提高配置文件准确性，降低人力成本
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/运维/ansible_playbook/#more" rel="contents">
+            <a class="btn" href="/运维/ansible/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1673,7 +1672,7 @@ hosts 文件
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/ansible/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/ansible_playbook/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1692,7 +1691,7 @@ hosts 文件
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/运维/ansible/" itemprop="url">ansible基础</a></h1>
+                <a class="post-title-link" href="/运维/ansible_playbook/" itemprop="url">ansible_playbook安装案例</a></h1>
         
 
         <div class="post-meta">
@@ -1766,17 +1765,18 @@ hosts 文件
       
         
           
-          运维自动化
-操作系统预备自动化 : 主机上线时，操作系统的部署  （pxe等）
-配置自动化 ： 
-监控自动化 : 系统与应用监控，日志监控
-代码持续集成与代码持续发布自动化  （git  docker jenkins等）
+          ansible_playbook的一个安装案例
+hosts 文件
+12# echo  -e &quot;[zabbix]wl.imwl.ml&quot; &gt;&gt; /etc/ansible/hosts
 
-配置自动化配置自动化优点 ： 提高工作效率，提高配置文件准确性，降低人力成本
+入口文件install_zabbix_agent.yml
+
+
+1234# echo  -
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/运维/ansible/#more" rel="contents">
+            <a class="btn" href="/运维/ansible_playbook/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/DockerFile示例/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/flask/部署/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/docker/DockerFile示例/" itemprop="url">dockerfile</a></h1>
+                <a class="post-title-link" href="/python/flask/部署/" itemprop="url">部署</a></h1>
         
 
         <div class="post-meta">
@@ -362,8 +362,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/flask/" itemprop="url" rel="index">
+                    <span itemprop="name">flask</span>
                   </a>
                 </span>
 
@@ -401,14 +401,27 @@
       
         
           
-          简介Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于操作系统基础镜像并最终创建的一个新镜像；
-生产实践中一定优先使用 Dockerfile 的方式构建镜像
-Dockerfile 书写原则
-单一职责：由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容
+          部署流程
+自动执行全部任务
+把生产环境中的错误写入日志
+
+部署方式
+云托管
+容器 eg:docker
+PaaS 平台即服务
+
+使用docker 部署
+安装docker
+构建容器映像
+运行容器
+数据库等最好另开容器
+容器编排 Docker Compose 
+
+定义的所有容器，可以使用 docker-c
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/docker/DockerFile示例/#more" rel="contents">
+            <a class="btn" href="/python/flask/部署/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -927,7 +940,7 @@ MySql 体系架构
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(3)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -946,7 +959,7 @@ MySql 体系架构
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
+                <a class="post-title-link" href="/MySQL/mysql基础(3)/" itemprop="url">mysql基础(3)</a></h1>
         
 
         <div class="post-meta">
@@ -1020,13 +1033,13 @@ MySql 体系架构
       
         
           
-          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
-MySQL语法基础创建表– 为注释，不会被执行
-使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
+          多表联查
+使用多表查询可以获取M x N行记录（M,N为两个表各自的行数）多表查询的结果集可能非常巨大，要小心使用。
+内连接123456789101112131415mysql&gt;   SELECT  s.id, s.name,`s`.`class id`, s.nickname,s.sex,c
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
+            <a class="btn" href="/MySQL/mysql基础(3)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1077,7 +1090,7 @@ MySQL语法基础创建表– 为注释，不会被执行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(ORM)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/数据库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1096,7 +1109,7 @@ MySQL语法基础创建表– 为注释，不会被执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/python操作mysql(ORM)/" itemprop="url">python操作mysql(ORM)</a></h1>
+                <a class="post-title-link" href="/MySQL/数据库/" itemprop="url">数据库</a></h1>
         
 
         <div class="post-meta">
@@ -1170,14 +1183,19 @@ MySQL语法基础创建表– 为注释，不会被执行
       
         
           
-          使用SQLAlchemy
-安装方法pip install SQLAlchemy
-更多内容参考flask鱼书项目
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515
-          ...
+          数据库分类
+关系型数据库 （MySQL,SQLServer,MariaDB,ORACLE等）
+非关系型数据库 (mongoDB,redis等）
+非关系型数据库分类1 . 文档型2 . key-value型3 . 列式数据库4 . 图形数据库
+
+
+
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/python操作mysql(ORM)/#more" rel="contents">
+            <a class="btn" href="/MySQL/数据库/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1380,7 +1398,7 @@ python
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(2)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(ORM)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1399,7 +1417,7 @@ python
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/mysql基础(2)/" itemprop="url">mysql基础(2)</a></h1>
+                <a class="post-title-link" href="/MySQL/python操作mysql(ORM)/" itemprop="url">python操作mysql(ORM)</a></h1>
         
 
         <div class="post-meta">
@@ -1473,12 +1491,14 @@ python
       
         
           
-          外键在students表中，通过class id的字段，可以把数据与另一张表（class）关联起来，这种列称为外键。
-在students表中添加一个class id(id的后一列)12ALTER TABLE `school`.`students`ADD COLUMN `class id` int N
+          使用SQLAlchemy
+安装方法pip install SQLAlchemy
+更多内容参考flask鱼书项目
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(2)/#more" rel="contents">
+            <a class="btn" href="/MySQL/python操作mysql(ORM)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1678,7 +1698,7 @@ show variables like &#39;%datadir%&#39;;  :
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/数据库/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1697,7 +1717,7 @@ show variables like &#39;%datadir%&#39;;  :
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/数据库/" itemprop="url">数据库</a></h1>
+                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
         
 
         <div class="post-meta">
@@ -1771,19 +1791,13 @@ show variables like &#39;%datadir%&#39;;  :
       
         
           
-          数据库分类
-关系型数据库 （MySQL,SQLServer,MariaDB,ORACLE等）
-非关系型数据库 (mongoDB,redis等）
-非关系型数据库分类1 . 文档型2 . key-value型3 . 列式数据库4 . 图形数据库
-
-
-
-
-
-          
+          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
+MySQL语法基础创建表– 为注释，不会被执行
+使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/数据库/#more" rel="contents">
+            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
