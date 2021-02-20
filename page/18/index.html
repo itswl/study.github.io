@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(ORM)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(3)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/python操作mysql(ORM)/" itemprop="url">python操作mysql(ORM)</a></h1>
+                <a class="post-title-link" href="/MySQL/mysql基础(3)/" itemprop="url">mysql基础(3)</a></h1>
         
 
         <div class="post-meta">
@@ -401,14 +401,13 @@
       
         
           
-          使用SQLAlchemy
-安装方法pip install SQLAlchemy
-更多内容参考flask鱼书项目
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515
+          多表联查
+使用多表查询可以获取M x N行记录（M,N为两个表各自的行数）多表查询的结果集可能非常巨大，要小心使用。
+内连接123456789101112131415mysql&gt;   SELECT  s.id, s.name,`s`.`class id`, s.nickname,s.sex,c
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/python操作mysql(ORM)/#more" rel="contents">
+            <a class="btn" href="/MySQL/mysql基础(3)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -459,7 +458,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(2)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -478,7 +477,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/mysql基础(2)/" itemprop="url">mysql基础(2)</a></h1>
+                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
         
 
         <div class="post-meta">
@@ -552,12 +551,13 @@
       
         
           
-          外键在students表中，通过class id的字段，可以把数据与另一张表（class）关联起来，这种列称为外键。
-在students表中添加一个class id(id的后一列)12ALTER TABLE `school`.`students`ADD COLUMN `class id` int N
+          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
+MySQL语法基础创建表– 为注释，不会被执行
+使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(2)/#more" rel="contents">
+            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -764,7 +764,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(增删改查)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -783,7 +783,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
+                <a class="post-title-link" href="/MySQL/python操作mysql(增删改查)/" itemprop="url">python操作mysql（增删改查）</a></h1>
         
 
         <div class="post-meta">
@@ -857,13 +857,15 @@
       
         
           
-          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
-MySQL语法基础创建表– 为注释，不会被执行
-使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
+          使用mysqlclient先安装mysqlclient网址：https://pypi.org/project/mysqlclient/python中可使用pip安装，pip install mysqlclient
+
+也可以使用别的方法，详细可查看之前的文章：爬取百度百科词条写入数据库
+
+python
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
+            <a class="btn" href="/MySQL/python操作mysql(增删改查)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1509,7 +1511,7 @@ MySQL语法基础创建表– 为注释，不会被执行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/PandaTV爬取主播人气并排序/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/爬虫整理（三）Requests/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1528,7 +1530,7 @@ MySQL语法基础创建表– 为注释，不会被执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/PandaTV爬取主播人气并排序/" itemprop="url">PandaTV爬取主播人气并排序</a></h1>
+                <a class="post-title-link" href="/python/爬虫整理（三）Requests/" itemprop="url">爬虫整理（三）Requests</a></h1>
         
 
         <div class="post-meta">
@@ -1602,11 +1604,12 @@ MySQL语法基础创建表– 为注释，不会被执行
       
         
           
-          很早前，第一次爬虫，就用的re加urllib原生爬虫。这次重新来爬取一次PandaTV主播人气排名，来练一下手。毕竟看直播嘛，颜值区更喜欢一点。就以颜值区为例，颜值区url = ‘https://www.panda.tv/cate/yzdr&#39;。结果保存在运行目录下的`PandaTV主播人气排
+          Requests 是一个 Python 的外部模块, 需要手动安装. 使用 pip 安装就好了.
+1234567import requestsimport webbrowser  #  使用浏览器打开param = &#123;&quot;wd&quot;: &quot;itswl.github&q
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/PandaTV爬取主播人气并排序/#more" rel="contents">
+            <a class="btn" href="/python/爬虫整理（三）Requests/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
