@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="网络模型应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-17T14:15:15.130Z">
+<meta property="og:updated_time" content="2021-02-21T07:54:23.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP基本原理">
 <meta name="twitter:description" content="网络模型应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当">
@@ -406,6 +406,7 @@
 <li><p>无状态：对于事务处理没有记忆能力  (Cookie 客户端， Session 服务端) </p>
 </li>
 </ol>
+<p><strong>长连接与短连接</strong><br>短连接 : 为每一次的数据传输准备了一个传输通道，会先建立连接，然后传递数据，最后关闭连接<br>长连接 : 建立了一条可以连接通道，并一直保持，每一次传输数据时会复用同一条连接通道。</p>
 <h2 id="1-URL-与-URI"><a href="#1-URL-与-URI" class="headerlink" title="1. URL 与 URI"></a>1. URL 与 URI</h2><p>URI : 统一资源标识符</p>
 <p>URL : 统一资源定位符</p>
 <p>(URN : 统一资源名称  只命名资源 而不指定如何定位资源)</p>
@@ -518,8 +519,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/计算机网络/传输层/" rel="next" title="传输层">
-                <i class="fa fa-chevron-left"></i> 传输层
+              <a href="/计算机网络/应用层协议/" rel="next" title="部分应用层协议">
+                <i class="fa fa-chevron-left"></i> 部分应用层协议
               </a>
             
           </div>
@@ -528,8 +529,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/计算机网络/应用层协议/" rel="prev" title="部分应用层协议">
-                部分应用层协议 <i class="fa fa-chevron-right"></i>
+              <a href="/基础知识/learn_linux/进程与线程相关/" rel="prev" title="进程与线程">
+                进程与线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -609,7 +610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">201</span>
+                  <span class="site-state-item-count">204</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
