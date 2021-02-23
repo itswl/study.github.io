@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="网络模型应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-21T07:54:23.560Z">
+<meta property="og:updated_time" content="2021-02-23T03:28:30.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP基本原理">
 <meta name="twitter:description" content="网络模型应用层，（表现层，会话层），传输层，网络层，网络接口层（链路层+物理层） 0. HTTP 的特性HTTP 协议构建于 TCP/IP 协议之上，是一个应用层协议，默认端口号是 80 (HTTPS:  443) HTTP 是无连接无状态的  无连接：服务器处理完客户的请求，并收到客户的应答后，即断开连接  （keep-alive :Keep-Alive 功能使客户端到服务器端的连接持续有效，当">
@@ -407,6 +407,12 @@
 </li>
 </ol>
 <p><strong>长连接与短连接</strong><br>短连接 : 为每一次的数据传输准备了一个传输通道，会先建立连接，然后传递数据，最后关闭连接<br>长连接 : 建立了一条可以连接通道，并一直保持，每一次传输数据时会复用同一条连接通道。</p>
+<p>Connection: keep-alive 字段表示启用了长连接；</p>
+<p>报文头里如果有  Connection: close 就意味着长连接即将关闭；</p>
+<p><strong>cookie</strong></p>
+<p>响应报文使用 Set-Cookie 字段发送“key=value”形式的 Cookie 值；</p>
+<p>请求报文里用 Cookie 字段发送多个 Cookie 值；</p>
+<p>为了保护 Cookie，还要给它设置有效期、作用域等属性，常用的有 Max-Age、Expires、Domain、HttpOnly 等；</p>
 <h2 id="1-URL-与-URI"><a href="#1-URL-与-URI" class="headerlink" title="1. URL 与 URI"></a>1. URL 与 URI</h2><p>URI : 统一资源标识符</p>
 <p>URL : 统一资源定位符</p>
 <p>(URN : 统一资源名称  只命名资源 而不指定如何定位资源)</p>
@@ -482,7 +488,11 @@
 <li>Server : 包含了服务器的信息</li>
 <li>Content-type ： 同Request</li>
 <li>Set-Cookie : 设置Cookie, 即告诉浏览器需要将此内容放到Cookies中，下次请求携带Cookies请求。</li>
-<li>Expires : 指定 Response 的过期时间，使用它可以控制代理服务器或浏览器将内容更新到缓存中，如再次访问，直接从缓存中加载，降低服务器荷载，缩短加载时间。</li>
+<li><p>Expires : 指定 Response 的过期时间，使用它可以控制代理服务器或浏览器将内容更新到缓存中，如再次访问，直接从缓存中加载，降低服务器荷载，缩短加载时间。</p>
+</li>
+<li><p>Transfer-Encoding: chunked   ： 分段传送</p>
+</li>
+<li>Content-Length: 29921  ： 文本大小，与上面互斥</li>
 </ol>
 <h3 id="6-3-Response-Body"><a href="#6-3-Response-Body" class="headerlink" title="6.3 Response Body"></a>6.3 Response Body</h3><p><strong>响应的正文数据都是在响应体中</strong><br>（爬虫请求网页后要解析的数据就是解析响应体）</p>
 <p>在浏览器开发工具中点击Preview,就可以看到网页源代码、json数据等，然后从中做相应内容的提取</p>
@@ -493,8 +503,25 @@
 </ol>
 <h3 id="7-2-缓存类型"><a href="#7-2-缓存类型" class="headerlink" title="7.2 缓存类型"></a>7.2 缓存类型</h3><ol>
 <li>浏览器缓存 ： 一般 get 方法 会被缓存下来， post　方法不会</li>
-<li>HTTP　缓存　：　待补充</li>
+<li>HTTP　缓存　：　见下文</li>
 </ol>
+<h4 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP　缓存"></a>HTTP　缓存</h4><p>cache-control</p>
+<p>max-age=30  # 生存时间</p>
+<p>no_store ：不允许缓存，用于某些变化非常频繁的数据，例如秒杀页面；</p>
+<p>no_cache：而是可以缓存，但在使用之前必须要去服务器验证是否过期，用最新的版本；</p>
+<p>must-revalidate：缓存不过期就可以继续使用，但过期了如果还想用就必须去服务器验证。</p>
+<p><strong>条件请求</strong><br>Last-modified  : 最后更新时间<br>ETag : 资源的一个唯一标识，主要是用来解决修改时间无法准确区分文件变化的问题</p>
+<p>强 ETag 要求资源在字节级别必须完全相符，弱 ETag 在值前有个“W/”标记，只要求资源在语义上没有变化，但内部可能会有部分发生了改变</p>
+<h2 id="8-代理"><a href="#8-代理" class="headerlink" title="8. 代理"></a>8. 代理</h2><p>HTTP 代理就是客户端和服务器通信链路中的一个中间环节，为两端提供“代理服务”；</p>
+<p>代理处于中间层，为 HTTP 处理增加了更多的灵活性，可以实现负载均衡、安全防护、数据过滤等功能；</p>
+<p>代理服务器需要使用字段“Via”标记自己的身份，多个代理会形成一个列表；</p>
+<p>如果想要知道客户端的真实 IP 地址，可以使用字段“X-Forwarded-For”和“X-Real-IP”；</p>
+<p>专门的“代理协议”可以在不改动原始报文的情况下传递客户端的真实 IP。</p>
+<h3 id="8-1-缓存代理"><a href="#8-1-缓存代理" class="headerlink" title="8.1 缓存代理"></a>8.1 缓存代理</h3><p>缓存代理是增加了缓存功能的代理服务，缓存源服务器的数据，分发给下游的客户端；</p>
+<p>“Cache-Control”字段也可以控制缓存代理，常用的有“private”“s-maxage”“no-transform”等，同样必须配合“Last-modified”“ETag”等字段才能使用；</p>
+<p>缓存代理有时候也会带来负面影响，缓存不良数据，需要及时刷新或删除。</p>
+<h2 id="9-CDN"><a href="#9-CDN" class="headerlink" title="9. CDN"></a>9. CDN</h2><p>CDN（Content Delivery Network 或 Content Distribution Network）： 内容分发网络</p>
+<p>CDN 的最核心原则是“就近访问”</p>
 
       
     </div>
@@ -519,8 +546,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/计算机网络/计算机网络/" rel="next" title="计算机网络">
-                <i class="fa fa-chevron-left"></i> 计算机网络
+              <a href="/计算机网络/传输层/" rel="next" title="传输层">
+                <i class="fa fa-chevron-left"></i> 传输层
               </a>
             
           </div>
@@ -693,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络模型"><span class="nav-number">1.</span> <span class="nav-text">网络模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-HTTP-的特性"><span class="nav-number">2.</span> <span class="nav-text">0. HTTP 的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-URL-与-URI"><span class="nav-number">3.</span> <span class="nav-text">1. URL 与 URI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-超文本"><span class="nav-number">4.</span> <span class="nav-text">2. 超文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HTTP-HTTPS"><span class="nav-number">5.</span> <span class="nav-text">3. HTTP HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-HTTP-请求过程"><span class="nav-number">6.</span> <span class="nav-text">4. HTTP 请求过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Request"><span class="nav-number">7.</span> <span class="nav-text">5. Request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-Request-Method"><span class="nav-number">7.1.</span> <span class="nav-text">5.1 Request Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-Request-URL"><span class="nav-number">7.2.</span> <span class="nav-text">5.2 Request URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-Request-Headers"><span class="nav-number">7.3.</span> <span class="nav-text">5.3 Request Headers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-Request-Body"><span class="nav-number">7.4.</span> <span class="nav-text">5.4 Request Body</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Response"><span class="nav-number">8.</span> <span class="nav-text">6. Response</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-Request-Status-Code"><span class="nav-number">8.1.</span> <span class="nav-text">6.1 Request Status Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-Response-Headers"><span class="nav-number">8.2.</span> <span class="nav-text">6.2 Response Headers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-Response-Body"><span class="nav-number">8.3.</span> <span class="nav-text">6.3 Response Body</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-缓存"><span class="nav-number">9.</span> <span class="nav-text">7 缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-使用缓存原因"><span class="nav-number">9.1.</span> <span class="nav-text">7.1 使用缓存原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-缓存类型"><span class="nav-number">9.2.</span> <span class="nav-text">7.2 缓存类型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络模型"><span class="nav-number">1.</span> <span class="nav-text">网络模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-HTTP-的特性"><span class="nav-number">2.</span> <span class="nav-text">0. HTTP 的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-URL-与-URI"><span class="nav-number">3.</span> <span class="nav-text">1. URL 与 URI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-超文本"><span class="nav-number">4.</span> <span class="nav-text">2. 超文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HTTP-HTTPS"><span class="nav-number">5.</span> <span class="nav-text">3. HTTP HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-HTTP-请求过程"><span class="nav-number">6.</span> <span class="nav-text">4. HTTP 请求过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Request"><span class="nav-number">7.</span> <span class="nav-text">5. Request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-Request-Method"><span class="nav-number">7.1.</span> <span class="nav-text">5.1 Request Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-Request-URL"><span class="nav-number">7.2.</span> <span class="nav-text">5.2 Request URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-Request-Headers"><span class="nav-number">7.3.</span> <span class="nav-text">5.3 Request Headers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-Request-Body"><span class="nav-number">7.4.</span> <span class="nav-text">5.4 Request Body</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Response"><span class="nav-number">8.</span> <span class="nav-text">6. Response</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-Request-Status-Code"><span class="nav-number">8.1.</span> <span class="nav-text">6.1 Request Status Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-Response-Headers"><span class="nav-number">8.2.</span> <span class="nav-text">6.2 Response Headers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-Response-Body"><span class="nav-number">8.3.</span> <span class="nav-text">6.3 Response Body</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-缓存"><span class="nav-number">9.</span> <span class="nav-text">7 缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-使用缓存原因"><span class="nav-number">9.1.</span> <span class="nav-text">7.1 使用缓存原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-缓存类型"><span class="nav-number">9.2.</span> <span class="nav-text">7.2 缓存类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-缓存"><span class="nav-number">9.2.1.</span> <span class="nav-text">HTTP　缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-代理"><span class="nav-number">10.</span> <span class="nav-text">8. 代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-缓存代理"><span class="nav-number">10.1.</span> <span class="nav-text">8.1 缓存代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-CDN"><span class="nav-number">11.</span> <span class="nav-text">9. CDN</span></a></li></ol></div>
             
 
           </div>
