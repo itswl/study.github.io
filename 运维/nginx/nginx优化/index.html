@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="nginx 优化 基础配置优化 缓存配置优化  基础配置优化 CPU亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上 Nginx 模型优化     : kernel 2.6 后使用 epoll, 单个线程的最大连接数  worker_connections 配置的更合理一点 Nginx 传输方式优化 : 零拷贝，HTTP 配置模块中添加一个 se">
+<meta name="description" content="nginx 优化 基础配置优化 缓存配置优化  基础配置优化 CPU 亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上 Nginx 模型优化     : kernel 2.6 后使用 epoll, 单个线程的最大连接数  worker_connections 配置的更合理一点 Nginx 传输方式优化 : 零拷贝，HTTP 配置模块中添加一个 s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx 优化">
 <meta property="og:url" content="http://imwl.ml/运维/nginx/nginx优化/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="nginx 优化 基础配置优化 缓存配置优化  基础配置优化 CPU亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上 Nginx 模型优化     : kernel 2.6 后使用 epoll, 单个线程的最大连接数  worker_connections 配置的更合理一点 Nginx 传输方式优化 : 零拷贝，HTTP 配置模块中添加一个 se">
+<meta property="og:description" content="nginx 优化 基础配置优化 缓存配置优化  基础配置优化 CPU 亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上 Nginx 模型优化     : kernel 2.6 后使用 epoll, 单个线程的最大连接数  worker_connections 配置的更合理一点 Nginx 传输方式优化 : 零拷贝，HTTP 配置模块中添加一个 s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-21T07:16:34.550Z">
+<meta property="og:updated_time" content="2021-02-22T06:54:07.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx 优化">
-<meta name="twitter:description" content="nginx 优化 基础配置优化 缓存配置优化  基础配置优化 CPU亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上 Nginx 模型优化     : kernel 2.6 后使用 epoll, 单个线程的最大连接数  worker_connections 配置的更合理一点 Nginx 传输方式优化 : 零拷贝，HTTP 配置模块中添加一个 se">
+<meta name="twitter:description" content="nginx 优化 基础配置优化 缓存配置优化  基础配置优化 CPU 亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上 Nginx 模型优化     : kernel 2.6 后使用 epoll, 单个线程的最大连接数  worker_connections 配置的更合理一点 Nginx 传输方式优化 : 零拷贝，HTTP 配置模块中添加一个 s">
 
 
 
@@ -402,11 +402,12 @@
 <li>缓存配置优化</li>
 </ol>
 <h3 id="基础配置优化"><a href="#基础配置优化" class="headerlink" title="基础配置优化"></a>基础配置优化</h3><ol>
-<li>CPU亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上</li>
+<li><code>CPU</code> 亲和性优化      : 每一个 Nginx 的 worker 线程都能固定到具体的 CPU 核心上</li>
 <li>Nginx 模型优化     : kernel 2.6 后使用 epoll, 单个线程的最大连接数  worker_connections 配置的更合理一点</li>
 <li>Nginx 传输方式优化 : 零拷贝，HTTP 配置模块中添加一个 sendfile on，实现静态文件的内核态到用户态的零拷贝</li>
 <li>Nginx 文件压缩优化 : gzip on 负责打开后端的压缩功能</li>
 </ol>
+<p><code>nginx master</code> 进程主要用来管理 <code>worker</code> 进程，包含：接收来自外界的信号，向各 <code>worker</code> 进程发送信号，监控 <code>worker</code> 进程的运行状态，当 <code>worker</code> 进程退出后(异常情况下)，会自动重新启动新的 <code>worker</code> 进程。</p>
 <h3 id="缓存配置优化"><a href="#缓存配置优化" class="headerlink" title="缓存配置优化"></a>缓存配置优化</h3><ol>
 <li>浏览器缓存优化</li>
 <li>代理缓存优化</li>
@@ -451,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/运维/nginx/nginx模块/" rel="next" title="nginx模块">
-                <i class="fa fa-chevron-left"></i> nginx模块
+              <a href="/运维/nginx/nginx日志文件/" rel="next" title="nginx日志文件">
+                <i class="fa fa-chevron-left"></i> nginx日志文件
               </a>
             
           </div>

@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/java/变量类型/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/java/运算符/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java/变量类型/" itemprop="url">java变量类型</a></h1>
+                <a class="post-title-link" href="/java/运算符/" itemprop="url">java运算符</a></h1>
         
 
         <div class="post-meta">
@@ -401,19 +401,20 @@
       
         
           
-          变量类型在Java语言中
+          Java 运算符主要分为一下几种
 
-局部变量
-实例变量
-类变量
+算术运算符
+关系运算符
+位运算符
+逻辑运算符
+赋值运算符
+其他运算符
 
-所有的变量在使用前必须声明。声明变量的基本格式如下：
-type identifier [ = value][, identifier [= value] ...] ;
-12345int a, b, c;         // 声明三个int型
+算术运算符ArithmeticOperator.java1234567891011121314151617181920public class ArithmeticOperator &#123
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java/变量类型/#more" rel="contents">
+            <a class="btn" href="/java/运算符/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -464,7 +465,7 @@ type identifier [ = value][, identifier [= value] ...] ;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/vim/readme/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/安装Chrome浏览器和ChromeDriver/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -483,7 +484,7 @@ type identifier [ = value][, identifier [= value] ...] ;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/基础知识/learn_linux/vim/readme/" itemprop="url">关于 vi</a></h1>
+                <a class="post-title-link" href="/基础知识/安装Chrome浏览器和ChromeDriver/" itemprop="url">安装Chrome浏览器和ChromeDriver</a></h1>
         
 
         <div class="post-meta">
@@ -557,14 +558,14 @@ type identifier [ = value][, identifier [= value] ...] ;
       
         
           
-          vivi的使用
-一般模式   
-编辑模式 （i,I，o,O,a,A,r,R）(Ii aA 插入右边)（oO 插入一行）(Rr 替换)
-命令行模式 (: / ?) （yy 复制当行）（p 前面复制后，粘贴） （dd 删除当行）（/字符 搜索  N 向后， n 向前）123dos2unix filena
+          一、 安装Chrome浏览器1、安装依赖
+sudo apt-get install libxss1 libappindicator1 libindicator7
+2、下载Chrome安装包 (最新稳定版)
+wget https://dl.google.com/linux/direct/google-
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/基础知识/learn_linux/vim/readme/#more" rel="contents">
+            <a class="btn" href="/基础知识/安装Chrome浏览器和ChromeDriver/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -615,7 +616,7 @@ type identifier [ = value][, identifier [= value] ...] ;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/java/修饰符/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/java/java基础语法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -634,7 +635,7 @@ type identifier [ = value][, identifier [= value] ...] ;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java/修饰符/" itemprop="url">java修饰符</a></h1>
+                <a class="post-title-link" href="/java/java基础语法/" itemprop="url">java基础语法</a></h1>
         
 
         <div class="post-meta">
@@ -708,17 +709,11 @@ type identifier [ = value][, identifier [= value] ...] ;
       
         
           
-          Java修饰符主要分为以下两类：
-
-访问修饰符
-非访问修饰符
-
-修饰符用来定义类、方法或者变量，通常放在语句的最前端
-123456789public class className &#123;   // ...&#125;private boolean myFlag;static final do
+          hello worldHelloWorld.java  (源文件名必须和类名相同)12345678public class HelloWorld &#123;   /* 第一个Java程序.      * 它将打印字符串 Hello World    */    public static void
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/java/修饰符/#more" rel="contents">
+            <a class="btn" href="/java/java基础语法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1069,154 +1064,6 @@ package 是最基本的分发单位 和 工程管理中依赖关系的体现
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/redis-补充/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/redis/redis-补充/" itemprop="url">redis-补充</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T12:51:16+08:00">
-                2019-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          reids 过期时间1234567891011121314151617127.0.0.1:6379&gt; SET cache_page &quot;www.google.com&quot;OK127.0.0.1:6379&gt;  EXPIRE cache_page 30  # 设置过期时间为 3
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/redis/redis-补充/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/redis/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1365,7 +1212,7 @@ package 是最基本的分发单位 和 工程管理中依赖关系的体现
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/命令/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/redis-补充/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1384,7 +1231,155 @@ package 是最基本的分发单位 和 工程管理中依赖关系的体现
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/redis/命令/" itemprop="url">redis部分命令</a></h1>
+                <a class="post-title-link" href="/redis/redis-补充/" itemprop="url">redis-补充</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T12:51:16+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          reids 过期时间1234567891011121314151617127.0.0.1:6379&gt; SET cache_page &quot;www.google.com&quot;OK127.0.0.1:6379&gt;  EXPIRE cache_page 30  # 设置过期时间为 3
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/redis/redis-补充/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/python操作redis/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/redis/python操作redis/" itemprop="url">python操作redis</a></h1>
         
 
         <div class="post-meta">
@@ -1458,11 +1453,172 @@ package 是最基本的分发单位 和 工程管理中依赖关系的体现
       
         
           
-          键123456redis 127.0.0.1:6379&gt; SET weilai redis  -- 设置键OKredis 127.0.0.1:6379&gt; DEL weilai  -- 删除键(integer) 1redis 127.0.0.1:6379&gt; DEL weilai  -
+          1. 准备工作
+安装好 redis 和 RedisPy库
+RedisDump  可以用来做数据导入或导出2. RedisPy库RedisPy库 提供两个类 redis 和 StrictRedis 来实现 Redis 的命令操作。
+
+StrictRedis 实现了绝大部分官方命令，参数也一一对应。
+r
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/redis/命令/#more" rel="contents">
+            <a class="btn" href="/redis/python操作redis/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/redis 部分功能/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/redis/redis 部分功能/" itemprop="url">redis 部分功能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T12:51:16+08:00">
+                2019-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          慢查询
+发送命令
+排队
+执行命令
+返回结果
+
+慢查询 是指 在 执行命令阶段
+客户端超时不一定是慢查询，但慢查询可能会导致客户端超时
+123456789101112131415127.0.0.1:6379&gt; config set slowlog-log-slower-than 1000  --
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/redis/redis 部分功能/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1613,157 +1769,6 @@ aof : 记录每次对服务器的写操作，重启时会重新执行这些命�
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/redis/数据备份与恢复/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/redis/readme/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/redis/readme/" itemprop="url">redis简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T12:51:16+08:00">
-                2019-08-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          简介Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。
-
-Redis 支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。
-Redis 不仅仅支持简单的 key-value 类型的数据，同时还提供 list，set，zset，hash
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/redis/readme/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
