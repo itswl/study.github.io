@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/使用MySQL/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/python操作mysql(增删改查)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/使用MySQL/" itemprop="url">使用MySQL</a></h1>
+                <a class="post-title-link" href="/MySQL/python操作mysql(增删改查)/" itemprop="url">python操作mysql（增删改查）</a></h1>
         
 
         <div class="post-meta">
@@ -401,12 +401,15 @@
       
         
           
-          示例数据 https://codeload.github.com/datacharmer/test_db/zip/master导入 eg: mysql -u root -p &lt; employees.sql
-show variables like &#39;%datadir%&#39;;  : 
+          使用mysqlclient先安装mysqlclient网址：https://pypi.org/project/mysqlclient/python中可使用pip安装，pip install mysqlclient
+
+也可以使用别的方法，详细可查看之前的文章：爬取百度百科词条写入数据库
+
+python
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/使用MySQL/#more" rel="contents">
+            <a class="btn" href="/MySQL/python操作mysql(增删改查)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -457,7 +460,7 @@ show variables like &#39;%datadir%&#39;;  :
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(3)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -476,7 +479,7 @@ show variables like &#39;%datadir%&#39;;  :
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
+                <a class="post-title-link" href="/MySQL/mysql基础(3)/" itemprop="url">mysql基础(3)</a></h1>
         
 
         <div class="post-meta">
@@ -550,13 +553,13 @@ show variables like &#39;%datadir%&#39;;  :
       
         
           
-          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
-MySQL语法基础创建表– 为注释，不会被执行
-使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
+          多表联查
+使用多表查询可以获取M x N行记录（M,N为两个表各自的行数）多表查询的结果集可能非常巨大，要小心使用。
+内连接123456789101112131415mysql&gt;   SELECT  s.id, s.name,`s`.`class id`, s.nickname,s.sex,c
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
+            <a class="btn" href="/MySQL/mysql基础(3)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -907,7 +910,7 @@ MySQL语法基础创建表– 为注释，不会被执行
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(3)/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/MySQL/mysql基础(1)/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -926,7 +929,7 @@ MySQL语法基础创建表– 为注释，不会被执行
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/MySQL/mysql基础(3)/" itemprop="url">mysql基础(3)</a></h1>
+                <a class="post-title-link" href="/MySQL/mysql基础(1)/" itemprop="url">mysql基础(1)</a></h1>
         
 
         <div class="post-meta">
@@ -1000,13 +1003,13 @@ MySQL语法基础创建表– 为注释，不会被执行
       
         
           
-          多表联查
-使用多表查询可以获取M x N行记录（M,N为两个表各自的行数）多表查询的结果集可能非常巨大，要小心使用。
-内连接123456789101112131415mysql&gt;   SELECT  s.id, s.name,`s`.`class id`, s.nickname,s.sex,c
+          windows安装过程参考之前的文章https://www.jianshu.com/p/e35185ec3294
+MySQL语法基础创建表– 为注释，不会被执行
+使用查询语句建表12345678910111213141516171819202122232425-- 新建数据库CREATE DATAB
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/MySQL/mysql基础(3)/#more" rel="contents">
+            <a class="btn" href="/MySQL/mysql基础(1)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
