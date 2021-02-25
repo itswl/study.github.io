@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/Envoy.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/Envoy过程.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/bookinfo.png">
-<meta property="og:updated_time" content="2021-02-25T09:21:13.860Z">
+<meta property="og:updated_time" content="2021-02-25T09:28:54.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Istio">
 <meta name="twitter:description" content="简介Istio 包含控制面 Istiod 和数据面 Envoy 两个组件。 Istiod : 负责配置校验(Galley)和下发(Pilot)、证书轮转(Citadel)等工作 Envoy : 负责数据代理和流量路由等工作 Envoy 是 C++ 编写的高性能边缘网关和代理程序，支持 HTTP、gRPC、Thrift、Redis、MongoDB 等多种协议代理。支持最好的还是 HTTP，几乎具备了">
@@ -477,7 +477,9 @@
 <h6 id="多条请求流和单条请求流"><a href="#多条请求流和单条请求流" class="headerlink" title="多条请求流和单条请求流"></a>多条请求流和单条请求流</h6><p>xDS 协议并不约束在请求多个资源时，多个资源使用同一个请求流，还是每个资源各使用一个请求流，Management Server 应该同时支持这两种模式。</p>
 <h5 id="在一个连接请求多个资源"><a href="#在一个连接请求多个资源" class="headerlink" title="在一个连接请求多个资源"></a>在一个连接请求多个资源</h5><p>支持在一条连接中按照顺序获取 xDS 中的各种 API，比如先请求 CDS，然后请求 EDS</p>
 <h4 id="xDS-协议详解"><a href="#xDS-协议详解" class="headerlink" title="xDS 协议详解"></a>xDS 协议详解</h4><p>请求信息示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">version_info:   # version_info 为空，表示这是连接中的第一个请求流</span><br><span class="line">node: &#123; id: envoy &#125;  # Node 中的 ID 则表明机器信息，需要传递机器的唯一标识</span><br><span class="line">resource_names:</span><br><span class="line">- foo</span><br><span class="line">- bar</span><br><span class="line">type_url: type.googleapis.com/envoy.api.v2.ClusterLoadAssignment  #  EDS</span><br><span class="line">response_nonce:</span><br></pre></td></tr></table></figure></p>
-<p>回应信息示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">version_info: X</span><br><span class="line">resources:</span><br><span class="line">- foo ClusterLoadAssignment proto encoding</span><br><span class="line">- bar ClusterLoadAssignment proto encoding</span><br><span class="line">type_url: type.googleapis.com/envoy.api.v2.ClusterLoadAssignment</span><br><span class="line">nonce: A  # ACK NACK</span><br></pre></td></tr></table></figure></p>
+<p>回应信息示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">version_info: X</span><br><span class="line">resources:</span><br><span class="line">- foo ClusterLoadAssignment proto encoding</span><br><span class="line">- bar ClusterLoadAssignment proto encoding</span><br><span class="line">type_url: type.googleapis.com/envoy.api.v2.ClusterLoadAssignment</span><br><span class="line">nonce: A  # ACK NACK  或者区分资源更新到底是响应哪个推送数据。</span><br></pre></td></tr></table></figure></p>
+<p><strong>补</strong></p>
+<p>在收到 Management Server 推送的新版本数据后，Envoy 会响应 ACK 或者 NACK 告知 Management Server 是否更新版本成功。ACK 代表更新版本成功，这时会携带 Management Server 推送的最新版本号发送 ACK 信息；NACK 代表更新版本失败，这时会携带旧的版本号发送 NACK 信息。</p>
 <h3 id="补-边缘代理模式"><a href="#补-边缘代理模式" class="headerlink" title="补 边缘代理模式"></a>补 边缘代理模式</h3><p><code>Envoy</code> 不仅可以用于 <code>Sidecar</code> 模式，也可以用作边缘网关，但是用作边缘网关层我们有一些注意事项，这些问题不仅在 <code>Envoy</code> 中存在，在其他的边缘网关中也应该处理。</p>
 <ol>
 <li>HTTP 标头清理 : use_remote_address 设置为 true 来清理 HTTP 标头。</li>
