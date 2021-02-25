@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/入门/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/odm/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mongodb/入门/" itemprop="url">mongodb入门</a></h1>
+                <a class="post-title-link" href="/mongodb/odm/" itemprop="url">odm</a></h1>
         
 
         <div class="post-meta">
@@ -401,26 +401,11 @@
       
         
           
-          简介文档
-eg: {“foo”:3,”greeting”:”Hello world!”}
-区分大小写
-key唯一
-文档可嵌套
-键值对 有序
-
-集合
-集合就是一组文档
-文档类似于 关系库里的 行
-集合类似于 关系库里的表
-集合中的文档无需固定的结构
-
-集合命名规则：
-数据库
-多个文档组成集合，多个集合
+          12345678910111213141516171819202122232425262728from mongoengine import connect, Document, StringField, IntField, \    FloatField, EmbeddedDocument, Li
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/mongodb/入门/#more" rel="contents">
+            <a class="btn" href="/mongodb/odm/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -471,7 +456,7 @@ key唯一
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/入门补充生成数据/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/mongodb/python操作MongoDB/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -490,7 +475,7 @@ key唯一
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mongodb/入门补充生成数据/" itemprop="url">mongodb补充数据</a></h1>
+                <a class="post-title-link" href="/mongodb/python操作MongoDB/" itemprop="url">python操作MongoDB</a></h1>
         
 
         <div class="post-meta">
@@ -564,11 +549,12 @@ key唯一
       
         
           
-          123456789101112131415161718192021import randomimport jsona = &#123;    &apos;name&apos; : &apos;weilai&apos;,    &apos;age&apos; : 18,    &apos;sex&ap
+          python操作MongoDB
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869from 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/mongodb/入门补充生成数据/#more" rel="contents">
+            <a class="btn" href="/mongodb/python操作MongoDB/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1515,7 +1501,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/golang/规范/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/golang/指针/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1534,7 +1520,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/golang/规范/" itemprop="url">规范</a></h1>
+                <a class="post-title-link" href="/golang/指针/" itemprop="url">指针</a></h1>
         
 
         <div class="post-meta">
@@ -1608,16 +1594,13 @@ Docker 将应用程序与该程序的依赖，打包在一个文件(image)
       
         
           
-          变量声明，初始化，赋值
-同一行声明多个变量并赋值： var a,b,c int =1,2,3   或者  d,e := 4,5
-全局变量声明必须使用var关键字,局部变量可以省略（a,b,c int =1,2,3）
-变量 _ 表示丢弃变量类型转换
-类型转换必须是显示的，不存在隐式转换
-只发生在兼容类
+          变量是一种使用方便的占位符，用于引用计算机内存地址。
+Go 语言的取地址符是 &amp;，放到一个变量前使用就会返回相应变量的内存地址
+123456789package mainimport &quot;fmt&quot;func main() &#123;   var a int = 10    
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/golang/规范/#more" rel="contents">
+            <a class="btn" href="/golang/指针/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
