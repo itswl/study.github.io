@@ -82,26 +82,21 @@
 
 
 
-<meta name="description" content="一、什么影响了数据库查询速度1.1 影响数据库查询速度的四个因素 1.2 风险分析 QPS：Queries Per Second意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。   TPS：是TransactionsPerSecond的缩写，也就是事务数/秒。它是软件测试结果的测量单位。客户机在发送请求时开始计时，收到服务器响">
+<meta name="description" content="一、什么影响了数据库查询速度1.1 影响数据库查询速度的四个因素 sql 查询速度 磁盘 IO 网卡流量 服务器硬件   1.2 风险分析 QPS：Queries Per Second意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。   TPS：是TransactionsPerSecond的缩写，也就是事务数/秒。它是软件测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql优化(1)">
 <meta property="og:url" content="http://imwl.ml/MySQL/mysql优化/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="一、什么影响了数据库查询速度1.1 影响数据库查询速度的四个因素 1.2 风险分析 QPS：Queries Per Second意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。   TPS：是TransactionsPerSecond的缩写，也就是事务数/秒。它是软件测试结果的测量单位。客户机在发送请求时开始计时，收到服务器响">
+<meta property="og:description" content="一、什么影响了数据库查询速度1.1 影响数据库查询速度的四个因素 sql 查询速度 磁盘 IO 网卡流量 服务器硬件   1.2 风险分析 QPS：Queries Per Second意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。   TPS：是TransactionsPerSecond的缩写，也就是事务数/秒。它是软件测试">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-d74c8bfa52110257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-1e087ef5ad797527.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-aabe6d772ae4b092.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-99f80e9cefb4d112.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-8ef5d670b0aa9fd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-ed1432c2ca6a86b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-69db7a6633cc9465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14597179-019a6a65da3fcb8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/sql/MySQL读.png">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/sql/MySQL结构.png">
+<meta property="og:image" content="http://imwl.ml/images/blog_images/sql/锁类型.png">
+<meta property="og:updated_time" content="2021-02-26T06:12:59.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql优化(1)">
-<meta name="twitter:description" content="一、什么影响了数据库查询速度1.1 影响数据库查询速度的四个因素 1.2 风险分析 QPS：Queries Per Second意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。   TPS：是TransactionsPerSecond的缩写，也就是事务数/秒。它是软件测试结果的测量单位。客户机在发送请求时开始计时，收到服务器响">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14597179-d74c8bfa52110257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:description" content="一、什么影响了数据库查询速度1.1 影响数据库查询速度的四个因素 sql 查询速度 磁盘 IO 网卡流量 服务器硬件   1.2 风险分析 QPS：Queries Per Second意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。   TPS：是TransactionsPerSecond的缩写，也就是事务数/秒。它是软件测试">
+<meta name="twitter:image" content="http://imwl.ml/images/blog_images/sql/MySQL读.png">
 
 
 
@@ -406,7 +401,12 @@
       
 
       
-        <h1 id="一、什么影响了数据库查询速度"><a href="#一、什么影响了数据库查询速度" class="headerlink" title="一、什么影响了数据库查询速度"></a>一、什么影响了数据库查询速度</h1><h2 id="1-1-影响数据库查询速度的四个因素"><a href="#1-1-影响数据库查询速度的四个因素" class="headerlink" title="1.1 影响数据库查询速度的四个因素"></a>1.1 影响数据库查询速度的四个因素</h2><p><img src="https://upload-images.jianshu.io/upload_images/14597179-d74c8bfa52110257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <h1 id="一、什么影响了数据库查询速度"><a href="#一、什么影响了数据库查询速度" class="headerlink" title="一、什么影响了数据库查询速度"></a>一、什么影响了数据库查询速度</h1><h2 id="1-1-影响数据库查询速度的四个因素"><a href="#1-1-影响数据库查询速度的四个因素" class="headerlink" title="1.1 影响数据库查询速度的四个因素"></a>1.1 影响数据库查询速度的四个因素</h2><ol>
+<li><code>sql</code> 查询速度</li>
+<li>磁盘 IO</li>
+<li>网卡流量</li>
+<li>服务器硬件 </li>
+</ol>
 <h2 id="1-2-风险分析"><a href="#1-2-风险分析" class="headerlink" title="1.2 风险分析"></a>1.2 风险分析</h2><blockquote>
 <p><strong>QPS：</strong><code>Queries Per Second</code>意思是“每秒查询率”，是一台服务器每秒能够相应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。</p>
 </blockquote>
@@ -418,7 +418,7 @@
 </blockquote>
 <ol>
 <li>效率低下的<code>sql</code>：超高的<code>QPS</code>与<code>TPS</code>。</li>
-<li>大量的并发：数据连接数被占满（<code>max_connection</code>默认<code>100</code>，一般把连接数设置得大一些）。<br>并发量:同一时刻数据库服务器处理的请求数量</li>
+<li>大量的并发：数据连接数被占满（<code>max_connection</code>默认<code>100</code>，一般把连接数设置得大一些）。</li>
 <li>超高的<code>CPU</code>使用率：<code>CPU</code>资源耗尽出现宕机。</li>
 <li>磁盘<code>IO</code>：磁盘<code>IO</code>性能突然下降、大量消耗磁盘性能的计划任务。解决：更快磁盘设备、调整计划任务、做好磁盘维护。</li>
 </ol>
@@ -449,7 +449,10 @@
 <li>分表主键的选择</li>
 <li>分表后跨分区数据的查询和统计</li>
 </ol>
-<h2 id="1-5-大事务带来的问题（重要）"><a href="#1-5-大事务带来的问题（重要）" class="headerlink" title="1.5 大事务带来的问题（重要）"></a>1.5 大事务带来的问题（<strong><code>重要</code></strong>）</h2><h3 id="1-5-1-什么是事务"><a href="#1-5-1-什么是事务" class="headerlink" title="1.5.1 什么是事务"></a>1.5.1 什么是事务</h3><p><img src="https://upload-images.jianshu.io/upload_images/14597179-1e087ef5ad797527.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="1-5-大事务带来的问题（重要）"><a href="#1-5-大事务带来的问题（重要）" class="headerlink" title="1.5 大事务带来的问题（重要）"></a>1.5 大事务带来的问题（<strong><code>重要</code></strong>）</h2><h3 id="1-5-1-什么是事务"><a href="#1-5-1-什么是事务" class="headerlink" title="1.5.1 什么是事务"></a>1.5.1 什么是事务</h3><ol>
+<li>事务是数据库系统区别于其他一切文件系统的重要特性之一</li>
+<li>事务是一组具有原子性的 <code>SQL</code> 语句，或是一个独立的工作单元</li>
+</ol>
 <h3 id="1-5-2事务的ACID属性"><a href="#1-5-2事务的ACID属性" class="headerlink" title="1.5.2事务的ACID属性"></a>1.5.2事务的<code>ACID</code>属性</h3><blockquote>
 <p>1、原子性（<code>atomicity</code>)：全部成功，全部回滚失败。银行存取款。</p>
 </blockquote>
@@ -474,7 +477,7 @@
 </code></pre><blockquote>
 <p>4、持久性(<code>DURABILITY</code>)：从数据库的角度的持久性，磁盘损坏就不行了</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/14597179-aabe6d772ae4b092.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/blog_images/sql/MySQL读.png" alt="MySQL读"></p>
 <p><code>redo log</code>机制保证事务更新的<strong>一致性</strong>和<strong>持久性</strong></p>
 <h2 id="1-5-3-大事务"><a href="#1-5-3-大事务" class="headerlink" title="1.5.3 大事务"></a>1.5.3 大事务</h2><blockquote>
 <p>运行时间长，操作数据比较多的事务；</p>
@@ -498,7 +501,7 @@
 <li><strong><code>数据库结构设计和SQL语句。（重点优化）</code></strong></li>
 </ol>
 <h2 id="2-2-MySQL体系结构"><a href="#2-2-MySQL体系结构" class="headerlink" title="2.2 MySQL体系结构"></a>2.2 MySQL体系结构</h2><p><strong>分三层：客户端-&gt;服务层-&gt;存储引擎</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14597179-99f80e9cefb4d112.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="/images/blog_images/sql/MySQL结构.png" alt="MySQL结构"></p>
 <ol>
 <li><code>MySQL</code>是<strong><code>插件式的存储引擎</code></strong>，其中存储引擎分很多种。只要实现符合mysql存储引擎的接口，可以开发自己的存储引擎!</li>
 <li>所有跨存储引擎的功能都是在服务层实现的。</li>
@@ -531,11 +534,17 @@
 <li>行级锁可以最大程度地支持并发。</li>
 <li>行级锁是由存储引擎层实现的。</li>
 </ol>
-<h2 id="2-5-什么是锁"><a href="#2-5-什么是锁" class="headerlink" title="2.5 什么是锁"></a>2.5 什么是锁</h2><h3 id="2-5-1-锁"><a href="#2-5-1-锁" class="headerlink" title="2.5.1 锁"></a>2.5.1 锁</h3><p><img src="https://upload-images.jianshu.io/upload_images/14597179-8ef5d670b0aa9fd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="2-5-2-锁类型"><a href="#2-5-2-锁类型" class="headerlink" title="2.5.2 锁类型"></a>2.5.2 锁类型</h3><p><img src="https://upload-images.jianshu.io/upload_images/14597179-ed1432c2ca6a86b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="2-5-什么是锁"><a href="#2-5-什么是锁" class="headerlink" title="2.5 什么是锁"></a>2.5 什么是锁</h2><h3 id="2-5-1-锁"><a href="#2-5-1-锁" class="headerlink" title="2.5.1 锁"></a>2.5.1 锁</h3><ol>
+<li>锁最主要作用是管理共享资源的并发访问</li>
+<li>锁用于实现事务的隔离性</li>
+</ol>
+<h3 id="2-5-2-锁类型"><a href="#2-5-2-锁类型" class="headerlink" title="2.5.2 锁类型"></a>2.5.2 锁类型</h3><p><img src="/images/blog_images/sql/锁类型.png" alt="锁类型"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">S锁（读锁）： select ... lock in share mode</span><br><span class="line">X锁（写锁）：select ... for update (update、delete、)</span><br></pre></td></tr></table></figure>
 <h3 id="2-5-3-锁的粒度"><a href="#2-5-3-锁的粒度" class="headerlink" title="2.5.3 锁的粒度"></a>2.5.3 锁的粒度</h3><p>MySQL的事务支持<strong>不是绑定在MySQL服务器本身</strong>，<strong><code>而是与存储引擎相关</code></strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14597179-69db7a6633cc9465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol>
+<li>表级锁</li>
+<li>行级锁</li>
+</ol>
 <p>将<strong>table_name</strong>加表级锁命令：<code>lock table table_name write</code>; <strong><code>写锁会阻塞其它用户对该表的‘读写’操作，直到</code></strong>写锁被释放：<code>unlock tables</code>；</p>
 <ol>
 <li><strong>锁的开销越大，粒度越小，并发度越高。</strong></li>
@@ -581,7 +590,12 @@
 <p><strong>注意：</strong>即使开发使用的表全部是Innodb表，也要为MyISAM预留内存，因为MySQL系统使用的表仍然是MyISAM表。</p>
 <p><code>max_connections</code> 控制允许的最大连接数， 一般2000更大。<br><strong>不要使用外键约束保证数据的完整性。</strong></p>
 <h2 id="2-8-性能优化顺序"><a href="#2-8-性能优化顺序" class="headerlink" title="2.8 性能优化顺序"></a>2.8 性能优化顺序</h2><p><strong>从上到下：</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14597179-019a6a65da3fcb8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol>
+<li>数据库结构设计和 <code>SQL</code> 语句</li>
+<li>数据库存储引擎的选择和参数配置</li>
+<li>系统选择及优化</li>
+<li>硬件升级</li>
+</ol>
 
       
     </div>
@@ -606,8 +620,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/MySQL/mysql事务，锁/" rel="next" title="mysql事务，锁">
-                <i class="fa fa-chevron-left"></i> mysql事务，锁
+              <a href="/MySQL/mysql索引/" rel="next" title="mysql索引">
+                <i class="fa fa-chevron-left"></i> mysql索引
               </a>
             
           </div>
@@ -616,8 +630,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/MySQL/数据库结构优化/" rel="prev" title="数据库结构优化(2)">
-                数据库结构优化(2) <i class="fa fa-chevron-right"></i>
+              <a href="/MySQL/mysql事务，锁/" rel="prev" title="mysql事务，锁">
+                mysql事务，锁 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -697,7 +711,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-count">205</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

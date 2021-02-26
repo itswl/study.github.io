@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/prometheus.png">
 <meta property="og:image" content="http://imwl.ml/images/blog_images/k8s/kube-aggregator.png">
-<meta property="og:updated_time" content="2021-01-30T16:16:30.180Z">
+<meta property="og:updated_time" content="2021-02-26T02:40:29.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="监控告警">
 <meta name="twitter:description" content="常见的监控数据类型主要分为两大类：  应用级别的数据 ：主要了解应用自身的一些监控指标 eg: cpu 使用率，内存使用率，请求失败率等 集群级别的数据 ：主要了解自身的运行状况，节点的 cpu,内存，网络吞吐等指标及时了解 kubelet 的负载情况，k8s 各组件的状态  运行过程中, k8s 产生的各种 event 数据，以及 deployment,sts,daemonset,pod 等状态">
@@ -423,12 +423,15 @@
 </li>
 </ol>
 <h2 id="Prometheus"><a href="#Prometheus" class="headerlink" title="Prometheus"></a>Prometheus</h2><p><img src="/images/blog_images/k8s/prometheus.png" alt="prometheus"></p>
-<p>Prometheus 项目工作的核心，是使用 Pull （抓取）的方式去搜集被监控对象的 Metrics 数据（监控指标数据），然后，再把这些数据保存在一个 TSDB （时间序列数据库，比如 OpenTSDB、InfluxDB 等）当中，以便后续可以按照时间进行检索。</p>
-<p>有了这套核心监控机制， Prometheus 剩下的组件就是用来配合这套机制的运行。</p>
+<p><code>Prometheus</code> 项目工作的核心 <code>Prometheus Server</code>，是使用 <code>Pull</code> 的方式去搜集被监控对象的 <code>Metrics</code> 数据（监控指标数据），然后，再把这些数据保存在一个 <code>TSDB</code> （时间序列数据库，比如 <code>OpenTSDB、InfluxDB</code> 等）当中，以便后续可以按照时间进行检索。</p>
+<p>有了这套核心监控机制， <code>Prometheus</code> 剩下的组件就是用来配合这套机制的运行。</p>
 <ol>
-<li><code>Pushgateway</code> : 可以允许被监控对象以 <code>Push</code> 的方式向 <code>Prometheus</code> 推送 <code>Metrics</code> 数据。</li>
+<li><code>Pushgateway</code> : 可以允许被监控对象以 <code>Push</code> 的方式向 <code>Prometheus</code> 推送 <code>Metrics</code> 数据。主要用于 <code>Job</code> 类，<code>Job</code> 类程序可能存活时间比较短，不适合采用拉取的方式。</li>
 <li><code>Alertmanager</code> : 则可以根据 <code>Metrics</code> 信息灵活地设置报警。</li>
 <li><code>Grafana</code> : 前台界面，对外暴露出、可以灵活配置的监控数据可视化界面。</li>
+<li><code>Exporters</code> ：用于一些第三方服务，通过转换提供符合 <code>Prometheus</code> 规范的 <code>Metrics</code> 信息，比如 <code>Node Exporter</code> 提供节点相关的信息。</li>
+<li><code>Service Disvovery</code>：用于服务发现，获取服务对应的 <code>EndPoint</code> 用于数据采集，默认支持 <code>DNS、Consul、Kubernestes</code> 等多种发现方案。</li>
+<li><code>Client Library</code>：为各种语言提供的客户端库，提供 <code>HTTP</code> 服务的 <code>Metrics</code> 接口，当 <code>Prometheus Server</code> 拉取时，提供实时的 <code>Metrics</code> 数据。</li>
 </ol>
 <h2 id="补"><a href="#补" class="headerlink" title="补"></a>补</h2><p><img src="/images/blog_images/k8s/kube-aggregator.png" alt="kube-aggregator"></p>
 <p><strong>kubeadm 部署默认开启</strong></p>
@@ -458,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/运维/k8s/日志收集/" rel="next" title="日志收集">
-                <i class="fa fa-chevron-left"></i> 日志收集
+              <a href="/运维/k8s/k8s安装kubeadm三主/" rel="next" title="k8s安装-三主两工作节点-kubeadm">
+                <i class="fa fa-chevron-left"></i> k8s安装-三主两工作节点-kubeadm
               </a>
             
           </div>
@@ -549,7 +552,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-count">205</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
