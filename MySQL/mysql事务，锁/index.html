@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="事务事务是必须满足4个条件（ACID）： Atomicity（原子性或不可分割性）、Consistency（一致性）、Isolation（隔离性或独立性）、Durability（持久性）  原子性：一组事务，要么成功；要么撤回，即事务在执行过程中出错会回滚到事务开始前的状态。 一致性： 一个事务不论是开始前还是结束后，数据库的完整性都没有被破坏。因此写入的数据必须完全符合所有预设规则（资料精确度、">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-02-26T06:43:15.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql事务，锁">
 <meta name="twitter:description" content="事务事务是必须满足4个条件（ACID）： Atomicity（原子性或不可分割性）、Consistency（一致性）、Isolation（隔离性或独立性）、Durability（持久性）  原子性：一组事务，要么成功；要么撤回，即事务在执行过程中出错会回滚到事务开始前的状态。 一致性： 一个事务不论是开始前还是结束后，数据库的完整性都没有被破坏。因此写入的数据必须完全符合所有预设规则（资料精确度、">
@@ -404,8 +404,9 @@
 <li>隔离性：数据库允许多个事务并发的同时对其数据进行读写修改等操作，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离可分为：Read uncommitted（读未提交）、Read committed（读提交）、Repeatable read（可重复读）、Serializable（串行化）。</li>
 <li>持久性：事务在处理结束后对数据做出的修改是永久的，无法丢失</li>
 </ol>
-<p>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</p>
-<p>事务处理可以用来维护数据库的完整性，保证成批的SQL语句要么全部执行，要么全部不执行。<br>事务用来管理 <code>insert</code> , <code>update</code> , <code>delete</code> 语句。</p>
+<p>在 <code>MySQL</code> 中只有使用了 <code>Innodb</code> 数据库引擎的数据库或表才支持事务。</p>
+<p>事务处理可以用来维护数据库的完整性，保证成批的SQL语句要么全部执行，要么全部不执行。</p>
+<p>事务用来管理 <code>insert</code> , <code>update</code> , <code>delete</code> 语句。</p>
 <h3 id="事务控制语句"><a href="#事务控制语句" class="headerlink" title="事务控制语句"></a>事务控制语句</h3><ol>
 <li><p>显式的开始一个事务：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">start transaction</span><br><span class="line"> 或</span><br><span class="line">begin</span><br></pre></td></tr></table></figure>
@@ -479,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/MySQL/mysql优化/" rel="next" title="mysql优化(1)">
-                <i class="fa fa-chevron-left"></i> mysql优化(1)
+              <a href="/MySQL/mysql索引/" rel="next" title="mysql索引">
+                <i class="fa fa-chevron-left"></i> mysql索引
               </a>
             
           </div>
@@ -489,8 +490,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/MySQL/数据库结构优化/" rel="prev" title="数据库结构优化(2)">
-                数据库结构优化(2) <i class="fa fa-chevron-right"></i>
+              <a href="/MySQL/mysql优化/" rel="prev" title="mysql优化(1)">
+                mysql优化(1) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

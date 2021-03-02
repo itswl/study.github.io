@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/权限，目录/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/文件，目录/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/基础知识/learn_linux/权限，目录/" itemprop="url">权限目录</a></h1>
+                <a class="post-title-link" href="/基础知识/learn_linux/文件，目录/" itemprop="url">文件，目录</a></h1>
         
 
         <div class="post-meta">
@@ -401,16 +401,16 @@
       
         
           
-          用户与用户组
-u g o a (user group other all)
-r:4 w:2 x:1
-chgrp chown chmod 
+          目录与路径
+cd pwd mkdir rmdir
+mkdir -m 711 test , mkdir  -p -m mkdir -m 711 test/test/test/test1  (仅test1 为711)
+rmdir -p test/test/test/test1 （递归删除空目录）
 
-目录1234567891011121314151617181920# 一般情况下lrwxrwxrwx.   1 root root      7 Feb  2 
+查询
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/基础知识/learn_linux/权限，目录/#more" rel="contents">
+            <a class="btn" href="/基础知识/learn_linux/文件，目录/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -620,7 +620,7 @@ CPU内部已经含有一小的指令集，我们所使用的软件都要经过 C
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/docker/DockerFile示例/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/权限，目录/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -639,158 +639,7 @@ CPU内部已经含有一小的指令集，我们所使用的软件都要经过 C
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/docker/DockerFile示例/" itemprop="url">dockerfile</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T11:05:31+08:00">
-                2019-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          简介Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于操作系统基础镜像并最终创建的一个新镜像；
-生产实践中一定优先使用 Dockerfile 的方式构建镜像
-Dockerfile 书写原则
-单一职责：由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/docker/DockerFile示例/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/计算机组成原理/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeiLai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Get busy living">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/基础知识/learn_linux/计算机组成原理/" itemprop="url">计算机组成原理</a></h1>
+                <a class="post-title-link" href="/基础知识/learn_linux/权限，目录/" itemprop="url">权限目录</a></h1>
         
 
         <div class="post-meta">
@@ -864,12 +713,166 @@ Dockerfile 书写原则
       
         
           
-          计算机组成原理总结计算机系统简介计算机系统由“软件“及”硬件“组成，软件通常分为系统软件和应用软件。系统软件:用来管理整个计算机系统，监视服务，使系统资源得到合理调度，高效运行。应用软件:根据用户任务需求所编制的各种程序。
-计算机系统的层次结构通常用户用高级语言编写程序，然后将它和数据一起送入计算机
+          用户与用户组
+u g o a (user group other all)
+r:4 w:2 x:1
+chgrp chown chmod 
+
+目录1234567891011121314151617181920# 一般情况下lrwxrwxrwx.   1 root root      7 Feb  2 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/基础知识/learn_linux/计算机组成原理/#more" rel="contents">
+            <a class="btn" href="/基础知识/learn_linux/权限，目录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/DesignPattern/单例模式/readme/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeiLai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Get busy living">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/python/DesignPattern/单例模式/readme/" itemprop="url">单例模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T11:05:31+08:00">
+                2019-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          当项目有几个部分不会影响代码的执行时，（例如日志记录）那么使用全局状态是可以接受的
+避免使用全局状态的原因之一就是不想使 项目一部分中的代码修改全局状态
+logger_class.py123456789101112131415161718192021222324252627282930313233#
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/python/DesignPattern/单例模式/readme/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1072,7 +1075,7 @@ flask-sqlalchemy  # 数据库框架，简化fl
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python/flask/部署/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/基础知识/learn_linux/计算机组成原理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -1091,7 +1094,7 @@ flask-sqlalchemy  # 数据库框架，简化fl
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/python/flask/部署/" itemprop="url">部署</a></h1>
+                <a class="post-title-link" href="/基础知识/learn_linux/计算机组成原理/" itemprop="url">计算机组成原理</a></h1>
         
 
         <div class="post-meta">
@@ -1126,8 +1129,8 @@ flask-sqlalchemy  # 数据库框架，简化fl
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask/" itemprop="url" rel="index">
-                    <span itemprop="name">flask</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -1165,27 +1168,12 @@ flask-sqlalchemy  # 数据库框架，简化fl
       
         
           
-          部署流程
-自动执行全部任务
-把生产环境中的错误写入日志
-
-部署方式
-云托管
-容器 eg:docker
-PaaS 平台即服务
-
-使用docker 部署
-安装docker
-构建容器映像
-运行容器
-数据库等最好另开容器
-容器编排 Docker Compose 
-
-定义的所有容器，可以使用 docker-c
+          计算机组成原理总结计算机系统简介计算机系统由“软件“及”硬件“组成，软件通常分为系统软件和应用软件。系统软件:用来管理整个计算机系统，监视服务，使系统资源得到合理调度，高效运行。应用软件:根据用户任务需求所编制的各种程序。
+计算机系统的层次结构通常用户用高级语言编写程序，然后将它和数据一起送入计算机
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/python/flask/部署/#more" rel="contents">
+            <a class="btn" href="/基础知识/learn_linux/计算机组成原理/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1782,26 +1770,10 @@ IPv6 格式 A:B:C:D:E:F:G:H   十六进制  2*128 个 16*32
         
           
           MySQL应用架构的演变过程
-单机单库
-
-主从架构
-
-分库分表
-
-云数据库
-
-
-MySql 体系架构
-网络连接层
-
-服务层
-
-存储引擎层
-
-系统文件层
-
-
-日志文件 (错误日志show variables like ‘%log_error%’；通用查询日志show variables like ‘%
+单机单库 : 储只需要一个MySQL Instance 就能满足数据读取和写入需求
+主从架构 : 主库抗写压力，通过从库来分担读压力
+分库分表 : 垂直拆分每一个实例都是拥有全部数据的，水平拆分任何实例都只有全量的1/n的数据
+云数据库 : 服务提供商负责解决可配置性，
           ...
           <!--noindex-->
           <div class="post-button text-center">
