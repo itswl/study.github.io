@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/数据管理/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/k8s/Scheduler/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/运维/k8s/数据管理/" itemprop="url">数据管理</a></h1>
+                <a class="post-title-link" href="/运维/k8s/Scheduler/" itemprop="url">Scheduler</a></h1>
         
 
         <div class="post-meta">
@@ -401,13 +401,12 @@
       
         
           
-          数据管理Volume容器销毁时，保存在容器内部文件系统中的数据会被清除，为了持久化保存容器数据，可以使用 Kubernetes Volum。 
-Volum 生命周期独立于容器， Pod 中容器可能销毁重建，但 Volume 会被保留。
-emptyDir一个 emptyDir Volume 是 Hos
+          简介Scheduler 是 kubernetes 的调度器，是为一个新创建出来的 Pod，寻找一个最合适的节点（Node）。调度器对一个 Pod 调度成功，实际上就是将它的 spec.nodeName 字段填上调度结果的节点名字
+听起来非常简单，但有很多要考虑的问题：(这一块可以很复杂，也可以不关注
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/运维/k8s/数据管理/#more" rel="contents">
+            <a class="btn" href="/运维/k8s/Scheduler/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
