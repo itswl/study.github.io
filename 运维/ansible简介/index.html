@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="ansible 安装1. git安装123git clone git://github.com/ansible/ansible.git --recursive cd ./ansible source ./hacking/env-setup 2. yum/apt 安装1yum/apt install ansible 3. pip 安装1234yum install python3-pip pytho">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-07T11:33:07.700Z">
+<meta property="og:updated_time" content="2021-03-03T03:03:23.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ansible简介">
 <meta name="twitter:description" content="ansible 安装1. git安装123git clone git://github.com/ansible/ansible.git --recursive cd ./ansible source ./hacking/env-setup 2. yum/apt 安装1yum/apt install ansible 3. pip 安装1234yum install python3-pip pytho">
@@ -413,29 +413,30 @@
 <li>执行并返回结果</li>
 <li>删除临时py文件，退出</li>
 </ol>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>配置无秘登录192.168.100[1:200]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash </span><br><span class="line">ssh-keygen -f /root/.ssh/id_rsa  -P &apos;&apos; </span><br><span class="line">NET=192.168.100 </span><br><span class="line">export SSHPASS=password </span><br><span class="line">for IP in &#123;1..200&#125;;do</span><br><span class="line">    sshpass -e ssh-copy-id  $NET.$IP  </span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
-<h2 id="Playbook核心元素"><a href="#Playbook核心元素" class="headerlink" title="Playbook核心元素"></a>Playbook核心元素</h2><p>Hosts : 执行的远程主机列表</p>
-<p>Tasks : 任务集</p>
-<p>Variables : 内置变量或自定义变量在playbook中调用</p>
-<p>Templates : 模板，可替换模板文件中的变量并实现一些简单逻辑的文件</p>
-<p>Handlers和notify结合使用 : 由特定条件触发的操作，满足条件方才执行，否则不执行</p>
-<p>tag : 标签, 指定某条任务执行，用于选择运行playbook中的部分代码。ansible具有幂等性，因此会自动跳过没有变化的部分，即便如此，有些代码为测试其确实没有发生变化的时间依然会非常地长。此时，如果确信其没有变化，就可以通过tags跳过此些代码片断</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>配置无秘登录192.168.100[1:200]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash </span><br><span class="line">ssh-keygen -f /root/.ssh/id_rsa  -P &apos;&apos; </span><br><span class="line">NET=192.168.100 </span><br><span class="line">export SSHPASS=password </span><br><span class="line">for IP in &#123;1..200&#125;;do</span><br><span class="line">    sshpass -e ssh-copy-id  $NET.$IP  </span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h2 id="Playbook核心元素"><a href="#Playbook核心元素" class="headerlink" title="Playbook核心元素"></a>Playbook核心元素</h2><ol>
+<li><p>Hosts : 执行的远程主机列表</p>
+</li>
+<li><p>Tasks : 任务集</p>
+</li>
+<li><p>Variables : 内置变量或自定义变量在playbook中调用</p>
+</li>
+<li><p>Templates : 模板，可替换模板文件中的变量并实现一些简单逻辑的文件</p>
+</li>
+<li><p>Handlers和notify结合使用 : 由特定条件触发的操作，满足条件方才执行，否则不执行</p>
+</li>
+<li><p>tag : 标签, 指定某条任务执行，用于选择运行playbook中的部分代码。ansible具有幂等性，因此会自动跳过没有变化的部分，即便如此，有些代码为测试其确实没有发生变化的时间依然会非常地长。此时，如果确信其没有变化，就可以通过tags跳过此些代码片断</p>
+</li>
+</ol>
 <h2 id="templetes"><a href="#templetes" class="headerlink" title="templetes"></a>templetes</h2><h2 id="roles"><a href="#roles" class="headerlink" title="roles"></a>roles</h2><p>roles就是通过分别将变量、文件、任务、模板及处理器放置于单独的目录中，并可以便捷地include它们的一种机制。角色一般用于基于主机构建服务的场景</p>
 <p>每个角色，以特定的层级目录结构进行组织</p>
-<p>roles目录结构：<br>playbook.yml<br>roles/   project/  tasks/  files/  vars/  templates/  handlers/  default/  meta/</p>
-<p>Roles各目录作用：<br>roles/project : 项目名称</p>
-<p>roles/project/:项目名称,有以下子目录</p>
-<p>files/：存放由copy或script模块等调用的文件</p>
-<p>templates/：template模块查找所需要模板文件的目录</p>
-<p>tasks/：定义task,role的基本元素，至少应该包含一个名为main.yml的文件；其它的文件需要在此文件中通过include进行包含</p>
-<p>handlers/：至少应该包含一个名为main.yml的文件；其它的文件需要在此文件中通过include进行包含</p>
-<p>vars/：定义变量，至少应该包含一个名为main.yml的文件；其它的文件需要在此文件中通过include进行包含</p>
-<p>meta/：定义当前角色的特殊设定及其依赖关系,至少应该包含一个名为main.yml的文件，其它文件需在此文件中通过include进行包含</p>
-<p>default/：设定默认变量时使用此目录中的main.yml文件，比vars的优先级低</p>
-<p> roles的目录结构</p>
-<p> nginx-role.yml<br> roles/<br> └──nginx<br>    ├──files<br>    │    └──main.yml<br>    ├──tasks<br>    │    ├──groupadd.yml<br>    │    ├──install.yml<br>    │    ├──main.yml<br>    │    ├──restart.yml<br>    │    └──useradd.yml<br>    └──vars<br>         └──main.yml</p>
-<h3 id="role-测试"><a href="#role-测试" class="headerlink" title="role 测试"></a>role 测试</h3><h2 id="nginx-role-yml"><a href="#nginx-role-yml" class="headerlink" title="#nginx-role.yml"></a>#nginx-role.yml</h2><ul>
-<li>hosts:websrvs<br>remote_user:root<br>roles:<br>  -{role:nginx,tags:[‘nginx’,’web’],when:ansible_distribution_major_version==”6“}<br>  -{role:httpd,tags:[‘httpd’,’web’]}-{role:mysql,tags:[‘mysql’,’db’]}<br>  -{role:mariadb,tags:[‘mariadb’,’db’]}</li>
+<p>roles目录结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">playbook.yml</span><br><span class="line">roles/   project/  tasks/  files/  vars/  templates/  handlers/  default/  meta/</span><br></pre></td></tr></table></figure></p>
+<p>Roles各目录作用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">roles/project : 项目名称</span><br><span class="line"></span><br><span class="line">roles/project/:项目名称,有以下子目录</span><br><span class="line"></span><br><span class="line">files/：存放由copy或script模块等调用的文件</span><br><span class="line"></span><br><span class="line">templates/：template模块查找所需要模板文件的目录</span><br><span class="line"></span><br><span class="line">tasks/：定义task,role的基本元素，至少应该包含一个名为main.yml的文件；其它的文件需要在此文件中通过include进行包含</span><br><span class="line"></span><br><span class="line">handlers/：至少应该包含一个名为main.yml的文件；其它的文件需要在此文件中通过include进行包含</span><br><span class="line"></span><br><span class="line">vars/：定义变量，至少应该包含一个名为main.yml的文件；其它的文件需要在此文件中通过include进行包含</span><br><span class="line"></span><br><span class="line">meta/：定义当前角色的特殊设定及其依赖关系,至少应该包含一个名为main.yml的文件，其它文件需在此文件中通过include进行包含</span><br><span class="line"></span><br><span class="line">default/：设定默认变量时使用此目录中的main.yml文件，比vars的优先级低</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">roles的目录结构:</span><br></pre></td></tr></table></figure></p>
+<p> nginx-role.yml<br> roles/<br> └──nginx<br>    ├──files<br>    │    └──main.yml<br>    ├──tasks<br>    │    ├──groupadd.yml<br>    │    ├──install.yml<br>    │    ├──main.yml<br>    │    ├──restart.yml<br>    │    └──useradd.yml<br>    └──vars<br>         └──main.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">		 </span><br><span class="line">### role 测试</span><br><span class="line"></span><br><span class="line">nginx-role.yml</span><br></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li>hosts:websrvs<br>remote_user:root<br>roles:<br>  -{role:nginx,tags:[‘nginx’,’web’],when:ansible_distribution_major_version==”6“}<br>  -{role:httpd,tags:[‘httpd’,’web’]}-{role:mysql,tags:[‘mysql’,’db’]}<br>  -{role:mariadb,tags:[‘mariadb’,’db’]}<br><code>`</code>    </li>
 </ul>
 <p>ansible-playbook –tags=”nginx,httpd,mysql” nginx-role.yml</p>
 
@@ -553,7 +554,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">205</span>
+                  <span class="site-state-item-count">206</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-安装"><span class="nav-number">1.</span> <span class="nav-text">ansible 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-git安装"><span class="nav-number">1.1.</span> <span class="nav-text">1. git安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-yum-apt-安装"><span class="nav-number">1.2.</span> <span class="nav-text">2. yum/apt 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-pip-安装"><span class="nav-number">1.3.</span> <span class="nav-text">3. pip 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确认安装"><span class="nav-number">1.4.</span> <span class="nav-text">确认安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-相关文件"><span class="nav-number">2.</span> <span class="nav-text">ansible 相关文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ansible-cfg-详解"><span class="nav-number">2.1.</span> <span class="nav-text">ansible.cfg 详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inventory-主机清单示例"><span class="nav-number">2.2.</span> <span class="nav-text">inventory 主机清单示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansile-主要命令"><span class="nav-number">3.</span> <span class="nav-text">ansile 主要命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-命令执行过程"><span class="nav-number">4.</span> <span class="nav-text">ansible 命令执行过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">5.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Playbook核心元素"><span class="nav-number">6.</span> <span class="nav-text">Playbook核心元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#templetes"><span class="nav-number">7.</span> <span class="nav-text">templetes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#roles"><span class="nav-number">8.</span> <span class="nav-text">roles</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#role-测试"><span class="nav-number">8.1.</span> <span class="nav-text">role 测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx-role-yml"><span class="nav-number">9.</span> <span class="nav-text">#nginx-role.yml</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-安装"><span class="nav-number">1.</span> <span class="nav-text">ansible 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-git安装"><span class="nav-number">1.1.</span> <span class="nav-text">1. git安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-yum-apt-安装"><span class="nav-number">1.2.</span> <span class="nav-text">2. yum/apt 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-pip-安装"><span class="nav-number">1.3.</span> <span class="nav-text">3. pip 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确认安装"><span class="nav-number">1.4.</span> <span class="nav-text">确认安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-相关文件"><span class="nav-number">2.</span> <span class="nav-text">ansible 相关文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ansible-cfg-详解"><span class="nav-number">2.1.</span> <span class="nav-text">ansible.cfg 详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inventory-主机清单示例"><span class="nav-number">2.2.</span> <span class="nav-text">inventory 主机清单示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansile-主要命令"><span class="nav-number">3.</span> <span class="nav-text">ansile 主要命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ansible-命令执行过程"><span class="nav-number">4.</span> <span class="nav-text">ansible 命令执行过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">5.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Playbook核心元素"><span class="nav-number">6.</span> <span class="nav-text">Playbook核心元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#templetes"><span class="nav-number">7.</span> <span class="nav-text">templetes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#roles"><span class="nav-number">8.</span> <span class="nav-text">roles</span></a></li></ol></div>
             
 
           </div>
