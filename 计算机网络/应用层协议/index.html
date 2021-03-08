@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="DNSDNS : Domain Name System  域名系统  运行在 udp 之上，使用 53 端口 1234root@R7000:~# ping tj.imwl.mlPING  tj.imwl.ml (195.20.49.63) 56(84) bytes of data.64 bytes from 195.20.49.63 (195.20.49.63): icmp_seq=1 ttl=6">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-17T14:15:42.570Z">
+<meta property="og:updated_time" content="2021-03-05T15:52:06.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部分应用层协议">
 <meta name="twitter:description" content="DNSDNS : Domain Name System  域名系统  运行在 udp 之上，使用 53 端口 1234root@R7000:~# ping tj.imwl.mlPING  tj.imwl.ml (195.20.49.63) 56(84) bytes of data.64 bytes from 195.20.49.63 (195.20.49.63): icmp_seq=1 ttl=6">
@@ -404,6 +404,11 @@
 <p>根域名服务器  顶级域名服务器 域名服务器</p>
 <p>域名解析过程</p>
 <p>浏览器缓存  →  本地 hosts 文件  → 本地 DNS 域名服务器   →  根域名服务器 （迭代/递归查询）</p>
+<p>DNS 也可以做负载均衡 </p>
+<ol>
+<li>内部负载均衡</li>
+<li>全局负载均衡</li>
+</ol>
 <h2 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h2><p>动态主机设置协议，是一个使用 UDP 局域网协议 端口 67</p>
 <p>给 客户端 分配 一个 临时 IP + 租期</p>
 <p>过程:<br>Client 使用 UPD 协议广播 DHCP 发现报文<br>DHCP  服务器发出 DHCP 提供报文<br>Client 向 DHCP 服务器发出 DHCP 请求报文<br>DHCP 服务器回应并提供 IP 地址</p>
@@ -432,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/计算机网络/socket 编程/" rel="next" title="socket 编程">
-                <i class="fa fa-chevron-left"></i> socket 编程
+              <a href="/计算机网络/HTTP的基本原理/" rel="next" title="HTTP基本原理">
+                <i class="fa fa-chevron-left"></i> HTTP基本原理
               </a>
             
           </div>
@@ -442,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/计算机网络/HTTP的基本原理/" rel="prev" title="HTTP基本原理">
-                HTTP基本原理 <i class="fa fa-chevron-right"></i>
+              <a href="/基础知识/learn_linux/进程与线程相关/" rel="prev" title="进程与线程">
+                进程与线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,7 +528,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">206</span>
+                  <span class="site-state-item-count">208</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
