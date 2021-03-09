@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="编译型语言在程序执行之前，先会通过编译器对程序执行一个编译的过程，把程序转变成机器语言。运行时就不需要翻译，而直接执行就可以了。最典型的例子就是 C 语言。 解释型语言就没有这个编译的过程，而是在程序运行的时候，通过解释器对程序逐行作出解释，然后直接运行，最典型的例子是 Ruby。 Python 是一门先编译后解释的语言。 当 Python 程序运行时，编译的结果则是保存在位于内存中的 PyCod">
+<meta name="description" content="静态资源非服务器动态生成的文件  浏览器渲染 : html, css, js  图片 : jpg, png, gif 视频 : flv, mpeg 文件 : txt, 任意下载文件  配置语法sendflie ontcp_nopush on  # 开启 sendflie on 可以提高网络包的传输效率tcp_nodelay on # keep-alive 提高网络包的传输实时性gzip ongzi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(1) python">
-<meta property="og:url" content="http://imwl.ml/python基础/python/index.html">
+<meta property="og:title" content="nginx静态资源服务">
+<meta property="og:url" content="http://imwl.ml/运维/nginx/nginx静态资源/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="编译型语言在程序执行之前，先会通过编译器对程序执行一个编译的过程，把程序转变成机器语言。运行时就不需要翻译，而直接执行就可以了。最典型的例子就是 C 语言。 解释型语言就没有这个编译的过程，而是在程序运行的时候，通过解释器对程序逐行作出解释，然后直接运行，最典型的例子是 Ruby。 Python 是一门先编译后解释的语言。 当 Python 程序运行时，编译的结果则是保存在位于内存中的 PyCod">
+<meta property="og:description" content="静态资源非服务器动态生成的文件  浏览器渲染 : html, css, js  图片 : jpg, png, gif 视频 : flv, mpeg 文件 : txt, 任意下载文件  配置语法sendflie ontcp_nopush on  # 开启 sendflie on 可以提高网络包的传输效率tcp_nodelay on # keep-alive 提高网络包的传输实时性gzip ongzi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-03-09T15:40:06.370Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(1) python">
-<meta name="twitter:description" content="编译型语言在程序执行之前，先会通过编译器对程序执行一个编译的过程，把程序转变成机器语言。运行时就不需要翻译，而直接执行就可以了。最典型的例子就是 C 语言。 解释型语言就没有这个编译的过程，而是在程序运行的时候，通过解释器对程序逐行作出解释，然后直接运行，最典型的例子是 Ruby。 Python 是一门先编译后解释的语言。 当 Python 程序运行时，编译的结果则是保存在位于内存中的 PyCod">
+<meta name="twitter:title" content="nginx静态资源服务">
+<meta name="twitter:description" content="静态资源非服务器动态生成的文件  浏览器渲染 : html, css, js  图片 : jpg, png, gif 视频 : flv, mpeg 文件 : txt, 任意下载文件  配置语法sendflie ontcp_nopush on  # 开启 sendflie on 可以提高网络包的传输效率tcp_nodelay on # keep-alive 提高网络包的传输实时性gzip ongzi">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://imwl.ml/python基础/python/">
+  <link rel="canonical" href="http://imwl.ml/运维/nginx/nginx静态资源/">
 
 
 
 
 
-  <title>(1) python | Get busy living</title>
+  <title>nginx静态资源服务 | Get busy living</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://imwl.ml/python基础/python/">
+    <link itemprop="mainEntityOfPage" href="http://imwl.ml/运维/nginx/nginx静态资源/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeiLai">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">(1) python</h1>
+          <h1 class="post-title" itemprop="name headline">nginx静态资源服务</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T21:57:47+08:00">
-                2018-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-11T12:05:28+08:00">
+                2021-02-11
               </time>
             
 
@@ -360,8 +360,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python基础/" itemprop="url" rel="index">
-                    <span itemprop="name">python基础</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -397,13 +397,20 @@
       
 
       
-        <p>编译型语言在程序执行之前，先会通过编译器对程序执行一个编译的过程，把程序转变成机器语言。运行时就不需要翻译，而直接执行就可以了。最典型的例子就是 C 语言。</p>
-<p>解释型语言就没有这个编译的过程，而是在程序运行的时候，通过解释器对程序逐行作出解释，然后直接运行，最典型的例子是 Ruby。</p>
-<p>Python 是一门先编译后解释的语言。</p>
-<p>当 Python 程序运行时，编译的结果则是保存在位于内存中的 PyCodeObject 中，当 Python 程序运行结束时，Python 解释器则将 PyCodeObject 写回到 pyc 文件中。</p>
-<p>当 Python 程序第二次运行时，首先程序会在硬盘中寻找 pyc 文件，如果找到，则直接载入，否则就重复上面的过程。</p>
-<p> pyc 文件其实是 PyCodeObject 的一种持久化保存方式。</p>
-<p><strong>执行 Python 程序的三种方式：<br>解释器、交互式运行、IDE运行</strong></p>
+        <h2 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h2><p>非服务器动态生成的文件</p>
+<ol>
+<li>浏览器渲染 : html, css, js </li>
+<li>图片 : jpg, png, gif</li>
+<li>视频 : flv, mpeg</li>
+<li>文件 : txt, 任意下载文件</li>
+</ol>
+<h2 id="配置语法"><a href="#配置语法" class="headerlink" title="配置语法"></a>配置语法</h2><p>sendflie on<br>tcp_nopush on  # 开启 sendflie on 可以提高网络包的传输效率<br>tcp_nodelay on # keep-alive 提高网络包的传输实时性<br>gzip on<br>gzip_comp_level 2<br>gzip_http_version 1.1; #压缩版本</p>
+<p>http_gzip_static_module   # 预读 gzip 功能<br>http_gunzip_module  # 应用支持 gunzip 的压缩方式</p>
+<p>expires time # 缓存过期时间</p>
+<p>add_header name value [always]  Access-Control-Origin  # 跨域访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ .*\.(htm|html)$ &#123;</span><br><span class="line">     add_header Access-Control-Allow-Origin *; </span><br><span class="line">     add_header Access-Control-Allow-Methods GET,POST,PUT,DELETE,OPTIONS;</span><br><span class="line">     #expires 24h;</span><br><span class="line">     root  /opt/app/code;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="简单防盗链"><a href="#简单防盗链" class="headerlink" title="简单防盗链"></a>简单防盗链</h2><p>区别非正常用户的请求</p>
+<h3 id="http-refer"><a href="#http-refer" class="headerlink" title="http_refer"></a>http_refer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">location ~ .*\.(jpg|gif|png)$ &#123;</span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_http_version 1.1;</span><br><span class="line">    gzip_comp_level 2;</span><br><span class="line">    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;</span><br><span class="line"> </span><br><span class="line">    valid_referers none blocked 192.168.1.1 jeson.imoocc.com ~wei\.png; # 运行 refer 为空或不标准格式 ，后面 可以接正则匹配</span><br><span class="line">    if ($invalid_referer) &#123;</span><br><span class="line">        return 403;</span><br><span class="line">    &#125;</span><br><span class="line">    root  /opt/app/code/images;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -428,14 +435,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/运维/nginx/nginx模块/" rel="next" title="nginx模块">
+                <i class="fa fa-chevron-left"></i> nginx模块
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/python基础/python基本数据类型总结/" rel="prev" title="(2) python基本数据类型总结">
-                (2) python基本数据类型总结 <i class="fa fa-chevron-right"></i>
+              <a href="/运维/nginx/nginx优化/" rel="prev" title="nginx 优化">
+                nginx 优化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,8 +499,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -579,6 +599,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态资源"><span class="nav-number">1.</span> <span class="nav-text">静态资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置语法"><span class="nav-number">2.</span> <span class="nav-text">配置语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单防盗链"><span class="nav-number">3.</span> <span class="nav-text">简单防盗链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http-refer"><span class="nav-number">3.1.</span> <span class="nav-text">http_refer</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
