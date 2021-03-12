@@ -82,17 +82,17 @@
 
 
 
-<meta name="description" content="CPU，它承担了所有的计算任务，进程是指程序的一次执行，线程是CPU的基本调度单位。 进程的内存空间是共享的，每个线程都可以使用这些共享内存, 一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存,”互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域 “互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时">
+<meta name="description" content="CPU 它承担了所有的计算任务，进程是指程序的一次执行，线程是 CPU 的基本调度单位。 进程的内存空间是共享的，每个线程都可以使用这些共享内存, 一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存,”互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域 “互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程与线程">
 <meta property="og:url" content="http://imwl.ml/基础知识/learn_linux/进程与线程相关/index.html">
 <meta property="og:site_name" content="Get busy living">
-<meta property="og:description" content="CPU，它承担了所有的计算任务，进程是指程序的一次执行，线程是CPU的基本调度单位。 进程的内存空间是共享的，每个线程都可以使用这些共享内存, 一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存,”互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域 “互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时">
+<meta property="og:description" content="CPU 它承担了所有的计算任务，进程是指程序的一次执行，线程是 CPU 的基本调度单位。 进程的内存空间是共享的，每个线程都可以使用这些共享内存, 一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存,”互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域 “互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-12T12:48:55.730Z">
+<meta property="og:updated_time" content="2021-03-10T09:23:42.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程与线程">
-<meta name="twitter:description" content="CPU，它承担了所有的计算任务，进程是指程序的一次执行，线程是CPU的基本调度单位。 进程的内存空间是共享的，每个线程都可以使用这些共享内存, 一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存,”互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域 “互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时">
+<meta name="twitter:description" content="CPU 它承担了所有的计算任务，进程是指程序的一次执行，线程是 CPU 的基本调度单位。 进程的内存空间是共享的，每个线程都可以使用这些共享内存, 一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存,”互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域 “互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程">
 
 
 
@@ -398,7 +398,7 @@
 
       
         <ol>
-<li>CPU，它承担了所有的计算任务，进程是指程序的一次执行，线程是CPU的基本调度单位。</li>
+<li><code>CPU</code> 它承担了所有的计算任务，进程是指程序的一次执行，线程是 <code>CPU</code> 的基本调度单位。</li>
 <li>进程的内存空间是共享的，每个线程都可以使用这些共享内存,</li>
 <li>一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存,”互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域</li>
 <li>“互斥锁”（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域</li>
@@ -409,7 +409,7 @@
 <h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步： 发出一个功能调用时，在没得到结果前，该调用 不返回或继续执行后续操作<br>异步： 发出一个功能调用时，在没得到结果前，可以继续执行后续操作。 调用的返回不受控制</p>
 <p>异步是目的，多线程是实现这个目的的方法</p>
 <h2 id="阻塞和非阻塞"><a href="#阻塞和非阻塞" class="headerlink" title="阻塞和非阻塞"></a>阻塞和非阻塞</h2><p>阻塞和非阻塞 主要是程序(线程) 等待消息 通知时的状态有关。<br>阻塞 ： 调用结果没返回前，当前线程被挂起<br>非阻塞 ：调用不能得到结果前，该调用不会阻塞当前线程</p>
-<h2 id="并发并行"><a href="#并发并行" class="headerlink" title="并发并行"></a>并发并行</h2><p>并发 ：单核cpu 多线程，一个时间段 只有一个线程，其他线程处于挂起状态。多个线程共享了CPU的执行时间<br>并行 ：多核cpu , 一个cpu 执行一个线程时，另一个cpu同时执行另一个线程。这两个线程间不抢占cpu资源，可同时进行</p>
+<h2 id="并发并行"><a href="#并发并行" class="headerlink" title="并发并行"></a>并发并行</h2><p>并发 ：单核 <code>cpu</code> 多线程，一个时间段 只有一个线程，其他线程处于挂起状态。多个线程共享了 <code>CPU</code> 的执行时间<br>并行 ：多核 <code>cpu</code> , 一个 <code>cpu</code> 执行一个线程时，另一个 <code>cpu</code> 同时执行另一个线程。这两个线程间不抢占 <code>cpu</code> 资源，可同时进行</p>
 <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>线程 本质上是 进程中一段并发运行的代码，所以 线程需要 操作系统投入 cpu 资源来运行和调度（Python 计算密集型，gil锁，效率反而会低）</p>
 <p>多线程优点 ： 依然顺序执行，编程简单<br>多线程缺点 ： 上下文切换的额外负担、线程间共享变量会出现死锁</p>
 <h2 id="同步-异步-阻塞-非阻塞"><a href="#同步-异步-阻塞-非阻塞" class="headerlink" title="同步/异步/阻塞/非阻塞"></a>同步/异步/阻塞/非阻塞</h2><p>同步阻塞 ：效率低<br>同步非阻塞 ：需要在两种状态来回切换<br>异步阻塞 ： 不是处理消息时阻塞，而是等待消息阻塞。不做其他任务处理<br>异步非阻塞 ：效率高</p>

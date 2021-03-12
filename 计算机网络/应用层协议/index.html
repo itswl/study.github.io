@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="DNSDNS : Domain Name System  域名系统  运行在 udp 之上，使用 53 端口 1234root@R7000:~# ping tj.imwl.mlPING  tj.imwl.ml (195.20.49.63) 56(84) bytes of data.64 bytes from 195.20.49.63 (195.20.49.63): icmp_seq=1 ttl=6">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-05T15:52:06.450Z">
+<meta property="og:updated_time" content="2021-03-10T09:44:09.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部分应用层协议">
 <meta name="twitter:description" content="DNSDNS : Domain Name System  域名系统  运行在 udp 之上，使用 53 端口 1234root@R7000:~# ping tj.imwl.mlPING  tj.imwl.ml (195.20.49.63) 56(84) bytes of data.64 bytes from 195.20.49.63 (195.20.49.63): icmp_seq=1 ttl=6">
@@ -409,6 +409,8 @@
 <li>内部负载均衡</li>
 <li>全局负载均衡</li>
 </ol>
+<h2 id="httpdns"><a href="#httpdns" class="headerlink" title="httpdns"></a>httpdns</h2><p>httpDNS 通过 客户端 SDK 和服务的，通过  HTTP 直接调用解析 <code>DNS</code> 的方式，绕过传统 <code>DNS</code> 的缺点，实现了智能调度</p>
+<p>DNS 问题 :  解析慢, 更新不及时。 缓存，转发， NAT 问题导致 客户端误会自己所在的位置和运营商，从而影响流量的调度</p>
 <h2 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h2><p>动态主机设置协议，是一个使用 UDP 局域网协议 端口 67</p>
 <p>给 客户端 分配 一个 临时 IP + 租期</p>
 <p>过程:<br>Client 使用 UPD 协议广播 DHCP 发现报文<br>DHCP  服务器发出 DHCP 提供报文<br>Client 向 DHCP 服务器发出 DHCP 请求报文<br>DHCP 服务器回应并提供 IP 地址</p>
@@ -611,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">1.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP"><span class="nav-number">2.</span> <span class="nav-text">DHCP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">1.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#httpdns"><span class="nav-number">2.</span> <span class="nav-text">httpdns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP"><span class="nav-number">3.</span> <span class="nav-text">DHCP</span></a></li></ol></div>
             
 
           </div>
