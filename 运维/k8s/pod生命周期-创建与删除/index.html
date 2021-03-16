@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Get busy living">
 <meta property="og:description" content="pod 的创建过程 用户通过 kubectl 客户端提交 Pod Spec 给 API Server 。 API Server 尝试将 Pod 对象的相关信息存储到 etcd 中，等待写入操作完成，API Server 返回确认信息到客户端。 API Server 开始反映 etcd 中的状态变化。 所有的 Kubernetes 组件通过&amp;quot;watch&amp;quot; 机制跟踪检查 API S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-17T15:39:25.860Z">
+<meta property="og:updated_time" content="2021-03-16T03:29:13.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pod生命周期-创建与删除">
 <meta name="twitter:description" content="pod 的创建过程 用户通过 kubectl 客户端提交 Pod Spec 给 API Server 。 API Server 尝试将 Pod 对象的相关信息存储到 etcd 中，等待写入操作完成，API Server 返回确认信息到客户端。 API Server 开始反映 etcd 中的状态变化。 所有的 Kubernetes 组件通过&amp;quot;watch&amp;quot; 机制跟踪检查 API S">
@@ -422,6 +422,7 @@
 <p>删除宽限期默认是<code>30</code>秒。 <code>kubectl delete</code>命令支持  <code>--grace-period=&lt;seconds&gt;</code> 选项，允许用户设置自己的宽限期</p>
 <p>可以使用 <code>--force  --grace-period=0</code> 来强制删除 <code>pod</code>。</p>
 <p><code>Pod</code> 的强制删除是通过在 <code>cluster</code> 和 <code>etcd</code>中将其定义为删除状态。当执行强制删除命令时，<code>API server</code> 不会等待该 <code>pod</code> 所运行在节点上的 <code>kubelet</code> 确认，就会立即将该 <code>pod</code> 从 <code>API server</code>中移除。这时，在节点上的 <code>pod</code> 会被立即设置为 <code>terminating</code> 状态，不过在被强制删除之前依然有一小段优雅删除周期。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s01 ~]# kubectl delete pod redis-master-0 --force --grace-period=0</span><br><span class="line">warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.</span><br><span class="line">pod &quot;redis-master-0&quot; deleted</span><br></pre></td></tr></table></figure>
 <p><strong>如果删除一个 <code>pod</code> 后，再次查看发现 <code>pod</code>还在，这是因为在 控制器 文件中定义了 <code>replicas</code>， 还需要删除 控制器 才行</strong></p>
 
       
@@ -538,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">209</span>
+                  <span class="site-state-item-count">210</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
